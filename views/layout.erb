@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <%= erb :'layout/doc_head' %>
+<body style='overflow-x: hidden;'>  
+  <div class='' style='background-color: whitesmoke;'>    
+    <%= erb :"layout/flash" %>        
+
+    <%= erb :'header' %>   
+    <div class='container' style='min-height: 500px'>
+      <%= yield %> 
+    </div>
+    <%#= erb :"footer" %>           
+  </div>  
+
+  
+  <link rel="stylesheet" href="/css/fonts/RobotoFonts.css">
+  <link rel="stylesheet" href="/css/fonts/MaterialIcons.css">
+</body>
+</html>

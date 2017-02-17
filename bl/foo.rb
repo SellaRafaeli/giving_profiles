@@ -1,0 +1,1 @@
+$foo = $mongo.collection('foo')

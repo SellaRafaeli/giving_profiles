@@ -1,0 +1,35 @@
+<%
+
+JS_SCRIPTS = [
+  '/js/lib/jquery-2.2.1.min.js',
+  '/js/lib/bootstrap3.js',
+  '/js/lib/material.min.js',
+  '/js/lib/ripples.min.js',
+  '/js/lib.js',
+  '/js/main.js',
+  '/js/lib/sweet_alert.min.js', #http://limonte.github.io/sweetalert2/
+  '/js/lib/sortable.js',
+  '/js/lib/bootstrap_select.min.js',
+  '/js/lib/turbolinks.js',
+  '/js/lib/vue.js',
+  '/js/lib/bootstrap_material_design.min.js',
+]
+
+BOTTOM_CSS_TAGS = [
+  '/css/lib/sweet_alert.min.css'
+]
+%>
+
+<% JS_SCRIPTS.each do |path| %>
+  <script src='<%=path%>'></script>
+<% end %>
+
+<% BOTTOM_CSS_TAGS.each do |path| %>
+  <link rel="stylesheet" href="<%=path%>"/>
+<% end %>
+
+
+<script>
+  // Vue.use(VueMaterial)
+  // Vue.use(VueMaterial.MdTable)
+</script>

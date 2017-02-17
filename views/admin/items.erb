@@ -1,0 +1,114 @@
+<%
+  coll_name = params[:coll]
+  coll      = locals[:coll] = $mongo.collection(coll_name)
+  crit      = {}
+  
+  anywhere_val = params_val(:anywhere_val)
+
+  if anywhere_val
+    crit      = crit_any_field(coll,anywhere_val)
+  end
+  limit     = params_num(:limit, max: 100, default: 100)
+  sort_field= either(params[:sort_field], :created_at)
+  sort_dir  = params[:sort_dir].to_i == 1 ? 1 : -1
+  items     = coll.find(crit).limit(limit).sort([{sort_field => sort_dir}]).to_a 
+  fields    = items.map(&:keys).flatten.hash_of_num_occurrences.keys #shared fields to show
+%>
+
+<style>
+  .mongo_item_cell:hover { 
+    background-color: lightgrey;
+    color: black;
+    cursor: pointer;
+  }
+
+  .truncate {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  mark {
+    background-color: yellow;
+  }
+</style>
+
+<script>
+  function editItem(cell, type, id, field, oldVal) {
+    var newVal;
+    //if (newVal = prompt("Enter new value.",oldVal)) {
+    nicePrompt("Enter value instead of "+$(cell).text(), function(newVal) {
+      $.post('/admin/update_item',{coll: type, id: id, field: field, val: newVal})
+       .success(function(res){ $(cell).html(newVal).css('background-color','lightgreen')})
+       .error(function(res){ alert(res.responseJSON.msg)});
+    });
+  }
+
+  function deleteItem(type,id,cell) {
+    if (confirm('Are you sure you want to delete this?')){
+      $.post('/admin/delete_item',{coll: type, id: id})
+       .success(function(res){ $(cell).closest('tr').fadeOut();})
+       .error(function(res){ alert(res.responseJSON.msg)});
+    }
+  }
+</script>
+
+<div class='row ltr' style="padding: 20px;">
+  
+  <div class='col-md-12' >  
+    <% MANAGEABLE_COLLECTIONS.each do |coll| %>
+      <a href="/admin/manage/<%=coll.name%>"><button class='btn'><%=coll.name%></button></a>
+    <% end %> 
+  </div>
+
+  <div class='col-md-12'>  
+    <p> Showing <%=items.size%> <%=coll.name%> out of a (total <%=coll.name%> in system: <%= coll.count %>) </p>
+  </div>    
+
+  <div class='col-md-12'>  
+    <%= erb :"/admin/items_crit", locals: locals %>
+  </div>
+
+  <div class='col-md-12' style='font-size: 14px; border:1px solid red; overflow-x: scroll; /*padding: 50px; margin-right: 100px;*/'>  
+    <h3> <%=coll_name.capitalize%>: </h3>
+
+    <div class="fixed-table">
+  <div class="table-content">
+    <table class='table table-striped table-bordered table-hover table-sm table-responsive table-fixed-header'>
+      <thead class='thead-inverse'>
+      <tr>
+        <% fields.each do |field| %>
+          <th> <%= field.to_s %> </th>
+        <% end %>
+      </tr>
+      </thead>
+      <% items.each do |item| %>      
+        <tr class='mongo_item_row'>
+          <% fields.each do |field| %>
+            <% 
+              id      = item["_id"]
+              val = item[field].to_s 
+              val = escape_html(val)
+              val = val.gsub(/#{anywhere_val}/i) { |s| "<mark>#{s}</mark>" } if anywhere_val && val.downcase.include?(anywhere_val.downcase)
+              #val = val.gsub(,"<mark>#{anywhere_val}</mark>") if anywhere_val && val.include?(anywhere_val)
+              
+              
+            %>
+            <td class='mongo_item_cell truncate' ondblclick="editItem(this, '<%=coll_name%>','<%=id%>','<%=field%>','<%=val%>')"> <%= val %> </td>
+          <% end %>
+          <td> 
+            <i class="fa fa-times-circle-o" onclick="deleteItem('<%=coll_name%>','<%=item['_id']%>', this)" style='font-size:20px; color:darkred; cursor: pointer'></i>
+            <!-- <select class='form-control' name="ab" onchange="if (this.selectedIndex) alert(this.selectedIndex);">
+              <option value="-1">▼</option>
+              <option value="1" onclick=alert(60)>Del</option> 
+              <option value="2">E</option>
+              <option value="3">F</option>
+            </select> -->
+          </td>
+      <% end %>
+    </table>
+  </div>
+</div>
+  </div>
+</div>

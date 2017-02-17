@@ -1,0 +1,21 @@
+<style>
+.footer-color { 
+    background-color: #c2d4d8;
+    color: #ffffff;
+    
+}
+</style>
+
+<footer class="container-fluid footer-color text-center" style='direction: ltr'>
+  <p style='margin-top:10px'> 2017 (c) <%= $app_name %>
+  <% if cu %>
+    <a href="/me">Me (<%=cu['name']%>)</a>
+    <a href="/logout">Log Out</a>
+  <% end %>
+    <a href="/contact">Contact Us</a>
+    <a href="/about">About</a>
+    <% if !$prod %>
+    <a style="color:blue;" href="/admin/dashboard"> Admin </a>
+    <% end %>
+  </p> 
+</footer>

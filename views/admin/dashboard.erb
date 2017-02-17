@@ -1,0 +1,21 @@
+<style>
+.admin_dashboard_buttons a {
+  display: block;
+}
+</style>
+<section class='admin_dashboard_buttons'>
+
+<% if params[:alert_text] %>
+  <%= erb :"layout/alert", locals: {type: "warning", text: params[:alert_text]} %>
+<% end %>
+
+</section> 
+
+
+<h2>Admin Panel</h2>
+  <div class="btn-group">
+    <a href="/admin/cities_mgmt"> <button type="button" class='btn btn-lg btn-raised btn-primary'>Cities Management</button></a>
+    <a href="/admin/manage/users?browser=true"> <button type="button" class='btn btn-lg btn-raised btn-primary'>Technical Administration</button></a>
+  </div>
+
+
