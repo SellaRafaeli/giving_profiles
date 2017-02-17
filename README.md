@@ -1,1 +1,2 @@
-Our README.
+Fullstack App Skeleton. 
+
