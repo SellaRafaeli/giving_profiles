@@ -1,6 +1,16 @@
 <head>
   <title><%=html_title%></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->  
-  <%= erb :"layout/css_files" %>    
-  <%= erb :'layout/js_scripts'%>  
+  <style>
+  body, html { height: 100%; }
+  footer {
+    margin-top: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: lightblue;
+  }
+  </style>
+  <%= erb :"layout/css_files" %>      
 </head>

@@ -7,6 +7,16 @@
     font-size: 12px;
     letter-spacing: 5px;
 }
+.icon-bar {
+  border-top:1px solid white;
+}
+.navbar-toggle {
+  background-color: black;
+  border-radius: 4px;
+}
+.header-links {
+  background-color: darksalmon;
+}
 .navbar-nav li a:hover {
     color: #1abc9c !important;
 }
@@ -30,7 +40,9 @@
                 <% if cu %>
                   <li><a href="/submit">Submit</a></li>
                 <% else %>                  
-                  <!-- <li><a href='/login'>Login</a></li> -->
+                  <li><a href='/login'>Login</a></li>
+                  <li><a href='/about'>About</a></li>
+                  <li><a href='/contact'>Contact</a></li>
                 <% end %>                
             </ul>
     </div>
