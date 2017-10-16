@@ -18,7 +18,8 @@
   background-color: darksalmon;
 }
 .navbar-nav li a:hover {
-    color: #1abc9c !important;
+  color: white;
+  background-color: lightblue;
 }
 </style>
 
@@ -38,10 +39,13 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right header-links">          
                 <% if cu %>
-                  <li><a href="/submit">Submit</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/users/<%=cu[:nick]%>"><%=cu[:nick]%></a></li>
+                  <li><a href='/settings'>My Settings</a></li>
+                  <li><a href='/logout'>Logout</a></li>
                 <% else %>                  
-                  <li><a href='/login'>Login</a></li>
-                  <li><a href='/about'>About</a></li>
+                  <li><a href='/login/foo'>Login</a></li>
+                  <li><a href='/about'>About</a></li>                  
                   <li><a href='/contact'>Contact</a></li>
                 <% end %>                
             </ul>
