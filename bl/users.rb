@@ -4,8 +4,8 @@ USER_FIELDS = [:nick,:name,:address]
 
 def set_users
   $users.delete_many
-  ['foo','bar','baz'].each {|name|
-    $users.add(nick: name, address: 'Some address')
+  ['Joe','Jack','Sally'].each {|name|
+    $users.add(name: name, nick: name, address: 'Some address')
   }
 end
 

@@ -1,3 +1,6 @@
 <h1> The profile of <%=user[:nick]%> </h1>
 
 <%= user.to_json %>
+
+<%= erb :'/users/donations_list', locals: {donations: user_donations(user[:_id])} %>
+<%= erb :'/users/add_donation_form' %>

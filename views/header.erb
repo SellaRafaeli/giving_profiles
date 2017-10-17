@@ -39,6 +39,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right header-links">          
                 <% if cu %>
+                  <li><form action='/search' style='padding-top:13px'><input name='q' /></form></li>
                   <li><a href="/">Home</a></li>
                   <li><a href="/users/<%=cu[:nick]%>"><%=cu[:nick]%></a></li>
                   <li><a href='/settings'>My Settings</a></li>

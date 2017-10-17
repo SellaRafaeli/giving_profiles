@@ -3,4 +3,4 @@ def connect_mysql
   puts "Connected MySQL".green
 end
 
-connect_mysql rescue puts "Could not connect Mysql".red
+#connect_mysql rescue puts "Could not connect Mysql".red

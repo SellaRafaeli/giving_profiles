@@ -21,5 +21,7 @@ def escape_html(html, opts = {})
 end
 
 def html_title
-  $app_name.capitalize
+  'Giving Profiles'
 end
+
+get '/refresh' do :true end
