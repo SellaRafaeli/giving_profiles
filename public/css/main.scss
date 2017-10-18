@@ -4,9 +4,11 @@ articlez {
 }
 
 body, html { height: 100%; }
-  
-$color1: lightblue;
 
+/*vars*/  
+$color1: lightblue;
+$color2: #b53e16;
+/*helper classes*/
 .fl { display: flex }
 .fl1 { flex:1; }
 .fl2 { flex:2; }
@@ -18,13 +20,12 @@ $color1: lightblue;
 .centerContent { justify-content: center } /*TBD*/
 .bo1 { border:1px solid black; }
 .hidden {display: none;}
-.overlay {
+.fullHeight {height: 100%; }
+.overlay {}
 
-}
 .centerScreen { 
   background-color:white;
   border:20px solid whitesmoke;
-
   border-radius: 4px;
   padding:20px;
   position: fixed; 
@@ -35,7 +36,6 @@ $color1: lightblue;
   transform: translate(-50%, -50%);
 }
 
-
 .card1 {
   border:1px solid black;
   min-height:100px;
@@ -44,8 +44,29 @@ $color1: lightblue;
   padding: 10px;
 }
 
-.fullHeight {
-  height: 100%;
+/*areas of the site */
+.navbar-header, .navbar-collapse {
+  background-color: #b53e16;
+  color: green;
+
+  .navbar {
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .icon-bar {
+    border-top:1px solid white;
+  }
+  .navbar-toggle {
+    background-color: black;
+    border-radius: 4px;
+  }
+  .navbar-nav li a {
+    color: black;
+    /*background-color: white;*/
+  }
 }
 
 footer {

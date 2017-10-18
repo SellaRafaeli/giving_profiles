@@ -22,7 +22,8 @@ end
 
 
 get '/users/:nick' do 
-  erb :'/users/profile', locals: {user: $users.get(nick: pr[:nick])}, layout: :layout
+  user = $users.get(nick: pr[:nick]) || $users.random
+  erb :'/users/profile', locals: {user: user}, layout: :layout
 end
 
 # settings

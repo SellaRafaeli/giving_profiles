@@ -4,14 +4,16 @@
   <div class=fl>
     <div class='card1 fl2'>
       <div class='fl bo1' style='height:300px'>
-        <img src='/img/face.jpg'/>
+        <img src='/img/face.jpg' style='width:200px'/>
       </div>
       <div class='name'> Matt M. </div>
       <div class='address'> Cambridge, MA </div>
     </div>
 
     <div class='card1 fl6'>
-
+      <% if user[:_id] == cuid %>
+        <%= erb :'/users/add_donation_form' %> 
+      <% end %>
     </div>
 
     <div class='card1 fl2'>

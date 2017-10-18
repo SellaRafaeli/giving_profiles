@@ -1,0 +1,7 @@
+<h1> Search Results </h1>
+
+<% items.each do |item| %>
+<div style='border:1px solid black'>
+  <%= item[:name] || item[:nick] %>
+</div>  
+<% end %>

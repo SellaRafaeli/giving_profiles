@@ -11,3 +11,9 @@ end
 def slugify(str)
   str.to_s.to_slug.normalize.to_s.slice(0,200)
 end
+
+def b1
+  'btn btn-raised btn-primary'
+end
+
+get '/refresh' do :true end
