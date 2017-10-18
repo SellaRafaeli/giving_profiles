@@ -2,20 +2,45 @@
   <h1> <%=user[:nick]%>'s Giving Profile </h1>
 
   <div class=fl>
-    <div class='card1 fl2'>
-      <div class='fl bo1' style='height:300px'>
+    <div class='fl2'>
+      <div class='card1 bo1 p10'>
         <img src='/img/face.jpg' style='width:200px'/>
+        <h3 class='name'> Matt M. </h3>
+        <div class='address'> Cambridge, MA </div>
       </div>
-      <div class='name'> Matt M. </div>
-      <div class='address'> Cambridge, MA </div>
+      
+      <div class='card1'>
+        <%= user['philosophy'] %> 
+      </div>
+
+      <div class='card1'>
+        <h5> Badges </h5>
+        <div class='badges'>
+          <img src='/img/badge1.jpeg'/>
+          <img src='/img/badge2.png'/>
+          <img src='/img/badge3.jpeg'/>
+        </div>
+      </div>
     </div>
 
-    <div class='card1 fl6'>
+    <div class='fl6'>
+      
       <% if user[:_id] == cuid %>
+      <div class='card1'>
         <div class='ct'>
           <%= erb :'/users/add_donation_form' %> 
         </div>
+      </div>
       <% end %>
+
+      <div class='card1'>
+        <div class='fav_org'>
+          <h5> My Favorite Organization </h5>
+          <h3><b><%= user['fav_org'] %></b></h3>
+          <%= user['fav_org_text'] %>
+        </div>
+      </div>
+
     </div>
 
     <div class='card1 fl2'>

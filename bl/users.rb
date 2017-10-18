@@ -1,11 +1,16 @@
 $users = $mongo.collection('users')
 
-USER_FIELDS = [:nick,:name,:address]
+USER_FIELDS = [:nick,:name,:address,:philosophy,:fav_org,:fav_org_text,:fav_cause]
 
-def set_users
+def reset_all
   $users.delete_many
-  ['A','B','C'].each {|name|
+  ['Matt A.','John Doe','Jane Doe'].each {|name|
     $users.add(name: name, nick: name, address: 'Some address')
+  }
+
+  $orgs.delete_many
+  ['Red Cross', 'Doctors Without Borders', 'Make a Wish Foundation'].each {|name|
+    create_org(name)
   }
 end
 

@@ -1,4 +1,4 @@
-bz { 
+* { 
   color: black !important; 
   background-color: white !important; 
 }
@@ -49,9 +49,12 @@ $color2: #b53e16;
 .form1 {
   label {
     width: 100px;
+    vertical-align: top;
   }  
-  input {
-    width: 200px;
+  input, textarea {
+    width:300px;
+    resize: vertical;
+    border: 1px solid black;
   }
 }
 
@@ -76,6 +79,18 @@ $color2: #b53e16;
   .navbar-nav li a {
     color: black;
     /*background-color: white;*/
+  }
+}
+
+.profile {
+  .name {
+
+  }
+  .badges {
+    img {
+      height: 50px;
+      margin:5px;
+    }
   }
 }
 

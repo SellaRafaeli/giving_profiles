@@ -1,4 +1,4 @@
-bz {
+* {
   color: black !important;
   background-color: white !important; }
 
@@ -72,9 +72,12 @@ body, html {
   padding: 10px; }
 
 .form1 label {
-  width: 100px; }
-.form1 input {
-  width: 200px; }
+  width: 100px;
+  vertical-align: top; }
+.form1 input, .form1 textarea {
+  width: 300px;
+  resize: vertical;
+  border: 1px solid black; }
 
 /*areas of the site */
 .navbar-header, .navbar-collapse {
@@ -94,6 +97,10 @@ body, html {
   .navbar-header .navbar-nav li a, .navbar-collapse .navbar-nav li a {
     color: black;
     /*background-color: white;*/ }
+
+.profile .badges img {
+  height: 50px;
+  margin: 5px; }
 
 footer {
   margin-top: 10px;
