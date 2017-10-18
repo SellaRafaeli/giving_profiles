@@ -1,0 +1,12 @@
+<section class='org_page'>
+<h1> <%= org[:name]%>'s Organization Page </h1>
+
+<form class='form1' action='/org/<%=org[:_id]%>' method=post>
+  <h3> Edit Organization Details </h3>
+  <div><label> Name </label><input name='name' value="<%=org['name']%>"/></div>
+  <div><label> Type </label><input name='type' value="<%=org['type']%>"/></div>
+  <div><label> Website </label><input name='website' value="<%=org['website']%>"/></div>
+  <button>Submit</button>
+</form>
+
+</section>
