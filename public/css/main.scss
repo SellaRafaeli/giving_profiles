@@ -1,0 +1,17 @@
+articlez { 
+  color: black !important; 
+  background-color: white !important; 
+}
+
+body, html { height: 100%; }
+  
+$color1: lightblue;
+
+footer {
+  margin-top: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $color1 ;
+}

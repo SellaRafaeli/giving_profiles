@@ -23,8 +23,6 @@ privacy permissions on specific donation / donations to specific org
 view organizations by type 
 view organizations by cause 
 
-
-
 questions: can you give me:
 - a list of "causes"
 - a list of "types" of organization (e.g. envrionmental, human rights, etc)
