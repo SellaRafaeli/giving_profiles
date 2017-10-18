@@ -1,7 +1,15 @@
 <h1> Search Results </h1>
 
-<% items.each do |item| %>
-<div style='border:1px solid black'>
-  <%= item[:name] || item[:nick] %>
+<h2> Users </h2>
+<% users.each do |user| %>
+<div class='card1'>
+  <a href='/users/user[:nick]'%><%= user[:name] || user[:nick] %></a>
+</div>  
+<% end %>
+
+<h2> Orgs </h2>
+<% orgs.each do |org| %>
+<div class='card1'>
+  <a href='/orgs/<%=org[:_id]%>'><%= org[:name] %></a>
 </div>  
 <% end %>

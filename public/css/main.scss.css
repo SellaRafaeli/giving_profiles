@@ -1,4 +1,4 @@
-* {
+bz {
   color: black !important;
   background-color: white !important; }
 
@@ -27,6 +27,9 @@ body, html {
 
 .fl6 {
   flex: 6; }
+
+.font-white {
+  color: white; }
 
 .ct {
   text-align: center; }
@@ -63,7 +66,7 @@ body, html {
 
 .card1 {
   border: 1px solid black;
-  min-height: 100px;
+  min-height: 10px;
   background-color: white;
   margin: 10px;
   padding: 10px; }

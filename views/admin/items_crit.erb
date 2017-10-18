@@ -12,7 +12,7 @@
     <option value="-1" <%='selected' if params[:sort_dir] == "-1" %>>Sort Descending (Down)</option>
   </select>
 
-  <div>
+  <div class='hidden'>
     <input type='text' class='form-control' name='anywhere_val' placeholder='search by id, name, etc' value='<%=params[:anywhere_val].to_s%>'/>
     <button type="submit" class="btn btn-primary">Get <%=coll.name.capitalize%></button> 
     

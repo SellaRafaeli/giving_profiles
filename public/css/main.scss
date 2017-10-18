@@ -1,4 +1,4 @@
-* { 
+bz { 
   color: black !important; 
   background-color: white !important; 
 }
@@ -16,6 +16,7 @@ $color2: #b53e16;
 .fl4 { flex:4; }
 .fl5 { flex:5; }
 .fl6 { flex:6; }
+.font-white {color: white;}
 .ct { text-align:center; }
 .centerContent { justify-content: center } /*TBD*/
 .bo1 { border:1px solid black; }
@@ -39,7 +40,7 @@ $color2: #b53e16;
 
 .card1 {
   border:1px solid black;
-  min-height:100px;
+  min-height:10px;
   background-color: white;
   margin:10px;
   padding: 10px;

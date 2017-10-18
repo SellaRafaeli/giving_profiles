@@ -24,6 +24,7 @@ privacy permissions on specific donation / donations to specific org
 view organizations by type 
 view organizations by cause 
 user profile: visualization of donations by cause, type 
+delete donation 
 
 questions: can you give me:
 - a list of "causes"

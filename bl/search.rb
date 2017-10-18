@@ -1,4 +1,5 @@
 get '/search' do
-  results = $users.all
-  erb :'/search/results', locals: {items: results}, layout: :layout
+  users = $users.all 
+  orgs  = $orgs.all
+  erb :'/search/results', locals: {users: users, orgs: orgs}, layout: :layout
 end
