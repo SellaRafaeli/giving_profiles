@@ -1,4 +1,4 @@
-* { 
+bla* { 
   color: black !important; 
   background-color: white !important; 
 }
@@ -18,7 +18,11 @@ $color2: #b53e16;
 .fl6 { flex:6; }
 .font-white {color: white;}
 .ct { text-align:center; }
-.centerContent { justify-content: center } /*TBD*/
+.centerContent { 
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 .bo1 { border:1px solid black; }
 .hidden {display: none;}
 .fullHeight {height: 100%; }

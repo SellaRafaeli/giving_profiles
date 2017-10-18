@@ -36,6 +36,7 @@ def is_open_route
 end
 
 before do
+  #sleep 1
   #require_user unless is_open_route     
   @time_started_request = Time.now    
 end
