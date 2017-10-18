@@ -8,7 +8,12 @@
 </style>
 <h1> Settings Page </h1>
 
+<div>
+  <%= erb :'/users/add_donation_form' %> 
+</div>
+
 <form class='settings-form' action='/settings' method=post>
+  <h3> Edit Your Details </h3>
   <div><label> Name </label><input name='name' value="<%=user['name']%>"/></div>
   <div><label> Address </label><input name='address' value="<%=user['address']%>"/></div>
   <button>Submit</button>

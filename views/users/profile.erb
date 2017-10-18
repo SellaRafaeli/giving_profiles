@@ -1,5 +1,5 @@
 <section class='profile'>
-  <h1> The profile of <%=user[:nick]%> </h1>
+  <h1> <%=user[:nick]%>'s Giving Profile </h1>
 
   <div class=fl>
     <div class='card1 fl2'>
@@ -12,7 +12,9 @@
 
     <div class='card1 fl6'>
       <% if user[:_id] == cuid %>
-        <%= erb :'/users/add_donation_form' %> 
+        <div class='ct'>
+          <%= erb :'/users/add_donation_form' %> 
+        </div>
       <% end %>
     </div>
 
