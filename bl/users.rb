@@ -4,13 +4,18 @@ USER_FIELDS = [:nick,:name,:address]
 
 def set_users
   $users.delete_many
-  ['Joe','Jack','Sally'].each {|name|
+  ['A','B','C'].each {|name|
     $users.add(name: name, nick: name, address: 'Some address')
   }
 end
 
+get '/users/reset' do
+  set_users
+  redirect '/login/random'
+end
+
 get '/login/:nick' do
-  user = $users.get(nick: pr[:nick])
+  user = $users.get(nick: pr[:nick]) || $users.random
   session[:user_id] = user[:_id]
   redirect '/'
 end

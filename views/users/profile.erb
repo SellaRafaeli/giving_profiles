@@ -1,6 +1,21 @@
-<h1> The profile of <%=user[:nick]%> </h1>
+<section class='profile'>
+  <h1> The profile of <%=user[:nick]%> </h1>
 
-<%= user.to_json %>
+  <div class=fl>
+    <div class='card1 fl2'>
+      <div class='fl bo1' style='height:300px'>
+        <img src='/img/face.jpg'/>
+      </div>
+      <div class='name'> Matt M. </div>
+      <div class='address'> Cambridge, MA </div>
+    </div>
 
-<%= erb :'/users/donations_list', locals: {donations: user_donations(user[:_id])} %>
-<%= erb :'/users/add_donation_form' %>
+    <div class='card1 fl6'>
+
+    </div>
+
+    <div class='card1 fl2'>
+      <%= erb :'/users/donations_list', locals: {donations: user_donations(user[:_id])} %>
+    </div>
+  </div>
+</section>
