@@ -102,6 +102,15 @@ body, html {
   height: 50px;
   margin: 5px; }
 
+/*SEARCH RESULTS*/
+.search_results .facets a {
+  display: block;
+  margin: 10px;
+  width: 200px; }
+.search_results .facets input {
+  float: left;
+  margin-right: 10px; }
+
 footer {
   margin-top: 10px;
   position: fixed;

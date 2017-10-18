@@ -1,15 +1,41 @@
-<h1> Search Results </h1>
+<div class='row search_results'>
+  <div class='col-md-3 card1 facets'>
+      <h3> Filter </h3>
+      <section>
+        <h5> Trending </h5>
+        <a href='#'> Popular <input type='checkbox'></a>
+        <a href='#'> New <input type='checkbox'></a>
+      </section>
 
-<h2> Users </h2>
-<% users.each do |user| %>
-<div class='card1'>
-  <a href='/users/user[:nick]'%><%= user[:name] || user[:nick] %></a>
-</div>  
-<% end %>
+      <section>
+        <h5> Network </h5>
+        <a href='#'> In My Portfolio <input type='checkbox'></a>
+        <a href='#'> In My Friends Portfolios <input type='checkbox'></a>
+      </section>
 
-<h2> Orgs </h2>
-<% orgs.each do |org| %>
-<div class='card1'>
-  <a href='/orgs/<%=org[:_id]%>'><%= org[:name] %></a>
-</div>  
-<% end %>
+      <section>
+        <h5> Sector </h5>
+        <a href='#'> Art, Cultures, Humanities <input type='checkbox'></a>
+        <a href='#'> Education <input type='checkbox'></a>
+        <a href='#'> Environment <input type='checkbox'></a>
+        <a href='#'> Animal Rights <input type='checkbox'></a>
+      </section>
+  </div>
+  <div class='col-md-8 card1'>
+  <h1> Search Results </h1>
+
+  <h2> Users </h2>
+  <% users.each do |user| %>
+  <div class='card1'>
+    <a href='/users/user[:nick]'%><%= user[:name] || user[:nick] %></a>
+  </div>  
+  <% end %>
+
+  <h2> Orgs </h2>
+  <% orgs.each do |org| %>
+  <div class='card1'>
+    <a href='/orgs/<%=org[:_id]%>'><%= org[:name] %></a>
+  </div>  
+  <% end %>
+  </div>
+</div>
