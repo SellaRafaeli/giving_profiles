@@ -21,6 +21,7 @@ $color2: #b53e16;
 .bo1 { border:1px solid black; }
 .hidden {display: none;}
 .fullHeight {height: 100%; }
+.underline {text-decoration: underline}
 .overlay {}
 
 .centerScreen { 
@@ -44,11 +45,19 @@ $color2: #b53e16;
   padding: 10px;
 }
 
+.form1 {
+  label {
+    width: 100px;
+  }  
+  input {
+    width: 200px;
+  }
+}
+
 /*areas of the site */
 .navbar-header, .navbar-collapse {
   background-color: #b53e16;
   color: green;
-
   .navbar {
     border: 0;
     border-radius: 0;

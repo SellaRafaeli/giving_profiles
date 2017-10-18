@@ -44,6 +44,9 @@ body, html {
 .fullHeight {
   height: 100%; }
 
+.underline {
+  text-decoration: underline; }
+
 .centerScreen {
   background-color: white;
   border: 20px solid whitesmoke;
@@ -64,6 +67,11 @@ body, html {
   background-color: white;
   margin: 10px;
   padding: 10px; }
+
+.form1 label {
+  width: 100px; }
+.form1 input {
+  width: 200px; }
 
 /*areas of the site */
 .navbar-header, .navbar-collapse {

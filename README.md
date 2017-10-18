@@ -9,8 +9,7 @@ add a donation by amount to existing org
 edit details of org (type, website) 
 search users
 search organizations
-add new organization
-add new organization, from search
+add donation to new organization
 admin: see all users, donations, organizations
 on profile page: set my pinned cause & org + explanation text
 view feed: see activity by my friends
@@ -29,3 +28,4 @@ user profile: visualization of donations by cause, type
 questions: can you give me:
 - a list of "causes"
 - a list of "types" of organization (e.g. envrionmental, human rights, etc)
+- do organizations have both a cause and a type?

@@ -1,6 +1,6 @@
 <h3> Donations List </h3>
 <% donations.each do |don| %>
 <div>
-  <%= don[:org] %>, <%= don[:amount] %>
+  <a class='underline' href='/orgs/<%=don[:org_id]%>'><%= don[:org_name] %></a>, <%= don[:amount] %>
 </div>  
 <% end %>

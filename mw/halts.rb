@@ -34,6 +34,11 @@ def require_user
   halt(401, {msg: 'Log in please'}) if !cu 
 end
 
+def flash_and_back(msg)
+  flash.message=msg
+  redirect back
+end
+
 get '/halts' do
   {msg: 'halt!'}
 end
