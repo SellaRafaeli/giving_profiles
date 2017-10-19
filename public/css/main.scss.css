@@ -73,6 +73,7 @@ body, html {
   padding: 10px; }
 
 .form1 label {
+  color: black;
   width: 100px;
   vertical-align: top; }
 .form1 input, .form1 textarea {
@@ -111,6 +112,23 @@ body, html {
 .search_results .facets input {
   float: left;
   margin-right: 10px; }
+.search_results .orgs_results img {
+  height: 20px; }
+.search_results .orgs_results .name {
+  width: 48%; }
+.search_results .orgs_results .metadata {
+  float: right;
+  text-align: center; }
+  .search_results .orgs_results .metadata .badges {
+    float: left;
+    margin: auto 10px; }
+  .search_results .orgs_results .metadata .faces {
+    float: right;
+    margin: auto 10px; }
+
+/*org page*/
+.org_page .donors img {
+  height: 80px; }
 
 footer {
   margin-top: 10px;

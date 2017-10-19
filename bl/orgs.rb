@@ -1,6 +1,6 @@
 $orgs = $mongo.collection('orgs')
 
-ORG_FIELDS = [:name, :type]
+ORG_FIELDS = [:name, :type, :website]
 
 def create_org(name)
   $orgs.add(name: name)

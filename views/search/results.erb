@@ -22,20 +22,38 @@
       </section>
   </div>
   <div class='col-md-8 card1'>
-  <h1> Search Results </h1>
+    <h1> Search Results </h1>
 
-  <h2> Users </h2>
-  <% users.each do |user| %>
-  <div class='card1'>
-    <a href='/users/user[:nick]'%><%= user[:name] || user[:nick] %></a>
-  </div>  
-  <% end %>
+    <h2> Users </h2>
+    <% users.each do |user| %>
+    <div class='card1'>
+      <a href='/users/user[:nick]'%><%= user[:name] || user[:nick] %>, <%= user['network'] || 'Yale' %> </a>
+    </div>  
+    <% end %>
 
-  <h2> Orgs </h2>
-  <% orgs.each do |org| %>
-  <div class='card1'>
-    <a href='/orgs/<%=org[:_id]%>'><%= org[:name] %></a>
-  </div>  
-  <% end %>
+    <div class='orgs_results'>
+      <h2> Orgs </h2>
+      <% orgs.each do |org| %>
+      <div class='card1'>
+        <span class='name'>
+          <a href='/orgs/<%=org[:_id]%>'><%= org[:name] %></a> 
+        </span>
+        <span class='metadata'>
+          <span class='badges'>
+            <img src='/img/badge1.jpeg'> 
+            <img src='/img/badge2.png'>
+            <img src='/img/badge3.jpeg'>
+          </span>
+          raised: 25,000$ (total) / 10,000$ (by Yale members)
+          <span class='faces'>        
+            <img src='/img/face.jpg'>
+            <img src='/img/face.jpg'>
+            <img src='/img/face.jpg'>
+            <img src='/img/face.jpg'>
+          </span>
+        </span>
+      </div>  
+      <% end %>
+    </div>
   </div>
 </div>

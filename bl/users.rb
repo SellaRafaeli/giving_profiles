@@ -1,6 +1,6 @@
 $users = $mongo.collection('users')
 
-USER_FIELDS = [:nick,:name,:address,:philosophy,:fav_org,:fav_org_text,:fav_cause]
+USER_FIELDS = [:nick,:name,:address,:network,:philosophy,:fav_org,:fav_org_text,:fav_cause,]
 
 def reset_all
   $users.delete_many

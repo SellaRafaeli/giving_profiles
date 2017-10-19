@@ -8,6 +8,13 @@
   <h3> Edit Your Details </h3>
   <div><label> Name </label><input name='name' value="<%=user['name']%>"/></div>
   <div><label> Address </label><input name='address' value="<%=user['address']%>"/></div>
+  <div><label> Network </label>
+    <select name='network'>
+      <% ['Yale', 'Harvard', 'UCall'].each do |opt| %>
+      <option value='<%=opt.downcase%>' <%="selected" if cu['network']==opt.downcase%>><%= opt %></option>
+      <% end %>
+    </select>
+  </div>
   <div><label> My Giving Philosophy </label><textarea rows=6 name='philosophy'><%=user['philosophy']%></textarea></div>
   <div><label> My Favorite Organization</label><input name='fav_org' value="<%=user['fav_org']%>"/></div>
   <div><label> My Favorite Organization - Explanation</label><textarea rows=6 name='fav_org_text'><%=user['fav_org_text']%></textarea></div>

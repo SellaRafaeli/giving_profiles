@@ -1,5 +1,26 @@
-<section class='org_page'>
+<section class='org_page ct col-md-8 col-md-offset-2'>
 <h1> <%= org[:name]%>'s Organization Page </h1>
+<h4><%=org['type']%>, <a href='http://<%=org['website']%>'><%=org['website']%></a></h4>
+<div class='card1'>
+  <h5> Organization Badges </h5>
+  <div class='badges'>
+    <img src='/img/badge1.jpeg'/>
+    <img src='/img/badge2.png'/>
+    <img src='/img/badge3.jpeg'/>
+  </div>
+</div>
+
+<div class='card1'>
+  <h5> Other Donors in Your Network (<%=cu[:network]%>) </h5>
+  <div class='donors'>
+    <% 10.times do |i| %>
+    <span style='display: inline-flex; flex-direction: column;'>
+      <img src='/img/face.jpg'/>
+      <div> <%=(0..100).to_a.sample%>$ </div>
+    </span>
+    <% end %>
+  </div>
+</div>
 
 <form class='form1' action='/org/<%=org[:_id]%>' method=post>
   <h3> Edit Organization Details </h3>

@@ -52,6 +52,7 @@ $color2: #b53e16;
 
 .form1 {
   label {
+    color: black;
     width: 100px;
     vertical-align: top;
   }  
@@ -109,6 +110,36 @@ $color2: #b53e16;
     input {
       float:left;
       margin-right:10px;
+    }
+  }
+  .orgs_results {
+    img {
+      height: 20px;
+    }
+    .name {
+      width: 48%;
+    }
+    .metadata {
+      float: right;
+      .badges {
+        float :left;
+        margin:auto 10px;
+      }
+      text-align: center;
+      .faces {
+        float: right;
+        margin:auto 10px;
+      }  
+    }
+    
+  }
+}
+
+/*org page*/
+.org_page {
+  .donors {
+    img {
+      height: 80px;
     }
   }
 }

@@ -9,6 +9,7 @@ add a donation by amount to existing org
 edit details of org (type, website) 
 search users
 search organizations
+search with facets 
 add donation to new organization
 admin: see all users, donations, organizations
 on profile page: set my pinned cause & org + explanation text
@@ -30,3 +31,5 @@ questions: can you give me:
 - a list of "causes"
 - a list of "types" of organization (e.g. envrionmental, human rights, etc)
 - do organizations have both a cause and a type?
+- how to recognize somebody's network from facebook? Perhaps just let them choose a network on the site? (this would also allow non-FB people to sign up and also make things easier for me.)
+- what are badges given for?
