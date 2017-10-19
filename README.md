@@ -1,5 +1,9 @@
 A social network based on donations. 
 
+TODOs:
+mobile css 
+add share-to-fb buttons
+
 (infrastructure)
 homepage
 login for admins, logout
@@ -20,12 +24,14 @@ Login with FB
 Share to facebook (a donation or organization)
 user profile: view badges (by amount of donations?)
 delete account
-privacy permissions on specific donation / donations to specific org 
+
 (adjustments for mobile-friendly)
 view organizations by type 
 view organizations by cause 
 user profile: visualization of donations by cause, type 
 delete donation 
+
+
 
 questions: can you give me:
 - a list of "causes"
