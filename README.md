@@ -24,7 +24,6 @@ Login with FB
 Share to facebook (a donation or organization)
 user profile: view badges (by amount of donations?)
 delete account
-
 (adjustments for mobile-friendly)
 view organizations by type 
 view organizations by cause 

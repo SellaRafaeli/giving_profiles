@@ -1,7 +1,11 @@
-<div class='homepage ct' style='margin-top:40px'>
+<div class='homepage ct'>
+  <% if cu %>
+  <%= erb :'/feed/feed' %>
+  <% else %>
   <h1> Giving Profiles </h1>
   <h3> A place to share your values </h3> 
   <div>
     <button class="<%=b1%>"> Sign Up With Facebook </button>
   </div>
+  <% end %>
 </div>

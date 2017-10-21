@@ -1,4 +1,4 @@
-bla* {
+* {
   color: black !important;
   background-color: white !important; }
 
@@ -6,7 +6,7 @@ body, html {
   height: 100%; }
 
 /*vars*/
-/*helper classes*/
+/*universal classes*/
 .fl {
   display: flex; }
 
@@ -27,6 +27,9 @@ body, html {
 
 .fl6 {
   flex: 6; }
+
+.fr {
+  float: right; }
 
 .font-white {
   color: white; }
@@ -50,6 +53,11 @@ body, html {
 
 .underline {
   text-decoration: underline; }
+
+/*app classes*/
+.profile-pic-1 {
+  height: 60px;
+  border-radius: 5px; }
 
 .centerScreen {
   background-color: white;

@@ -10,7 +10,7 @@
   <div><label> Address </label><input name='address' value="<%=user['address']%>"/></div>
   <div><label> Network </label>
     <select name='network'>
-      <% ['Yale', 'Harvard', 'UCall'].each do |opt| %>
+      <% ALL_NETWORKS.each do |opt| %>
       <option value='<%=opt.downcase%>' <%="selected" if cu['network']==opt.downcase%>><%= opt %></option>
       <% end %>
     </select>

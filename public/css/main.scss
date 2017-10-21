@@ -1,4 +1,4 @@
-bla* { 
+* { 
   color: black !important; 
   background-color: white !important; 
 }
@@ -8,7 +8,8 @@ body, html { height: 100%; }
 /*vars*/  
 $color1: lightblue;
 $color2: #b53e16;
-/*helper classes*/
+
+/*universal classes*/
 .fl { display: flex }
 .fl1 { flex:1; }
 .fl2 { flex:2; }
@@ -16,6 +17,7 @@ $color2: #b53e16;
 .fl4 { flex:4; }
 .fl5 { flex:5; }
 .fl6 { flex:6; }
+.fr {float: right;}
 .font-white {color: white;}
 .ct { text-align:center; }
 .centerContent { 
@@ -29,6 +31,11 @@ $color2: #b53e16;
 .underline {text-decoration: underline}
 .overlay {}
 
+/*app classes*/
+.profile-pic-1 {
+  height: 60px;
+  border-radius: 5px;
+}
 .centerScreen { 
   background-color:white;
   border:20px solid whitesmoke;
