@@ -23,7 +23,7 @@ end
 
 def http_get_json(route, headers = {})
   headers.merge!({content_type: :json, accept: :json})
-  JSON.parse http_get(route, headers)
+  (JSON.parse http_get(route, headers)).hwia
 end
 
 get '/comm/http/refresh' do

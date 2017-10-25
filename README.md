@@ -28,7 +28,7 @@ delete account
 view organizations by type 
 view organizations by cause 
 user profile: visualization of donations by cause, type 
-delete donation 
+delete single donation 
 
 
 
@@ -38,3 +38,12 @@ questions: can you give me:
 - do organizations have both a cause and a type?
 - how to recognize somebody's network from facebook? Perhaps just let them choose a network on the site? (this would also allow non-FB people to sign up and also make things easier for me.)
 - what are badges given for?
+
+Comments:
+Homepage, Org page - Erez will send designs 
+2. Feed - show donations, 'announcements' (like earning a badge, or maybe 'expressing interest in a charity')
+3. Supply your total yearly income
+4. donations - don't show amount 
+5. User profile page - featured organizations and causes (not just one) with text. 
+6. Charity Badges: a charity gets a badge if it gets rated by givewell's top-rated charities. 
+7. User badges: 1. whether total donations reaches some percentage of income, 2. whether a % of donations are to 'highly effective charities' (those with givewell rating). 

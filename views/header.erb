@@ -20,11 +20,11 @@
                 <% if cu %>
                   <li><form action='/search' style='padding-top:13px'><input name='q' placeholder='Search for users or organizations' style='width:250px; margin-left:14px' /></form></li>
                   <li><a href="/">Home</a></li>
-                  <li><a href="/users/<%=cu[:nick]%>"><%=cu[:nick]%></a></li>
+                  <li><a href="/users/<%=cu[:nick]%>"><%=cu[:name]%></a></li>
                   <li><a href='/settings'>My Settings</a></li>
                   <li><a href='/logout'>Logout</a></li>
                 <% else %>                  
-                  <li><a href='/login/foo'>Login</a></li>
+                  <li><a href='/'>Login</a></li>
                   <li><a href='/about'>About</a></li>                  
                   <li><a href='/contact'>Contact</a></li>
                 <% end %>                

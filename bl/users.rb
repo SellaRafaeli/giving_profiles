@@ -25,15 +25,15 @@ get '/users/reset' do
   redirect '/login/random'
 end
 
-get '/login/:nick' do
-  user = $users.get(nick: pr[:nick]) || $users.random
+get '/login/:id' do
+  user = $users.get(pr[:id]) || $users.get(nick: pr[:nick]) || $users.random
   session[:user_id] = user[:_id]
   redirect '/'
 end
 
 
 get '/users/:nick' do 
-  user = $users.get(nick: pr[:nick]) || $users.random
+  user = $users.get(nick: pr[:nick])
   erb :'/users/profile', locals: {user: user}, layout: :layout
 end
 

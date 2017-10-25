@@ -27,7 +27,7 @@
     <h2> Users </h2>
     <% users.each do |user| %>
     <div class='card1'>
-      <a href='/users/user[:nick]'%><%= user[:name] || user[:nick] %>, <%= user['network'] || 'Yale' %> </a>
+      <a href='/users/<%=user[:nick]%>'%><%= user[:name] || user[:nick] %>, <%= user['network'] || 'Yale' %> </a>
     </div>  
     <% end %>
 
