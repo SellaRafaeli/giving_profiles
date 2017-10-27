@@ -4,13 +4,11 @@
   <form action='/donations' method='post'>
     $ <input name='amount' type=number placeholder=00.00 autofocus>
     to
-    <input name='org_name' list='browsers' placeholder="Organization Name">
-    <datalist id="browsers">
-      <option value="The Red Cross">
-      <option value="The Blue Cross">
-      <option value="Doctors Without Borders">
-    </datalist>
+    <input class='ac_orgs' name='org_name' placeholder="Organization Name">
     <button class='<%=b1%>'> Submit </button>
     <!-- <button type=button onclick=toggleDiv('#add_donation_form')> Cancel </button> -->
   </form>
 </section>
+
+<script>
+</script>

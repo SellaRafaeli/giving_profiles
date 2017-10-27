@@ -16,6 +16,9 @@ function setAutocompletes(){
     onSelect: function (sn) { goToPath('/search?q='+sn.value) },
   })
 
+  $('.ac_orgs').autocomplete({
+    serviceUrl: '/search/orgs',
+  })
   // $('.ac').each((idx,el)=>{
   //   var el = $(el);
   //   console.log(el);
