@@ -109,10 +109,11 @@ $color2: #b53e16;
 /*SEARCH RESULTS*/
 .search_results {
   .facets {
-    a {
+    label {
       display: block;
       margin: 10px;
       width: 200px;
+      cursor: pointer;
     }
     input {
       float:left;

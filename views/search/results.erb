@@ -1,25 +1,29 @@
 <div class='row search_results'>
   <div class='col-md-3 card1 facets'>
       <h3> Filter </h3>
-      <section>
-        <h5> Trending </h5>
-        <a href='#'> Popular <input type='checkbox'></a>
-        <a href='#'> New <input type='checkbox'></a>
-      </section>
+      <form action='/search' method='get'>
+        <input name=q value="<%=pr[:q]%>">
+        <div>m</div>
+        <section>
+          <h5> Trending </h5>
+          <%= erb :'search/facet', locals: {k: 'popular'} %>
+          <%= erb :'search/facet', locals: {k: 'new'} %>
+        </section>
 
-      <section>
-        <h5> Network </h5>
-        <a href='#'> In My Portfolio <input type='checkbox'></a>
-        <a href='#'> In My Friends Portfolios <input type='checkbox'></a>
-      </section>
+        <section>
+          <h5> Network </h5>
+          <%= erb :'search/facet', locals: {k: 'in_my_portfolio'} %>
+          <%= erb :'search/facet', locals: {k: 'in_my_friends_portfolio'} %>
+        </section>
 
-      <section>
-        <h5> Sector </h5>
-        <a href='#'> Art, Cultures, Humanities <input type='checkbox'></a>
-        <a href='#'> Education <input type='checkbox'></a>
-        <a href='#'> Environment <input type='checkbox'></a>
-        <a href='#'> Animal Rights <input type='checkbox'></a>
-      </section>
+        <section>
+          <h5> Sector </h5>
+          <%= erb :'search/facet', locals: {k: 'arts_culture_humanities'} %>
+          <%= erb :'search/facet', locals: {k: 'education'} %>
+          <%= erb :'search/facet', locals: {k: 'environment'} %>
+          <%= erb :'search/facet', locals: {k: 'animal_rights'} %>
+        </section>
+      </form>
   </div>
   <div class='col-md-8 card1'>
     <h1> Search Results: <i><%= pr[:q] %></i> </h1>

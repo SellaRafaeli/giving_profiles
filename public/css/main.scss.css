@@ -113,10 +113,11 @@ body, html {
   margin: 5px; }
 
 /*SEARCH RESULTS*/
-.search_results .facets a {
+.search_results .facets label {
   display: block;
   margin: 10px;
-  width: 200px; }
+  width: 200px;
+  cursor: pointer; }
 .search_results .facets input {
   float: left;
   margin-right: 10px; }
