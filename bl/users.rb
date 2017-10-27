@@ -39,6 +39,7 @@ end
 
 # settings
 get '/settings' do
+  require_user
   erb :'/user_settings/settings_page', locals: {user: cu}, layout: :layout
 end
 

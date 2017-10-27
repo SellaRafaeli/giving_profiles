@@ -29,7 +29,7 @@ view organizations by type
 view organizations by cause 
 user profile: visualization of donations by cause, type 
 delete single donation 
-
+enable "verifying" a user by admin (blue checkmark)
 
 
 questions: can you give me:

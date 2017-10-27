@@ -31,7 +31,10 @@ def require_fields(fields)
 end
 
 def require_user
-  halt(401, {msg: 'Log in please'}) if !cu 
+  if !cu 
+    flash.message = 'Log in, please.'
+    redirect '/' 
+  end
 end
 
 def flash_and_back(msg)
