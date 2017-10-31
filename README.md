@@ -16,8 +16,9 @@ search organizations
 search with facets 
 add donation to new organization
 admin: see all users, donations, organizations
+
 on profile page: set my pinned cause & org + explanation text
-view feed: see activity by my friends
+view feed: see activity in my network
 view organization: see who from my friends donated to this org
 User profile Pic
 Login with FB
@@ -30,7 +31,17 @@ view organizations by cause
 user profile: visualization of donations by cause, type 
 delete single donation 
 enable "verifying" a user by admin (blue checkmark)
+make facets reflect search
+orgs - add facebook url 
+embed facebook posts in feed 
 
+
+
+
+- list of causes
+- list of networks 
+- facebook or twitter 
+- who can create/edit organization details - anyone? or just admins
 
 questions: can you give me:
 - a list of "causes"

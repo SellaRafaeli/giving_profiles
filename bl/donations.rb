@@ -9,13 +9,14 @@ end
 
 post '/donations' do
   data = pr.just(DONATION_FIELDS)
-  if !data[:org_id] 
-    org = create_org(data[:org_name])
-    data[:org_id] = org[:_id]
-  end
-
+  name = pr[:org_name]
+  org  = $orgs.get(name: Regexp.new(name, Regexp::IGNORECASE)) || create_org(name)
+  
+  data[:org_id] = org[:_id]
   data[:user_id] = cuid
+  
   $donations.add(data)
+  
   flash.message = 'Thanks!'
   redirect back
 end

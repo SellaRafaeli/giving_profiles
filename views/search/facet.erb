@@ -1,0 +1,1 @@
+<label class='facet' onclick="$(this).closest('form').submit()"> <%=locals[:v] || locals[:k].to_s.titleize %> <input type='checkbox' name="<%=locals[:k]%>" <%="checked" if pr[k]%>></label>
