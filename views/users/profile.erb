@@ -4,7 +4,7 @@
   <div class=fl>
     <div class='fl2'>
       <div class='card1 bo1 p10'>
-        <img src=<%=cu['pic_url']%> style='width:200px'/>
+        <img src=<%=user['pic_url']%> style='width:200px'/>
         <h3 class='name'> Matt M. </h3>
         <div class='address'> Cambridge, MA </div>
         <div class='address'> <%= user['network'].to_s.capitalize %> </div>
@@ -14,6 +14,7 @@
         <%= user['philosophy'] %> 
       </div>
 
+      <% if false %>
       <div class='card1'>
         <h5> Badges </h5>
         <div class='badges'>
@@ -22,6 +23,7 @@
           <img src='/img/badge3.jpeg'/>
         </div>
       </div>
+      <% end %>
     </div>
 
     <div class='fl6'>
@@ -35,12 +37,17 @@
       <% end %>
 
       <div class='card1'>
-        <div class='fav_org'>
-          <h5> My Favorite Organization </h5>
-          <h3><b><%= user['fav_org'] %></b></h3>
-          <%= user['fav_org_text'] %>
-        </div>
+        <h5> My Favorite Organizations </h5>
       </div>
+      <% user['fav_orgs'].to_a.each_with_index do |org ,i| %>
+        <% next if !org.present? %>
+        <div class='card1'>
+          <div class='fav_org'>
+            <h3 style='margin-top:0'><b><%= user['fav_orgs'].to_a[i] %></b></h3>
+            <%= user['fav_orgs_text'].to_a[i] %>
+          </div>
+        </div>
+      <% end %>
 
     </div>
 

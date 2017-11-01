@@ -1,6 +1,8 @@
 <section class='org_page ct col-md-8 col-md-offset-2'>
 <h1> <%= org[:name]%>'s Organization Page </h1>
 <h4><%=org['type'] || 'Environment' %>, <a href='http://<%=org['website']%>'><%=org['website'] || 'http://www.red-cross.com'%></a></h4>
+
+<% if false %>
 <div class='card1'>
   <h5> Organization Badges </h5>
   <div class='badges'>
@@ -9,6 +11,7 @@
     <img src='/img/badge3.jpeg'/>
   </div>
 </div>
+<% end %>
 
 <div class='card1'>
   <h5> Other Donors in Your Network (<%=cu[:network]%>) </h5>
