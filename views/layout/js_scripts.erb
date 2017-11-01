@@ -31,9 +31,11 @@ BOTTOM_CSS_TAGS = [
 
 
 <script>
+
+
   window.fbAsyncInit = function() {
     FB.init({
-      appId            : '183661335520562',
+      appId            : <%= $prod ? '183661335520562' : '123640948401560' %>,
       autoLogAppEvents : true,
       xfbml            : true,
       version          : 'v2.10'
