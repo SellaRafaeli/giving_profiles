@@ -1,10 +1,6 @@
 <h1> Settings Page </h1>
 
-<div>
-  <%= erb :'/users/add_donation_form' %> 
-</div>
-
-<form class='form1' action='/settings' method=post>
+<form class='form1' action='/settings' method=post style='margin:20px'>
   <h3> Edit Your Details </h3>
   <div><label> Name </label><input name='name' value="<%=user['name']%>"/></div>
   <div><label> Address </label><input name='address' value="<%=user['address']%>"/></div>
@@ -17,7 +13,26 @@
   </div>
   <div><label> My Yearly Income </label>$ <input name='yearly_income' value="<%=user['yearly_income']%>" type=number placeholder='50,000'/></div>
   <div><label> My Giving Philosophy </label><textarea rows=6 name='philosophy'><%=user['philosophy']%></textarea></div>
-  <div><label> My Favorite Organization</label><input name='fav_org' value="<%=user['fav_org']%>"/></div>
-  <div><label> My Favorite Organization - Explanation</label><textarea rows=6 name='fav_org_text'><%=user['fav_org_text']%></textarea></div>
+
+  <section>
+    <h4> My favorite Organizations </h4>
+    <div class='fav_orgs_list'>
+      <% (1..4).to_a.each_with_index do |org,i| %>
+        <div style='display: inline-block; margin: 20px'>
+          <div><label> Organization</label><input class='ac_orgs' name='fav_orgs[]' value="<%=user['fav_orgs'].to_a[i]%>"/></div>
+          <div><label> Explanation</label><textarea rows=6 name='fav_org_text'><%=user['fav_orgs_text'].to_a[i]%></textarea></div>
+        </div>
+      <% end %>
+    </div>
+    <!-- <button type='button' onclick=addFavOrg()>Add + </button> -->
+  </section>
+  <hr/>
   <button class='<%=b1%>'>Submit</button>
 </form>
+
+<script>
+function addFavOrg(){
+  $('.fav_orgs_list').append(
+       '<div><label> Org</label><input class=\'ac_orgs\' name="fav_orgs[]"/></div><div><label> Explanation</label><textarea rows=6 name=\'fav_org_text\'></textarea></div>')
+}
+</script>
