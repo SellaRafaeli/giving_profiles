@@ -4,13 +4,13 @@
   <h3> Edit Your Details </h3>
   <div><label> Name </label><input name='name' value="<%=user['name']%>"/></div>
   <div><label> Address </label><input name='address' value="<%=user['address']%>"/></div>
-  <div><label> Network </label>
+  <!-- <div><label> Network </label>
     <select name='network'>
       <% ALL_NETWORKS.each do |opt| %>
       <option value='<%=opt.downcase%>' <%="selected" if cu['network']==opt.downcase%>><%= opt %></option>
       <% end %>
     </select>
-  </div>
+  </div> -->
   <div><label> My Yearly Income </label>$ <input name='yearly_income' value="<%=user['yearly_income']%>" type=number placeholder='50,000'/></div>
   <div><label> My Giving Philosophy </label><textarea rows=6 name='philosophy'><%=user['philosophy']%></textarea></div>
 

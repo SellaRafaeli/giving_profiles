@@ -1,13 +1,13 @@
 <footer class="container-fluid footer-color text-center" style='direction: ltr'>
   <span> 2017 (c) <%= $app_name %>
   <% if cu %>
-    <a href="/me">Me (<%=cu['name']%>)</a>
+    <a href="/users/<%=cu['nick']%>">Me (<%=cu['nick']%>)</a>
     <a href="/logout">Log Out</a>
   <% end %>
-    <a href="/contact">Contact Us</a>
-    <a href="/about">About</a>
-    <% if !$prod %>
-    <a style="color:blue;" href="/admin/dashboard"> Admin </a>
+    <% if false %>
+      <a href="/contact">Contact Us</a>
+      <a href="/about">About</a>    
+      <a style="color:blue;" href="/admin/dashboard"> Admin </a>
     <% end %>
   </span> 
 </footer>

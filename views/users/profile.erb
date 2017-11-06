@@ -7,7 +7,7 @@
         <img src=<%=user['pic_url']%> style='width:200px'/>
         <h3 class='name'> Matt M. </h3>
         <div class='address'> Cambridge, MA </div>
-        <div class='address'> <%= user['network'].to_s.capitalize %> </div>
+        <!-- <div class='address'> <%= user['network'].to_s.capitalize %> </div> -->
       </div>
       
       <div class='card1'>
@@ -28,7 +28,7 @@
 
     <div class='fl6'>
       
-      <% if user[:_id] == cuid %>
+      <% if user[:_id] == cuid && false%>
       <div class='card1'>
         <div class='ct'>
           <%= erb :'/users/add_donation_form' %> 
