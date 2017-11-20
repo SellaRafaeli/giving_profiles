@@ -43,7 +43,8 @@ Additions for 20.11
 - view amounts of donation - only for yourself 
 - org page: show donors pics with link back to them 
 - user name and address: from profile 
-- header changes 
+- header changes by layout (+ "home" which is very standard)
+- login page by layout
 
 questions: can you give me:
 - a list of "causes"
