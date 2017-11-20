@@ -1,3 +1,7 @@
+<%
+other_doners_ids = $donations.all(org_id: org[:_id]).mapo('user_id')
+other_doners     = $users.get_many(_id: {'$in': other_doners_ids})
+%>
 <section class='org_page ct col-md-8 col-md-offset-2'>
 <h1> <%= org[:name]%>'s Organization Page </h1>
 <h4><%=org['type'] || 'Environment' %>, <a href='http://<%=org['website']%>'><%=org['website'] || 'http://www.red-cross.com'%></a></h4>
@@ -14,17 +18,17 @@
 <% end %>
 
 <div class='card1'>
-  <h5> Other Donors in Your Network </h5>
+  <h5> Donors </h5>
   <div class='donors'>
-    <% 10.times do |i| %>
+    <% other_doners.each do |user| %>
     <span style='display: inline-flex; flex-direction: column;'>
-      <img src='/img/face.jpg'/>
-      <div> <%=(0..100).to_a.sample%>$ </div>
+      <a href='/users/<%=user['nick']%>'><img src='<%=user['pic_url']%>'/></a>
     </span>
     <% end %>
   </div>
 </div>
 
+<% if is_admin %>
 <form class='form1' action='/org/<%=org[:_id]%>' method=post>
   <h3> Edit Organization Details </h3>
   <div><label> Name </label><input name='name' value="<%=org['name']%>"/></div>
@@ -32,5 +36,6 @@
   <div><label> Website </label><input name='website' value="<%=org['website']%>"/></div>
   <button class="<%=b1%>">Submit</button>
 </form>
+<% end %>
 
 </section>

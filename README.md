@@ -36,7 +36,12 @@ orgs - add facebook url
 embed facebook posts in feed 
 
 
-
+Additions for 20.11
+- add donation form (only accepts positive amounts, existing orgs)
+- edit org page: only for admins (currently erez, me)
+- view amounts of donation - only for yourself 
+- org page: show donors pics with link back to them 
+- user name and address: from profile 
 
 - list of causes
 - list of networks 

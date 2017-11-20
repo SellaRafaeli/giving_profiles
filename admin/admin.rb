@@ -11,7 +11,8 @@ get '/is_admin' do
 end
 
 def is_admin(user = cu)
-  session[:is_admin]
+  return true if user['nick'] == 'erez-yoeli'
+  return true if user['nick'] == 'sella-rafaeli'
 rescue 
   false
 end

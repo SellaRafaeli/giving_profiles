@@ -26,6 +26,11 @@ def halt_error(msg)
   halt(500, {msg: msg})
 end
 
+def halt_back(msg = 'Sorry!')
+  flash.message = msg if msg
+  redirect back
+end
+
 def require_fields(fields)
   Array(fields).each do |field| halt_missing_param(field) unless params[field].present? end 
 end
