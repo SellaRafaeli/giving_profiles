@@ -22,7 +22,7 @@
       </div>
       <div class='col-md-9' style='font-size:18px'>
         <div> <a href='/users/<%=u['nick']%>'><%=u['name']%></a> donated to <a href='/orgs/<%=org['_id']%>'><%= org['name'] %></a></div>
-        <div class='fr' style='margin-top:8px'> October 12th, 15:12 (Yale)</div>
+        <div class='fr' style='margin-top:8px'> <%= don['created_at'].strftime("%A, %d %b %Y %l:%M %p")%></div>
       </div>      
     </div>
   </div>
