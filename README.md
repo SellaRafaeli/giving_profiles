@@ -45,6 +45,9 @@ Additions for 20.11
 - user name and address: from profile 
 - header changes by layout (+ "home" which is very standard)
 - login page by layout
+- basic feed
+next steps:
+- list of organizations 
 
 questions: can you give me:
 - a list of "causes"
