@@ -22,21 +22,7 @@ view feed: see activity in my network
 view organization: see who from my friends donated to this org
 User profile Pic
 Login with FB
-Share to facebook (a donation or organization)
-user profile: view badges (by amount of donations?)
-delete account
-(adjustments for mobile-friendly)
-view organizations by type 
-view organizations by cause 
-user profile: visualization of donations by cause, type 
-delete single donation 
-enable "verifying" a user by admin (blue checkmark)
-make facets reflect search
-orgs - add facebook url 
-embed facebook posts in feed 
-
-
-
+ 
 Additions for 20.11
 - add donation form (only accepts positive amounts, existing orgs)
 - edit org page: only for admins (currently erez, me)
@@ -46,8 +32,23 @@ Additions for 20.11
 - header changes by layout (+ "home" which is very standard)
 - login page by layout
 - basic feed
+- search results: show total amount raised, plus actual faces 
+
 next steps:
-- list of organizations 
+add list of organizations (I have a list of 60, is that enough to start with, plus I will ad Goodwills)
+user profile: view badges (by amount of donations?)
+(adjustments for mobile-friendly)
+Share to facebook (a donation or organization)
+delete account
+
+view organizations by type 
+user profile: visualization of donations by cause, type 
+delete single donation 
+enable "verifying" a user by admin (blue checkmark)
+make facets reflect search
+orgs - add facebook url 
+embed facebook posts in feed
+
 
 questions: can you give me:
 - a list of "causes"

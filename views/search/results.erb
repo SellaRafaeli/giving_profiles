@@ -38,22 +38,23 @@
     <div class='orgs_results'>
       <h2> Orgs </h2>
       <% orgs.each do |org| %>
+
       <div class='card1'>
         <span class='name'>
           <a href='/orgs/<%=org[:_id]%>'><%= org[:name] %></a> 
         </span>
         <span class='metadata'>
           <span class='badges'>
-            <img src='/img/badge1.jpeg'> 
-            <img src='/img/badge2.png'>
-            <img src='/img/badge3.jpeg'>
+            <!-- <img src='/img/badge1.jpeg'>  -->
           </span>
-          raised: 25,000$ (total) / 10,000$ (by Yale members)
+          <% total = $donations.all(org_id: org['_id']).mapo('amount').sum %>
+          raised: <%= total%>$ (total)
           <span class='faces'>        
-            <img src='/img/face.jpg'>
-            <img src='/img/face.jpg'>
-            <img src='/img/face.jpg'>
-            <img src='/img/face.jpg'>
+            <% org_donors(org).each do |user| %>
+              <span style='display: inline-flex; flex-direction: column;'>
+                <a href='/users/<%=user['nick']%>'><img src='<%=user['pic_url']%>'/></a>
+              </span>
+            <% end %>
           </span>
         </span>
       </div>  
