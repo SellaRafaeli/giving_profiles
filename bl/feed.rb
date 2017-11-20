@@ -4,7 +4,7 @@ def my_network_donations
 
   crit = {user_id: {'$in': users.mapo('_id')}}
   opts = {sort: [{created_at: -1}], limit: 1000}
-  donations = $donations.all(crit, opts)[0..2]
+  donations = $donations.all(crit, opts)[0..100]
 end
 
 get '/refresh' do :refresh end
