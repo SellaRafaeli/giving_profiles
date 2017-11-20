@@ -18,7 +18,7 @@
     <%#= don.to_json %>
     <div class='single_feed_item row'>
       <div class='col-md-3 ct '>
-        <img src='/img/face.jpg' class='profile-pic-1'>
+        <img src='<%=user['pic_url']%>' class='profile-pic-1'>
       </div>
       <div class='col-md-9' style='font-size:18px'>
         <div> <a href='/users/<%=u['nick']%>'><%=u['name']%></a> donated to <a href='/orgs/<%=org['_id']%>'><%= org['name'] %></a></div>
