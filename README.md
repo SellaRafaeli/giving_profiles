@@ -62,7 +62,7 @@ Homepage, Org page - Erez will send designs
 6. Charity Badges: a charity gets a badge if it gets rated by givewell's top-rated charities. 
 7. User badges: 1. whether total donations reaches some percentage of income, 2. whether a % of donations are to 'highly effective charities' (those with givewell rating). 
 
-..
+.. 
 
 8. Users can only see donations by others in the same group as them?
 

@@ -71,6 +71,11 @@ $color2: #b53e16;
 }
 
 /*areas of the site */
+
+.alert.alert-dismissible {
+  text-align: center;
+  font-weight: bold; 
+}
 .navbar-header, .navbar-collapse {
   background-color: #b53e16;
   color: green;

@@ -30,7 +30,7 @@ other_doners     = $users.get_many(_id: {'$in': other_doners_ids})
 
 <% if is_admin %>
 <form class='form1' action='/org/<%=org[:_id]%>' method=post>
-  <h3> Edit Organization Details </h3>
+  <h3> Admin: Edit Organization Details </h3>
   <div><label> Name </label><input name='name' value="<%=org['name']%>"/></div>
   <div><label> Type </label><input name='type' value="<%=org['type']%>"/></div>
   <div><label> Website </label><input name='website' value="<%=org['website']%>"/></div>
