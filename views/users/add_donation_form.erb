@@ -4,7 +4,10 @@
   <form action='/donations' method='post'>
     $ <input name='amount' type=number placeholder=00.00 autofocus>
     <span class='margin:20px'>to</span>
-    <input class='ac_orgs' name='org_name' placeholder="Organization Name" style='width:400px;'>
+    <div style='margin:10px'></div>
+    <div>
+      <input class='ac_orgs' name='org_name' placeholder="Organization Name" style='width:100%;'>
+    </div>
     <div><button class='<%=b1%>'> Submit </button></div>
     <!-- <button type=button onclick=toggleDiv('#add_donation_form')> Cancel </button> -->
   </form>

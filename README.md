@@ -40,10 +40,15 @@ next steps (prioritized):
 
 - add list of organizations (I have a list of 60, is that enough to start with, plus I will ad Goodwills)
 - way to add more orgs manually 
-- user profile: view badges (by amount of donations?)
-- (adjustments for mobile-friendly)
-- user profile: visualization of donations by cause, type 
+- some visual refinements to account for long organization names 
+- performance improvements to account for the 260k orgs we now have
 - delete single donation 
+- org: set type
+
+- user profile: visualization of donations by cause, type 
+- (adjustments for mobile-friendly)
+- user profile: view badges (by amount of donations?)
+
 - Share to facebook (a donation or organization)
 - delete account
 - enable "verifying" a user by admin (blue checkmark)
