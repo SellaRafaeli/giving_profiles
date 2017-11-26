@@ -24,3 +24,10 @@ post '/donations' do
   flash.message = 'Thanks!'
   redirect back
 end
+
+get '/donations/delete' do
+  don = $donations.get(pr[:id])
+  halt unless don[:user_id] == cuid
+  $donations.delete_one(_id: pr[:id])
+  flash_and_back('Donation deleted.')
+end

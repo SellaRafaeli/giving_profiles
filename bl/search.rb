@@ -1,5 +1,5 @@
 def search_like(coll,term,field)
-  coll.get_many(field => {"$regex" => Regexp.new(term.to_s, Regexp::IGNORECASE)})
+  coll.get_many({field => {"$regex" => Regexp.new(term.to_s, Regexp::IGNORECASE)}}, {limit: 100})
 end
 
 def search_users

@@ -1,5 +1,5 @@
 <div class='row search_results'>
-  <div class='col-md-3 card1 facets'>
+  <div class='col-md-3 card1 facets noDisplay'>
       <h3> Filter </h3>
       <form action='/search' method='get'>
         <input name=q value="<%=pr[:q]%>">
@@ -25,40 +25,42 @@
         </section>
       </form>
   </div>
-  <div class='col-md-8 card1'>
-    <h1> Search Results: <i><%= pr[:q] %></i> </h1>
-
-    <h2> Users </h2>
-    <% users.each do |user| %>
+  <div class='col-md-8 col-md-offset-2'>
     <div class='card1'>
-      <a href='/users/<%=user[:nick]%>'%><%= user[:name] || user[:nick] %>, <%= user['address'] %> </a>
-    </div>  
-    <% end %>
+      <h1> Search Results: <i><%= pr[:q] %></i> </h1>
 
-    <div class='orgs_results'>
-      <h2> Orgs </h2>
-      <% orgs.each do |org| %>
-
+      <h2> Users </h2>
+      <% users.each do |user| %>
       <div class='card1'>
-        <span class='name'>
-          <a href='/orgs/<%=org[:_id]%>'><%= org[:name] %></a> 
-        </span>
-        <span class='metadata'>
-          <span class='badges'>
-            <!-- <img src='/img/badge1.jpeg'>  -->
-          </span>
-          <% total = $donations.all(org_id: org['_id']).mapo('amount').sum %>
-          raised: <%= total%>$ (total)
-          <span class='faces'>        
-            <% org_donors(org).each do |user| %>
-              <span style='display: inline-flex; flex-direction: column;'>
-                <a href='/users/<%=user['nick']%>'><img src='<%=user['pic_url']%>'/></a>
-              </span>
-            <% end %>
-          </span>
-        </span>
+        <a href='/users/<%=user[:nick]%>'%><%= user[:name] || user[:nick] %>, <%= user['address'] %> </a>
       </div>  
       <% end %>
+
+      <div class='orgs_results'>
+        <h2> Orgs </h2>
+        <% orgs.each do |org| %>
+
+        <div class='card1'>
+          <span class='name'>
+            <a href='/orgs/<%=org[:_id]%>'><%= org[:name] %></a> 
+          </span>
+          <span class='metadata'>
+            <span class='badges'>
+              <!-- <img src='/img/badge1.jpeg'>  -->
+            </span>
+            <% total = $donations.all(org_id: org['_id']).mapo('amount').sum %>
+            raised: <%= total%>$ (total)
+            <span class='faces'>        
+              <% org_donors(org).each do |user| %>
+                <span style='display: inline-flex; flex-direction: column;'>
+                  <a href='/users/<%=user['nick']%>'><img src='<%=user['pic_url']%>'/></a>
+                </span>
+              <% end %>
+            </span>
+          </span>
+        </div>  
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -3,6 +3,10 @@
   <% donations.each do |don| %>
   <div>
     <a class='underline' href='/orgs/<%=don[:org_id]%>'><%= don[:org_name] %></a><%= ", #{don[:amount]} $" if don[:user_id] == cuid %>
+    <% if don[:user_id] == cuid %>
+    <span onclick='document.location="/donations/delete?id=<%=don[:_id]%>"' class='lightHover'><i class='fa fa-close'></i>
+    </span>
+    <% end %>
   </div>  
   <% end %>
 </div>

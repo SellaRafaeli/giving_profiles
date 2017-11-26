@@ -1,6 +1,9 @@
 $orgs = $mongo.collection('orgs')
 
+$orgs.ensure_index('name') rescue nil
 ORG_FIELDS = [:name, :type, :url, :facebook_page]
+
+ORG_TYPES = ['community_development', 'education', 'religion', 'animals', 'health', 'human_rights', 'human_services', 'international', 'environment', ] 
 
 def create_org(name)
   $orgs.add(name: name)
@@ -20,4 +23,21 @@ end
 post '/org/:id' do
   $orgs.update_id(pr[:id],pr.just(ORG_FIELDS))
   flash_and_back('Thanks!')
+end
+
+post '/orgs/add' do
+  halt unless is_admin
+  org = $orgs.add(name: pr[:name])
+  redirect ("/orgs/#{org[:_id]}")
+end
+
+get '/set_all_from_amazon' do
+  #(https://s3.amazonaws.com/irs-form-990/index_2015.json)
+  route ='https://s3.amazonaws.com/irs-form-990/index_2015.json';
+  data  = JSON.parse(RestClient.get(route));
+  org_names  = data["Filings2015"].mapo('OrganizationName');
+  num   = org_names.size
+  $orgs.delete_many;
+  org_names.each {|name| $orgs.add(name: name)}
+  {num_orgs: $orgs.count, random: $orgs.random}
 end

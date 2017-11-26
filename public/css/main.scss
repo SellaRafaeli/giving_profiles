@@ -27,9 +27,12 @@ $color2: #b53e16;
 }
 .bo1 { border:1px solid black; }
 .hidden {display: none;}
+.nd {display: none;} 
+.noDisplay {display: none}
 .fullHeight {height: 100%; }
 .underline {text-decoration: underline}
 .overlay {}
+.lightHover:hover { color: red; filter: brightness(150%); cursor: pointer;}
 
 /*app classes*/
 .profile-pic-1 {
