@@ -16,7 +16,8 @@ def org_donors(org)
 end
 
 get '/orgs/:id' do
-  org = $orgs.get(pr[:id]) || $orgs.random
+  org = $orgs.get(pr[:id]) 
+  flash_and_back('No such organization') if !org
   erb :'/orgs/org_page', locals: {org: org}, layout: :layout
 end
 
@@ -32,12 +33,13 @@ post '/orgs/add' do
 end
 
 get '/set_all_from_amazon' do
+  before = Time.now
   #(https://s3.amazonaws.com/irs-form-990/index_2015.json)
   route ='https://s3.amazonaws.com/irs-form-990/index_2015.json';
   data  = JSON.parse(RestClient.get(route));
-  org_names  = data["Filings2015"].mapo('OrganizationName');
+  org_names  = data["Filings2015"].mapo('OrganizationName')#[0..100_000];
   num   = org_names.size
   $orgs.delete_many;
-  org_names.each {|name| $orgs.add(name: name)}
-  {num_orgs: $orgs.count, random: $orgs.random}
+  org_names.each {|name| $orgs.add(name: name)}; org_names.size
+  {num_orgs: $orgs.count, random: $orgs.random, time_took: Time.now-before}
 end

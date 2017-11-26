@@ -1,6 +1,7 @@
 log = function(a) { if (console && console.log) console.log(a); }
 goToPath = function(path) { window.location.href = path }
-
+doc = document;
+doc.loc = document.location;
 function toggleDiv(selector) {
   $(selector).toggleClass('hidden');
 }
