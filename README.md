@@ -51,9 +51,10 @@ next steps (please commnt:
   - note: most orgs don't have a type
 - delete account
 - (adjustments for mobile-friendly)
+- view organizations by type 
 - Share to facebook (a donation or organization)
 - embed facebook posts in feed
-- view organizations by type 
+
 
 questions: can you give me:
 - a list of "causes"

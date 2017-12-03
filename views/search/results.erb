@@ -1,9 +1,17 @@
 <div class='row search_results'>
-  <div class='col-md-3 card1 facets noDisplay'>
+  <div class='col-md-3 card1 facets'>
       <h3> Filter </h3>
       <form action='/search' method='get'>
-        <input name=q value="<%=pr[:q]%>">
-        <div>m</div>
+        <!-- <input name=q value="<%=pr[:q]%>"> -->
+        <section>
+          <h5> By Marked Organization Type </h5>
+          <% ORG_TYPES.each do |type| %>
+            <div>
+              <a class='btn btn-primary' href='/search?type=<%=type%>'><%=type.titleize%></a>
+            </div>
+          <% end %>
+        </section>
+        <% if false %>
         <section>
           <h5> Trending </h5>
           <%= erb :'search/facet', locals: {k: 'popular'} %>
@@ -23,13 +31,14 @@
           <%= erb :'search/facet', locals: {k: 'environment'} %>
           <%= erb :'search/facet', locals: {k: 'animal_rights'} %>
         </section>
+        <% end %>
       </form>
   </div>
-  <div class='col-md-8 col-md-offset-2'>
+  <div class='col-md-9 zcol-md-offset-2'>
     <div class='card1'>
       <h1> Search Results: <i><%= pr[:q] %></i> </h1>
 
-      <h2> Users </h2>
+      <h4> Users </h4>
       <% users.each do |user| %>
       <div class='card1'>
         <a href='/users/<%=user[:nick]%>'%><%= user[:name] || user[:nick] %>, <%= user['address'] %> </a>
@@ -37,7 +46,7 @@
       <% end %>
 
       <div class='orgs_results'>
-        <h2> Orgs </h2>
+        <h4> Orgs </h4>
         <% orgs.each do |org| %>
 
         <div class='card1'>

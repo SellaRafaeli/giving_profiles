@@ -1,4 +1,5 @@
 def search_like(coll,term,field)
+  return [] unless term.present?
   coll.get_many({field => {"$regex" => Regexp.new(term.to_s, Regexp::IGNORECASE)}}, {limit: 100})
 end
 
@@ -7,7 +8,10 @@ def search_users
 end
 
 def search_orgs
-  search_like($orgs,pr[:q],:name)
+  res = []
+  res+= search_like($orgs,pr[:q],:name)                if pr[:q]    
+  res+=$orgs.get_many({type: pr[:type]}, {limit: 300}) if pr[:type] 
+  res
 end
 
 get '/search' do
@@ -21,6 +25,6 @@ end
 
 get '/search/ajax' do
   params[:q] ||= pr[:query]
-  results = search_users.mapo('name') + search_orgs.mapo('name')  
+  results = search_users.mapo('name') + search_orgs.mapo('name') + 
   {suggestions: results}
 end
