@@ -3,38 +3,10 @@
 ALL_NETWORKS = ['yale', 'harvard', 'stanford', 'caltech']
 USER_FIELDS  = [:nick,:name,:address,:yearly_income,:network,:philosophy,:fav_orgs,:fav_orgs_text,:fav_cause,]
 
-# def reset_all
-#   $users.delete_many
-#   ['Matt A.','John Doe','Jane Doe'].each {|name|
-#     $users.add(name: name, nick: name, address: 'Some address', network: ALL_NETWORKS.sample, philosophy: "Give until you feel it. A lot of the answers here are going the 'give what you are comfortable giving' route.  My philosophy is: 'Give until it starts to be uncomfortable.", fav_org: 'Sierra Nevada Land Trust', fav_cause: 'Environmentalism', fav_org_text: 'It must have been tails, because here I am in California! I actually had never been to California before I drove here from my home state of North Carolina in the middle of January to serve the Sierra. I remember my first thoughts as we passed the Welcome to California sign being “Wow! This is a really beautiful place”. Then, I started thinking about how the landscape reminded me of “Homeward Bound”, one of my favorite movies in the whole wide world. My journey here is somewhat similar to the adventures of Shadow, Sassy and Chance as I overcome obstacles, form amazing friendships and have fun!')
-#   }
-
-#   $orgs.delete_many
-#   ['Red Cross', 'Doctors Without Borders', 'Make a Wish Foundation'].each {|name|
-#     create_org(name)
-#   }
-
-#   10.times {
-#     org = $orgs.random
-#     $donations.add(user_id: $users.random[:_id], org_id: org['_id'], org_name: org['name'], amount: rand(1000).to_i)  
-#   }  
-# end
-
-# get '/users/reset' do
-#   set_users
-#   redirect '/login/random'
-# end
-
 get '/login/:id' do
   user = $users.get(pr[:id]) || $users.get(nick: pr[:nick]) || $users.random
   session[:user_id] = user[:_id]
   redirect '/'
-end
-
-
-get '/users/:nick' do 
-  user = $users.get(nick: pr[:nick])
-  erb :'/users/profile', locals: {user: user}, layout: :layout
 end
 
 # settings
@@ -53,4 +25,19 @@ end
 get '/logout' do
   session.clear
   redirect '/'
+end
+
+get '/users/delete_me' do
+  $users.update_id(cuid,{deleted:true})
+  flash.message = 'You have been deleted from the system.'
+  redirect back
+end
+
+get '/users/:nick' do 
+  user = $users.get(nick: pr[:nick])
+  if user['deleted'] 
+    flash.message = 'This user has been deleted from the system.'
+    redirect '/'
+  end
+  erb :'/users/profile', locals: {user: user}, layout: :layout
 end

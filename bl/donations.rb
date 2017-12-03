@@ -7,6 +7,16 @@ def user_donations(user_id)
   $donations.get_many(user_id: user_id) 
 end
 
+def user_causes_hash(user)
+  donations = user_donations(user['_id'])
+  org_ids   = donations.mapo('org_id').uniq
+  orgs      = $orgs.get_many(_id: {'$in': org_ids})
+  causes    = orgs.mapo('type').compact
+  causes_h  = causes.hash_of_num_occurrences #by num of organizations
+rescue => e
+  {}
+end
+
 post '/donations' do
   amount = pr[:amount].to_i
   data   = pr.just(DONATION_FIELDS)

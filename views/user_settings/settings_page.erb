@@ -30,6 +30,12 @@
   <button class='<%=b1%>'>Submit</button>
 </form>
 
+<a href='#' class='btn btn-raised btn-danger' onclick='if (confirm("Are you sure you wish to DELETE your account?")) {doc.location ="/users/delete_me"; return false}'> Delete My Account </a>
+<br/>
+<br/>
+<br/>
+<br/>
+
 <script>
 function addFavOrg(){
   $('.fav_orgs_list').append(

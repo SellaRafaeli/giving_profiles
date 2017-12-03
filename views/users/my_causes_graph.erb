@@ -1,0 +1,14 @@
+<%
+  total = causes_hash.values.inject { |a, b| a + b } * 1.1
+%>
+
+<h4> My Causes </h4>
+<div style='width:100%; margin-top:10px'>
+<% causes_hash.each_pair do |k,v| %>
+  <% 
+    width = v/total.to_f*100
+    color = Digest::MD5.hexdigest(k)[0..5]
+    %>
+  <span style='width: <%=width%>%; background-color:#<%=color%>; color:white; font-weight: bold; padding:10px; display: inline-block; border:1px solid black'> <%= k %> </span>
+<% end %>
+</div>

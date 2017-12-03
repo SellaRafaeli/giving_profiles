@@ -36,20 +36,20 @@ Additions for 20.11
 
 
 
-next steps (prioritized):
-
+this weeks' additions:
 - add list of organizations from Amazon (260k)
 - ability to add more orgs manually (from any org page), for admins
 - some visual refinements to account for long organization names 
 - performance improvements to account for the 260k orgs we now have
-- delete single donation 
-- org: set type
+- option to delete single donation 
+- option to set organization type
 - user profile: show badge if donating more than 10% of yearly income
-- enable "verifying" a user by admin (blue checkmark)
-- delete account
+- enable "verifying" a user by admin (blue checkmark) from /admin
 
-next steps: 
-- user profile: visualization of donations by cause, type 
+next steps (please commnt: 
+  - user profile: visualization of donations by cause, type 
+  - note: most orgs don't have a type
+- delete account
 - (adjustments for mobile-friendly)
 - Share to facebook (a donation or organization)
 - embed facebook posts in feed

@@ -1,6 +1,4 @@
 <section class='profile'>
-  <!-- <h1> <%=user[:name]%>'s Giving Profile </h1> -->
-
   <div class=fl>
     <div class='fl2'>
       <div class='card1 bo1 p10'>
@@ -42,6 +40,17 @@
       </div>
       <% end %>
 
+      <%
+        causes_hash = user_causes_hash(cu)
+        if causes_hash.any?  
+      %>
+        <div class='card1'>
+          <div class='ct'>
+            <%= erb :'/users/my_causes_graph', locals: {causes_hash: causes_hash} %> 
+          </div>
+        </div>
+      <% end %>
+      
       <div class='card1'>
         <h5> My Favorite Organizations </h5>
       </div>
