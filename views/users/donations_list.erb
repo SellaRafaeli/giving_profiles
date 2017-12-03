@@ -1,5 +1,5 @@
 <div class='ct'>
-  <h3> Donations List </h3>
+  <h3> My Donations </h3>
   <% donations.each do |don| %>
   <div>
     <a class='underline' href='/orgs/<%=don[:org_id]%>'><%= don[:org_name] %></a><%= ", #{don[:amount]} $" if don[:user_id] == cuid %>

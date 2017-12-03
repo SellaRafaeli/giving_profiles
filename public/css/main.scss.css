@@ -88,7 +88,8 @@ body, html {
   border: 1px solid black;
   min-height: 10px;
   background-color: white;
-  margin: 10px;
+  margin: 10px auto;
+  box-shadow: 3px 3px 3px #888888;
   padding: 10px; }
 
 .form1 label {

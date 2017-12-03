@@ -1,6 +1,6 @@
 <section class='profile'>
-  <div class=fl>
-    <div class='fl2'>
+  <div class=row>
+    <div class='col-md-3 col-xs-12'>
       <div class='card1 bo1 p10'>
         <img src=<%=user['pic_url']%> style='width:200px'/>
         <h3 class='name'> <%= user['name'] %> <% if user['verified']=='true'%><i style='color:#1da1f2' class='fa fa-check-circle'></i><% end %></h3>
@@ -30,7 +30,7 @@
       
     </div>
 
-    <div class='fl6'>
+    <div class='col-md-7 col-xs-12'>
       
       <% if user[:_id] == cuid %>
       <div class='card1'>
@@ -66,8 +66,10 @@
 
     </div>
 
-    <div class='card1 fl2'>
-      <%= erb :'/users/donations_list', locals: {donations: user_donations(user[:_id])} %>
+    <div class='col-md-2 col-xs-12'>
+      <div class='card1'>
+        <%= erb :'/users/donations_list', locals: {donations: user_donations(user[:_id])} %>
+      </div>
     </div>
   </div>
 </section>
