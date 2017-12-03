@@ -4,7 +4,7 @@ DONATION_FIELDS = [:user_id, :org_name, :org_id, :amount]
 
 def user_donations(user_id)
   #return $donations.all
-  $donations.get_many(user_id: user_id) 
+  $donations.get_many(user_id: user_id).reverse 
 end
 
 def user_causes_hash(user)

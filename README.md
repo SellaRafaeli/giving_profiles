@@ -47,11 +47,12 @@ this weeks' additions:
 - enable "verifying" a user by admin (blue checkmark) from /admin
 
 next steps (please commnt: 
-  - user profile: visualization of donations by cause, type 
+- user profile: visualization of donations by cause, type 
   - note: most orgs don't have a type
-- delete account
-- (adjustments for mobile-friendly)
-- view organizations by type 
+- delete account (soft deletion)
+- all site pages should now be mobile-friendly
+- view organizations by type (from search page)
+- reverse donation list order 
 - Share to facebook (a donation or organization)
 - embed facebook posts in feed
 
