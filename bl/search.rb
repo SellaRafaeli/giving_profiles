@@ -25,6 +25,6 @@ end
 
 get '/search/ajax' do
   params[:q] ||= pr[:query]
-  results = search_users.mapo('name') + search_orgs.mapo('name') + 
+  results = search_users.mapo('name') + search_orgs.mapo('name')
   {suggestions: results}
 end
