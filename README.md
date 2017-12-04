@@ -59,7 +59,12 @@ next steps (please commnt:
 next steps:
 - UI touches, match design 
 - privacy of donations 
-- 
+- visualization: by something other than # of orgs? (Perhaps size of donations? Number of donations?)
+- additional things to share?
+- FB posts on feed? 
+- Analytics - who has used the system and how much? 
+
+116 + 58 = 
 
 
 questions: can you give me:
