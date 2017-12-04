@@ -164,6 +164,10 @@ footer {
   background-color: lightblue; }
 
 /* PROFILE */
+.donations_list .single_donation .fa-close {
+  visibility: hidden; }
+.donations_list .single_donation:hover .fa-close {
+  visibility: visible; }
 .donations_list .fa-share {
   cursor: pointer; }
   .donations_list .fa-share:hover {
