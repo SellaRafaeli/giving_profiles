@@ -1,3 +1,7 @@
+def escape_html(html, opts = {})
+  Rack::Utils.escape_html(html.to_s)
+end
+
 after do 
   request_time = Time.now - @time_started_request rescue nil
   log_request({time_took: request_time}) unless request_is_public?

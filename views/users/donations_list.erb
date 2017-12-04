@@ -1,8 +1,11 @@
-<div class='ct'>
+<div class='ct donations_list'>
   <h3> My Donations </h3>
   <% donations.each do |don| %>
+
   <div>
-    <a class='underline' href='/orgs/<%=don[:org_id]%>'><%= don[:org_name] %></a><%= ", #{don[:amount]} $" if don[:user_id] == cuid %>
+    <% text = escape_html "I just shared a donation to #{don[:org_name]} on GivingProfiles" %>
+    <i class='fa fa-share' onclick='fbShare("<%=text%>")'></i> 
+    <a class='underline' href='/orgs/<%=don[:org_id]%>' style='display: inline-block; margin:5px'><%= don[:org_name] %></a><%= ", #{don[:amount]} $" if don[:user_id] == cuid %>
     <% if don[:user_id] == cuid %>
     <span onclick='document.location="/donations/delete?id=<%=don[:_id]%>"' class='lightHover'><i class='fa fa-close'></i>
     </span>

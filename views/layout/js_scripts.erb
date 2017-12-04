@@ -63,6 +63,13 @@ BOTTOM_CSS_TAGS = [
       }
     });
   }
+
+  window.fbShare = function(desc) {
+    FB.ui({
+      method: 'share',
+      href: fullPath+`?og_desc=${desc}`,
+    }, function(response){});  
+  }  
 </script>
 
 <script>

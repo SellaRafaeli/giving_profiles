@@ -169,3 +169,13 @@ footer {
   width: 100%;
   background-color: $color1 ;
 }
+
+/* PROFILE */
+.donations_list {
+  .fa-share {
+    cursor: pointer;
+    &:hover {
+      color: #3b5998;
+    };
+  }
+}

@@ -56,6 +56,11 @@ next steps (please commnt:
 - Share to facebook (a donation or organization)
 - embed facebook posts in feed
 
+next steps:
+- UI touches, match design 
+- privacy of donations 
+- 
+
 
 questions: can you give me:
 - a list of "causes"
