@@ -67,11 +67,11 @@ their income so they can get the badge (done)
 ---> custom domain (done, givingprofiles.org)
 - re-sign up: un-delete a profile (done)
 - org types - crowdsourcing
-- safari header fixes (done)
+- safari header improvements (done)
 - causes distribution - by amount of money (not # of orgs)
 - sharing profile (in mockups)
-
 ---> As many featured organizations / causes as they want
+
 ---> Clean up verified interface (tell us to enter true or false.)
 
 - privacy of donations 
