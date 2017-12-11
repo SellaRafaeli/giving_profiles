@@ -64,6 +64,7 @@ their income so they can get the badge (done)
 ---> hide users when searching by org type (done)
 ---> custom domain (done, givingprofiles.org)
 - re-sign up: un-delete a profile (done)
+- org types - crowdsourcing
 
 ---> As many featured organizations / causes as they want
 ---> Clean up verified interface (tell us to enter true or false.)
@@ -73,7 +74,7 @@ their income so they can get the badge (done)
 
 - visualization: by something other than # of orgs? (Perhaps size of donations? Number of donations?)
 - causes distribution - by amount of money (not # of orgs)
-- org types - crowdsourcing
+
 - additional things to share?
   - sharing profile (in mockups)
 - FB posts on feed? 

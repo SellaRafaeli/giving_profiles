@@ -14,6 +14,7 @@ JS_SCRIPTS = [
   '/js/lib/vue.js',
   '/js/lib/bootstrap_material_design.min.js',
   '/js/lib/jquery.autocomplete.min.js',
+  "https://connect.facebook.net/en_US/sdk.js"
 ]
 
 BOTTOM_CSS_TAGS = [
@@ -28,49 +29,6 @@ BOTTOM_CSS_TAGS = [
 <% BOTTOM_CSS_TAGS.each do |path| %>
   <link rel="stylesheet" href="<%=path%>"/>
 <% end %>
-
-
-<script>
-
-
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : <%= $prod ? '183661335520562' : '123640948401560' %>,
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v2.10'
-    });
-    FB.AppEvents.logPageView();
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<script>
-  window.fbLogin = function(){
-    if (!window.FB) return alert('Please try again in 5 seconds.')
-    FB.login(function(response) {
-      if (response.status === 'connected') {
-        document.location= `/fb_login?token=${response.authResponse.accessToken}`;
-      } else {
-        console.log('fbLogin fail ',response)
-      }
-    });
-  }
-
-  window.fbShare = function(desc) {
-    FB.ui({
-      method: 'share',
-      href: fullPath+`?og_desc=${desc}`,
-    }, function(response){});  
-  }  
-</script>
 
 <script>
   // Vue.use(VueMaterial)

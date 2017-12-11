@@ -1,6 +1,6 @@
 $prod       = settings.production? #RACK_ENV==production?
-$prod_url   = 'http://app.herokuapp.com'
-$root_url   = $prod ? $prod_url : 'http://localhost:9090'
+$prod_url   = 'http://givingprofiles.org'
+$root_url   = $prod ? $prod_url : 'http://localhost:7070'
 
 enable :sessions
 set :session_secret, '&a*n31994@'
