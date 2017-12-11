@@ -9,10 +9,19 @@ end
 
 def user_causes_hash(user)
   donations = user_donations(user['_id'])
-  org_ids   = donations.mapo('org_id').uniq
-  orgs      = $orgs.get_many(_id: {'$in': org_ids})
-  causes    = orgs.mapo('type').compact
-  causes_h  = causes.hash_of_num_occurrences #by num of organizations
+  res = {}
+  donations.each {|d|
+    type = $orgs.get(d['org_id'])['type'] rescue nil
+    if type
+      res[type] ||= 0
+      res[type]  += d['amount'].to_f
+    end
+  }
+  res = res.sort_by{|_key, value| value}.reverse.to_h
+  # org_ids   = donations.mapo('org_id').uniq
+  # orgs      = $orgs.get_many(_id: {'$in': org_ids})
+  # causes    = orgs.mapo('type').compact
+  # causes_h  = causes.hash_of_num_occurrences #by num of organizations
 rescue => e
   {}
 end

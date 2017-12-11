@@ -42,8 +42,8 @@
 
 
       <% if user[:fav_cause] %>
-      <div class='card1'>
-        <h5> My Featured Cause: <%= user[:fav_cause].to_s.titleize %> </h5>
+      <div class='card1 ct'>
+        <span> My Featured Cause: <b><%= user[:fav_cause].to_s.titleize %></b> </span>
       </div>
       <% end %>
 
