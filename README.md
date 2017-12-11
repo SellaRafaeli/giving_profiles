@@ -76,15 +76,9 @@ their income so they can get the badge (done)
 
 - privacy of donations 
 - UI touches, match design, prettify 
-- visualization: by something other than # of orgs? (Perhaps size of donations? Number of donations?)
-
-
-- additional things to share?
-
 - FB posts on feed? 
-  - crowd-sourced
+- crowd-sourced
 - Analytics - who has used the system and how much? 
-
 - FAQ section, contact us
 - Any text changes?
 - check email parsing

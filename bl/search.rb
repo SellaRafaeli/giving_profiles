@@ -1,6 +1,6 @@
 def search_like(coll,term,field)
   return [] unless term.present?
-  coll.get_many({field => {"$regex" => Regexp.new(term.to_s, Regexp::IGNORECASE)}}, {limit: 100})
+  coll.get_many({field => {"$regex" => Regexp.new(term.to_s, Regexp::IGNORECASE)}}, {limit: 100, sort: [{created_at: -1}]})
 end
 
 def search_users

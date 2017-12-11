@@ -27,12 +27,17 @@
   <section>
     <h4> My favorite Organizations </h4>
     <div class='fav_orgs_list'>
-      <% (1..4).to_a.each_with_index do |org,i| %>
+      <% user['fav_orgs'].to_a.each_with_index do |org,i| %>
+        <% next if !org.present? %>
         <div style='display: inline-block; margin: 20px'>
           <div><label> Organization</label><input class='ac_orgs' name='fav_orgs[]' value="<%=user['fav_orgs'].to_a[i]%>"/></div>
           <div><label> Explanation</label><textarea rows=6 name='fav_orgs_text[]'><%=user['fav_orgs_text'].to_a[i]%></textarea></div>
         </div>
       <% end %>
+      <div style='display: inline-block; margin: 20px'>
+          <div><label> Organization</label><input class='ac_orgs' name='fav_orgs[]' placeholder='Add another organization'/></div>
+          <div><label> Explanation</label><textarea rows=6 name='fav_orgs_text[]'></textarea></div>
+        </div>
     </div>
     <!-- <button type='button' onclick=addFavOrg()>Add + </button> -->
   </section>
