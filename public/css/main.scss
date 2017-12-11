@@ -171,17 +171,17 @@ footer {
 }
 
 /* PROFILE */
+.fa-share {
+  cursor: pointer;
+  &:hover {
+    color: #3b5998;
+  };
+}
 .donations_list {
   .single_donation {
     .fa-close { visibility: hidden; }
     &:hover {
       .fa-close { visibility: visible; }
     };
-  }
-  .fa-share {
-    cursor: pointer;
-    &:hover {
-      color: #3b5998;
-    };
-  }
+  }  
 }

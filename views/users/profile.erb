@@ -4,6 +4,9 @@
       <div class='card1 bo1 p10'>
         <img src=<%=user['pic_url']%> style='width:200px'/>
         <h3 class='name'> <%= user['name'] %> <% if user['verified']=='true'%><i style='color:#1da1f2' class='fa fa-check-circle'></i><% end %></h3>
+        
+        <% text = escape_html 'See My Giving Profile' %>
+        <i class='fa fa-share pull-right' onclick='fbShare("<%=text%>")'></i> 
         <div class='address'> <%= user['address'] %> </div>
         <!-- <div class='address'> <%= user['network'].to_s.capitalize %> </div> -->
       </div>
