@@ -71,7 +71,6 @@ their income so they can get the badge (done)
 - causes distribution - by amount of money (not # of orgs)
 - sharing profile (in mockups)
 ---> As many featured organizations / causes as they want
-
 ---> Clean up verified interface (tell us to enter true or false.)
 
 - privacy of donations 
