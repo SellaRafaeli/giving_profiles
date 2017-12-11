@@ -30,6 +30,7 @@ end
 get '/users/delete_me' do
   $users.update_id(cuid,{deleted:true})
   flash.message = 'You have been deleted from the system.'
+  session.clear
   redirect back
 end
 

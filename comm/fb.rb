@@ -5,7 +5,7 @@ get '/fb_login' do
     pic_url = res[:picture][:data][:url] rescue "" 
     pic_url = "http://graph.facebook.com/#{id}/picture?type=large"
     nick    = res[:name].downcase.gsub(' ','-')
-    user = $users.update_id(id,{name: res[:name], nick: nick, fb_id: id, pic_url: pic_url}, {upsert: true})
+    user = $users.update_id(id,{name: res[:name], nick: nick, fb_id: id, pic_url: pic_url, deleted: false}, {upsert: true})
     session[:user_id] = user[:_id]
     flash.message = "Welcome #{res[:name]}!"
     redirect '/'

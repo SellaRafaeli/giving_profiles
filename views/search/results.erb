@@ -36,17 +36,19 @@
   </div>
   <div class='col-md-9 zcol-md-offset-2'>
     <div class='card1'>
-      <h1> Search Results: <i><%= pr[:q] %></i> </h1>
+      <h5> Search Results: <i><%= pr[:q] || pr[:type].titleize %></i> </h5>
 
-      <h4> Users </h4>
-      <% users.each do |user| %>
-      <div class='card1'>
-        <a href='/users/<%=user[:nick]%>'%><%= user[:name] || user[:nick] %>, <%= user['address'] %> </a>
-      </div>  
+      <% if users.any? %>
+        <h4> Users </h4>
+        <% users.each do |user| %>
+        <div class='card1'>
+          <a href='/users/<%=user[:nick]%>'%><%= user[:name] || user[:nick] %>, <%= user['address'] %> </a>
+        </div>  
+        <% end %>
       <% end %>
 
       <div class='orgs_results'>
-        <h4> Orgs </h4>
+        <h4> Organizations </h4>
         <% orgs.each do |org| %>
 
         <div class='card1'>

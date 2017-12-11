@@ -3,7 +3,7 @@
 <form class='form1' action='/settings' method=post style='margin:20px'>
   <h3> Edit Your Details </h3>
   <div><label> Name </label><input name='name' value="<%=user['name']%>"/></div>
-  <div><label> Address </label><input name='address' value="<%=user['address']%>"/></div>
+  <div><label> Location </label><input name='address' value="<%=user['address']%>"/></div>
   <!-- <div><label> Network </label>
     <select name='network'>
       <% ALL_NETWORKS.each do |opt| %>
@@ -11,8 +11,18 @@
       <% end %>
     </select>
   </div> -->
-  <div><label> My Yearly Income </label>$ <input name='yearly_income' value="<%=user['yearly_income']%>" type=number placeholder='50,000'/></div>
+  <div><label> My Yearly Income </label>$ <input name='yearly_income' value="<%=user['yearly_income']%>" type=number placeholder='50,000' class="has_tooltip" title="Contact us to verify your income and receive badges for substantial donations." data-placement=right/> </div>
   <div><label> My Giving Philosophy </label><textarea rows=6 name='philosophy'><%=user['philosophy']%></textarea></div>
+
+  <section>
+    <label> My Featured Cause </label>
+    <select name=fav_cause>
+        <% ORG_TYPES.each do |type| %>
+          <option value='<%=type%>' <%='selected' if user[:fav_cause]==type%>><%=type.titleize%></option>
+        <% end %>
+      </select>
+    <!-- <button type='button' onclick=addFavOrg()>Add + </button> -->
+  </section>
 
   <section>
     <h4> My favorite Organizations </h4>

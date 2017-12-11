@@ -40,19 +40,23 @@
       </div>
       <% end %>
 
-      <%
-        causes_hash = user_causes_hash(user)
-        if causes_hash.any?  
-      %>
+
+      <% if user[:fav_cause] %>
+      <div class='card1'>
+        <h5> My Featured Cause: <%= user[:fav_cause].to_s.titleize %> </h5>
+      </div>
+      <% end %>
+
+      <% if (causes_hash = user_causes_hash(user)).any? %>
         <div class='card1'>
           <div class='ct'>
             <%= erb :'/users/my_causes_graph', locals: {causes_hash: causes_hash} %> 
           </div>
         </div>
-      <% end %>
-      
+      <% end %>      
+
       <div class='card1'>
-        <h5> My Favorite Organizations </h5>
+        <h5> My Favorite Organizations: </h5>
       </div>
       <% user['fav_orgs'].to_a.each_with_index do |org ,i| %>
         <% next if !org.present? %>

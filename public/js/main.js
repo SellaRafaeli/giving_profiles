@@ -35,6 +35,7 @@ function setAutocompletes(){
 $( document ).ready(function() {
 	$.material.init(); //init material design
   setAutocompletes();
+  $('.has_tooltip').tooltip()
 	console.log('done on-document-ready')
 }); 
 

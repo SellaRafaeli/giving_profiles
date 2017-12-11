@@ -57,14 +57,34 @@ next steps (please commnt:
 - embed facebook posts in feed
 
 next steps:
-- UI touches, match design 
+---> settings page: change 'address' name to 'location' (done)
+---> featured organizations -> add 'featured cause' (done)
+their income so they can get the badge (done)
+---> add explanation text in the settings page, telling the user they need us to verify (done)
+---> hide users when searching by org type (done)
+---> custom domain (done, givingprofiles.org)
+- re-sign up: un-delete a profile (done)
+
+---> As many featured organizations / causes as they want
+---> Clean up verified interface (tell us to enter true or false.)
+- UI touches, match design, prettify 
+- safari fixes
 - privacy of donations 
+
 - visualization: by something other than # of orgs? (Perhaps size of donations? Number of donations?)
+- causes distribution - by amount of money (not # of orgs)
+- org types - crowdsourcing
 - additional things to share?
+  - sharing profile (in mockups)
 - FB posts on feed? 
+  - crowd-sourced
 - Analytics - who has used the system and how much? 
 
-116 + 58 = 
+- FAQ section, contact us
+- Any text changes?
+- check email parsing
+
+116 + 58 = ...
 
 
 questions: can you give me:
