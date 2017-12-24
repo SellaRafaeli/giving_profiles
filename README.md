@@ -66,21 +66,22 @@ their income so they can get the badge (done)
 ---> hide users when searching by org type (done)
 ---> custom domain (done, givingprofiles.org)
 - re-sign up: un-delete a profile (done)
-- org types - crowdsourcing
+- org types - crowdsourcing (also crowd-sourcing the website and the facebook page)
 - safari header improvements (done)
 - causes distribution - by amount of money (not # of orgs)
 - sharing profile (in mockups)
 ---> As many featured organizations / causes as they want
 ---> Clean up verified interface (tell us to enter true or false.)
 
-- privacy of donations 
+
+Coming up this week:
 - UI touches, match design, prettify 
 - FB posts on feed? 
-- crowd-sourced
+- privacy of donations 
 - Analytics - who has used the system and how much? 
 - FAQ section, contact us
-- Any text changes?
 - check email parsing
+
 
 116 + 58 = ...
 
