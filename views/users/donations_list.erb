@@ -5,7 +5,7 @@
   <div class='single_donation'>
     <% text = escape_html "I just shared a donation to #{don[:org_name]} on GivingProfiles" %>
     <i class='fa fa-share' onclick='fbShare("<%=text%>")'></i> 
-    <a class='underline' href='/orgs/<%=don[:org_id]%>' style='display: inline; margin:5px'><%= don[:org_name] %></a><%= ", #{don[:amount]} $" if don[:user_id] == cuid %>
+    <a class='underline' href='/orgs/<%=don[:org_id]%>' style='display: inline; margin:5px; margin-right:0'><%= don[:org_name] %></a><%= ", <b>#{don[:amount]}</b> $" if don[:user_id] == cuid %>
     <% if don[:user_id] == cuid %>
     <span onclick='document.location="/donations/delete?id=<%=don[:_id]%>"' class='lightHover'><small><i class='fa fa-close'></i></small>
     </span>
