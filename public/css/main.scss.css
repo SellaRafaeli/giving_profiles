@@ -110,6 +110,8 @@ body, html {
   background-color: #b53e16;
   background-color: #f3c937;
   color: green; }
+  .navbar-header form i:hover, .navbar-collapse form i:hover {
+    color: white !important; }
   .navbar-header a, .navbar-collapse a {
     color: #777; }
   .navbar-header .navbar, .navbar-collapse .navbar {

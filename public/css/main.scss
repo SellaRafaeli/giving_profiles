@@ -84,6 +84,14 @@ $color2: #b53e16;
   background-color: #b53e16;
   background-color: #f3c937; 
 
+  form {
+      i {
+        &:hover {
+          color: white !important;
+        };
+      }
+    }
+
   color: green;
   a {
     color: #777;
@@ -94,7 +102,7 @@ $color2: #b53e16;
     border-radius: 0;
     margin-bottom: 0;
     font-size: 12px;
-    letter-spacing: 5px;
+    letter-spacing: 5px;    
   }
   .icon-bar {
     border-top:1px solid white;
