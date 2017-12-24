@@ -82,8 +82,14 @@ $color2: #b53e16;
 }
 .navbar-header, .navbar-collapse {
   background-color: #b53e16;
+  background-color: #f3c937; 
+
   color: green;
+  a {
+    color: #777;
+  }
   .navbar {
+    color: #777 !important;
     border: 0;
     border-radius: 0;
     margin-bottom: 0;

@@ -108,8 +108,12 @@ body, html {
 
 .navbar-header, .navbar-collapse {
   background-color: #b53e16;
+  background-color: #f3c937;
   color: green; }
+  .navbar-header a, .navbar-collapse a {
+    color: #777; }
   .navbar-header .navbar, .navbar-collapse .navbar {
+    color: #777 !important;
     border: 0;
     border-radius: 0;
     margin-bottom: 0;

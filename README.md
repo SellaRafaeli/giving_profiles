@@ -59,29 +59,32 @@ next steps (please commnt:
 next steps:
 done
 ====
----> settings page: change 'address' name to 'location' (done)
----> featured organizations -> add 'featured cause' (done)
-their income so they can get the badge (done)
----> add explanation text in the settings page, telling the user they need us to verify (done)
----> hide users when searching by org type (done)
----> custom domain (done, givingprofiles.org)
-- re-sign up: un-delete a profile (done)
-- org types - crowdsourcing (also crowd-sourcing the website and the facebook page)
-- safari header improvements (done)
-- causes distribution - by amount of money (not # of orgs)
-- sharing profile (in mockups)
----> As many featured organizations / causes as they want
----> Clean up verified interface (tell us to enter true or false.)
-
+1. settings page: change 'address' name to 'location' 
+2. featured organizations -> add 'featured cause' 
+their income so they can get the badge 
+3. add explanation text in the settings page, telling the user they need us to verify 
+4. hide users when searching by org type 
+5. custom domain 
+6. on re-sign up: un-delete a profile 
+7. org types - crowdsourced (as well as website and facebook page)
+8. safari header improvements
+9. causes distribution - by amount of money (not # of orgs)
+10. Profile can also be shared 
+11. User can enter as many featured organizations / causes as they want
+12. "Verified" interface - added on-screen explanation text as to how to use it
 
 Coming up this week:
-- UI touches, match design, prettify 
-- FB posts on feed? 
-- privacy of donations 
-- Analytics - who has used the system and how much? 
-- FAQ section, contact us
-- check email parsing
-
+1. UI touches, match design, prettify 
+2. FB posts on feed (with crowd-sourced FB pages)
+3. FAQ section, contact us
+4. privacy of donations 
+5. Check email parsing
+- magnifying glass: lead to search page
+- org page: separate section to edit organization's info 
+- share profile: fix on Safari 
+- settings page: add featured cause/org
+  - choose cause/org from the ones you have already donated to (and haven't already selected) - from the ones you have donated to. 
+  - be able to order them 
 
 116 + 58 = ...
 
