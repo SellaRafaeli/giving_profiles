@@ -1,17 +1,33 @@
-<section class='feed col-md-6 col-md-offset-3'>
-  <h1> Donations in your Network </h1>
+<style>
+.fb-page {
+  margin-bottom:20px;
+  background-color: white;
+  padding: 15px;
+  margin-top: 25px;
+  border: 1px #d6d6d6 solid;
+  border-radius: 3px;
+}
+</style>
+<section class='feed col-md-6'>
+  <h1> News in your Network </h1>
+  
+  <%   
+    pages = my_feed_orgs
+    pages.each do |page|
+  %>
+    <div class="fb-page" data-href="https://www.facebook.com/<%=page%>" 
+    data-tabs="timeline" 
+    data-small-header="true" 
+    data-adapt-container-width="true" 
+    data-hide-cover="true" 
+    data-show-facepile="false">
+    </div>
+    <% end %>
+</section>
 
-<% if false %>
-  <div class="fb-page" data-href="https://www.facebook.com/wwf" 
-  data-tabs="timeline" 
-  data-small-header="true" 
-  data-adapt-container-width="true" 
-  data-hide-cover="true" 
-  data-show-facepile="false">
-  <blockquote cite="https://www.facebook.com/wwf" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote>
-  </div>
-<% end %>
-  <% my_network_donations.each do |don| %>
+<section class='feed col-md-6'>
+  <h1> Donations in your Network </h1>
+  <% (my_network_donations * 50).each do |don| %>
   <% u = $users.get(don['user_id']) || {name: 'Somebody'} %>
   <% org = $orgs.get(don['org_id']) || {name: 'A private organization.'} %>
   <div class='card1' style='text-align: left'>
@@ -27,6 +43,4 @@
     </div>
   </div>
   <% end %>
-
-
-</div>
+</section>
