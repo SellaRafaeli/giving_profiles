@@ -1,14 +1,14 @@
 <section class='profile'>
   <div class=row>
     <div class='col-md-3 col-xs-12'>
-      <div class='card1 bo1 p10'>
+      <div class='card1 bo1 p10' style='position: relative'>
         <div class='ct'>
           <img src=<%=user['pic_url']%> style='width:200px'/>
         </div>
         <h3 class='name'> <%= user['name'] %> <% if user['verified']=='true'%><i style='color:#1da1f2' class='fa fa-check-circle'></i><% end %></h3>
         
         <% text = escape_html 'See My Giving Profile!' %>
-        <i class='fa fa-share pull-right' onclick='fbShare("<%=text%>")'></i> 
+        <i class='fa fa-share pull-right' onclick='fbShare("<%=text%>")' style='position: absolute; right: 10px; bottom: 10px;'></i>
         <div class='address'> <%= user['address'] %> </div>
         <!-- <div class='address'> <%= user['network'].to_s.capitalize %> </div> -->
       </div>

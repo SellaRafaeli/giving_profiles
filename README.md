@@ -78,11 +78,12 @@ Coming up this week:
 2. FB posts on feed (with crowd-sourced FB pages)
 3. FAQ section, contact us
 - magnifying glass: lead to search page
-
 - org page: separate section to edit organization's info 
+- share profile: fix on Safari 
+
 4. privacy of donations 
 5. Check email parsing
-- share profile: fix on Safari 
+
 - settings page: add featured cause/org
   - choose cause/org from the ones you have already donated to (and haven't already selected) - from the ones you have donated to. 
   - be able to order them 
