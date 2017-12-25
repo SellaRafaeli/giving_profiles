@@ -23,6 +23,12 @@ get '/search/orgs' do
   {suggestions: search_orgs.mapo('name')}
 end
 
+get '/search/my_orgs' do
+  q= params[:q] ||= pr[:query]
+  orgs = my_donated_orgs.mapo('name').select {|name| name.downcase.include?(q.to_s.downcase)}
+  {suggestions: orgs}
+end
+
 get '/search/ajax' do
   params[:q] ||= pr[:query]
   results = search_users.mapo('name') + search_orgs.mapo('name')

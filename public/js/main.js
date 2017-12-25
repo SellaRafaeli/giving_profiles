@@ -22,6 +22,10 @@ function setAutocompletes(){
   $('.ac_orgs').autocomplete({
     serviceUrl: '/search/orgs',
   })
+
+  $('.ac_my_orgs').autocomplete({
+    serviceUrl: '/search/my_orgs',
+  })
   // $('.ac').each((idx,el)=>{
   //   var el = $(el);
   //   console.log(el);
@@ -37,5 +41,6 @@ $( document ).ready(function() {
   setAutocompletes();
   $('.has_tooltip').tooltip()
 	console.log('done on-document-ready')
+  $('.sortable').sortable();
 }); 
 

@@ -27,17 +27,20 @@
   <section>
     <h4> My favorite Organizations </h4>
     <div class='fav_orgs_list'>
+      <ul style='list-style:none' class='sortable'>
       <% user['fav_orgs'].to_a.each_with_index do |org,i| %>
         <% next if !org.present? %>
-        <div style='display: inline-block; margin: 20px'>
-          <div><label> Organization</label><input class='ac_orgs' name='fav_orgs[]' value="<%=user['fav_orgs'].to_a[i]%>"/></div>
+        <li style='list-style:none'>
+        <div style='display: inline-block; margin: 20px;  background-color:lightgrey; padding:10px'>
+          <div><label> Organization</label><input class='ac_my_orgs' name='fav_orgs[]' value="<%=user['fav_orgs'].to_a[i]%>"/></div>
           <div><label> Explanation</label><textarea rows=6 name='fav_orgs_text[]'><%=user['fav_orgs_text'].to_a[i]%></textarea></div>
+          <button type='button' class='btn btn-small btn-danger' onclick="$(this).closest('li').remove()">delete</button>
         </div>
+
+        </li>
       <% end %>
-      <div style='display: inline-block; margin: 20px'>
-          <div><label> Organization</label><input class='ac_orgs' name='fav_orgs[]' placeholder='Add another organization'/></div>
-          <div><label> Explanation</label><textarea rows=6 name='fav_orgs_text[]'></textarea></div>
-        </div>
+      </ul>
+      <button type='button' class='btn btn-small btn-raised btn-info pull-right' onclick=addFavOrg()>Add Favorite Org</button>
     </div>
     <!-- <button type='button' onclick=addFavOrg()>Add + </button> -->
   </section>
@@ -53,7 +56,13 @@
 
 <script>
 function addFavOrg(){
-  $('.fav_orgs_list').append(
-       '<div><label> Org</label><input class=\'ac_orgs\' name="fav_orgs[]"/></div><div><label> Explanation</label><textarea rows=6 name=\'fav_org_text\'></textarea></div>')
+  var z = $('.fav_orgs_list li').last().clone()
+  $(z).find('textarea').val('')
+  $(z).find('input').val('')
+  $('.fav_orgs_list ul').append(z);
+
+  $('.ac_my_orgs').autocomplete({
+    serviceUrl: '/search/my_orgs',
+  })
 }
 </script>
