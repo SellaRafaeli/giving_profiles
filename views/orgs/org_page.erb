@@ -27,31 +27,8 @@ x=1
 </div>
 
 
-<form class='form1' action='/org/<%=org[:_id]%>' method=post>
-  <h3> Edit Organization Details </h3>  
-    <div><label> Type </label>
-      <select name=type>
-        <% ORG_TYPES.each do |type| %>
-          <option value='<%=type%>' <%='selected' if org[:type]==type%>><%=type.titleize%></option>
-        <% end %>
-      </select>
-    </div>
-  <% if is_admin %>
-  <div><label> Name </label><input name='name' value="<%=org['name']%>"/></div>
-  <div><label> Website </label><input name='url' value="<%=org['url']%>"/></div>
-  <div><label> Facebook Page: https://facebook.com/</label><input name='facebook_page' value="<%=org['facebook_page']%>"/></div>
-  <% end %>
-  <button class="<%=b1%>">Submit</button>
-</form>
-
-<% if is_admin %>
-<hr/>
-<form class='form1' action='/orgs/add' method=post>
-  <h3> Admin: Add New Org </h3>
-  <div><label> Name </label><input name='name' /></div>
-  <button class="<%=b1%>">Submit</button>
-</form>
-<% end %>
-
+<div>
+<a class='btn btn-warning btn-raised' href='/orgs/edit/<%=org[:_id]%>'>Edit</a>
+</div>
 
 </section>

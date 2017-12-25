@@ -21,7 +21,13 @@ get '/orgs/:id' do
   erb :'/orgs/org_page', locals: {org: org}, layout: :layout
 end
 
-post '/org/:id' do
+get '/orgs/edit/:id' do
+  org = $orgs.get(pr[:id]) 
+  erb :'/orgs/edit_org_page', locals: {org: org}, layout: :layout
+end
+
+
+post '/orgs/:id' do
   $orgs.update_id(pr[:id],pr.just(ORG_FIELDS))
   flash_and_back('Thanks!')
 end
