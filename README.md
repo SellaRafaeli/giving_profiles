@@ -84,6 +84,10 @@ Coming up this week:
 4. privacy of donations 
 5. Check email parsing
 
+- org edit: let anyone edit website and facebook page 
+- fix for user with no favorite organizations
+- fix database 
+
 - settings page: add featured cause/org
   - choose cause/org from the ones you have already donated to (and haven't already selected) - from the ones you have donated to. 
   - be able to order them 
