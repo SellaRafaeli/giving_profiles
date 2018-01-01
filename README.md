@@ -132,10 +132,9 @@ List of charities - the link you sent, as far as I can tell, will not give us a 
 - privacy of donations 
 
 todo
-- make 'login_as' route
 - Check email parsing
 - exporting 
 - new search layout 
-
+- more design touches? I can do this myself. 
 
 $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'
