@@ -6,11 +6,12 @@
           <option value='<%=type%>' <%='selected' if org[:type]==type%>><%=type.titleize%></option>
         <% end %>
       </select>
-    </div>
-  <% if is_admin %>
-  <div><label> Name </label><input name='name' value="<%=org['name']%>"/></div>
+    </div>  
   <div><label> Website </label><input name='url' value="<%=org['url']%>"/></div>
   <div><label> Facebook Page: https://facebook.com/</label><input name='facebook_page' value="<%=org['facebook_page']%>"/></div>
+  <% if is_admin %>
+  <h6> (admin-only) </h6>
+  <div><label> Change Name </label><input name='name' value="<%=org['name']%>"/></div>
   <% end %>
   <button class="<%=b1%>">Submit</button>
 </form>

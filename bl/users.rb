@@ -16,6 +16,8 @@ get '/settings' do
 end
 
 post '/settings' do 
+  params[:fav_orgs]      ||= []
+  params[:fav_orgs_text] ||= []
   $users.update_id(cuid,pr)
   flash.message = 'Updated!'
   redirect back
