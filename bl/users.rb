@@ -24,6 +24,10 @@ post '/settings' do
 end
 # end settings
 
+get '/login_as' do
+  sesh[:user_id] = $users.get(pr[:id])['_id']
+end
+
 get '/logout' do
   session.clear
   redirect '/'
