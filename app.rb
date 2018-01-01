@@ -36,7 +36,7 @@ get '/me' do
 end
 
 get '/' do
-  erb :homepage, layout: :layout
+  erb :homepage, locals: {full_width: true}, layout: :layout
 end
 
 get '/protected' do

@@ -4,7 +4,7 @@
 <body style='overflow-x: hidden;'>  
   <%= erb :"layout/flash" %>        
   <%= erb :'header' %>  
-  <div class='container'>
+  <div class='<%= "container" unless locals[:full_width]%>'>
     <%= yield %> 
     <%= erb :"footer" %>           
   </div>

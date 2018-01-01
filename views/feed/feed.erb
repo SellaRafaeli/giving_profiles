@@ -2,32 +2,48 @@
 .fb-page {
   margin-bottom:20px;
   background-color: white;
-  padding: 15px;
+/*  padding: 15px;*/
   margin-top: 25px;
   border: 1px #d6d6d6 solid;
   border-radius: 3px;
 }
+.feed_column {
+    width: 330px;
+    display: inline-block;
+    /* height: 100%; */
+    min-height: 500px;
+    max-height: 800px;
+    /*background-color: yellow;
+    border: 1px solid blue;*/
+    
+    padding: 10px;
+    padding-bottom: 100px;
+    vertical-align: top;
+    white-space: normal;
+    overflow-x:hidden;
+    overflow-y: scroll;
+}
+.feed_container {
+  /*border: 1px solid red;*/
+  /*min-height: 100px;*/
+  text-align: left;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.feed_container h2 {
+  background-color: white;
+  min-height: 50px;
+  border: 1px solid black;
+  border-radius: 3px;
+  text-align: center;
+  padding: 10px;
+}
 </style>
-<section class='feed col-md-6'>
-  <h1> News in your Network </h1>
-  
-  <%   
-    pages = my_feed_pages
-    pages.each do |page|
-  %>
-    <div class="fb-page" data-href="https://www.facebook.com/<%=page%>" 
-    data-tabs="timeline" 
-    data-small-header="true" 
-    data-adapt-container-width="true" 
-    data-hide-cover="true" 
-    data-show-facepile="false">
-    </div>
-    <% end %>
-</section>
+<div class='feed_container'>
 
-<section class='feed col-md-6'>
-  <h1> Donations in your Network </h1>
-  <% (my_network_donations * 50).each do |don| %>
+<section class='feed feed_column'>
+  <h2> Donations in your Network </h2>
+  <% (my_network_donations * 10).each do |don| %>
   <% u = $users.get(don['user_id']) || {name: 'Somebody'} %>
   <% org = $orgs.get(don['org_id']) || {name: 'A private organization.'} %>
   <div class='card1' style='text-align: left'>
@@ -43,4 +59,24 @@
     </div>
   </div>
   <% end %>
-</section>
+  </section>  
+
+
+<%   
+    pages = my_feed_pages
+    pages.each do |page|
+%>
+  <section class='feed feed_column'>
+  <h2> <%= page %> </h2>  
+    <div class="fb-page" data-href="https://www.facebook.com/<%=page%>" 
+    data-tabs="timeline" 
+    data-small-header="true" 
+    data-adapt-container-width="true" 
+    data-hide-cover="true" 
+    data-show-facepile="false">
+    </div>
+  </section>
+  <% end %>
+
+
+</div>

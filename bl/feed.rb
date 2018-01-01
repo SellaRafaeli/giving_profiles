@@ -13,6 +13,7 @@ def my_donated_orgs
 end
 
 def my_feed_pages
+  #return ['wwe', 'wwf'] * 3
   fb_pages = my_donated_orgs.mapo('facebook_page').compact.uniq
 end
 
