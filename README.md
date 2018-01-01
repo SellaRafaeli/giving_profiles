@@ -129,13 +129,13 @@ List of charities - the link you sent, as far as I can tell, will not give us a 
 - fix database 
 - set production db (another 18$ per month)
 - new feed layout
+- privacy of donations 
 
 todo
 - make 'login_as' route
-4. privacy of donations 
-5. Check email parsing
-- exporting 
 
+- Check email parsing
+- exporting 
 - new search layout 
 
 

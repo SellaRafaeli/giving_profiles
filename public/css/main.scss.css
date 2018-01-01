@@ -42,6 +42,9 @@ body, html {
   align-items: center;
   display: flex; }
 
+.cf {
+  clear: both; }
+
 .bo1 {
   border: 1px solid black; }
 

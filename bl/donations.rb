@@ -44,9 +44,20 @@ post '/donations' do
   redirect back
 end
 
+post '/donations/:id/edit' do
+  params['private'] = false if pr[:private]=="false"
+  params['private'] = true if pr[:private]=="true"
+  $donations.update_id(pr[:id],pr)
+  {msg: 'ok'}
+end
+
 get '/donations/delete' do
   don = $donations.get(pr[:id])
   halt unless don[:user_id] == cuid
   $donations.delete_one(_id: pr[:id])
   flash_and_back('Donation deleted.')
+end
+
+get '/my_donations_privacy_settings'  do
+  erb :'user_settings/my_donations_privacy_settings', default_layout
 end

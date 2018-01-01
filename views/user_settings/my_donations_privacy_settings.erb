@@ -1,0 +1,45 @@
+<%
+donations = user_donations(cuid)
+%>
+
+<style>
+.single_don {
+  margin:25px;
+}
+.org_name {
+  font-weight: bold;
+  width:200px;
+  padding:10px;
+  background-color: white;
+}
+.org_amount {
+  font-weight: bold;
+  background-color:white;
+  padding:10px;
+}
+.private {
+  color: red;
+}
+</style>
+<h1> My Donations Privacy Settings </h1>
+
+<% donations.each do |don| %>
+<div class='single_don'>
+<span class='zpull-left'>
+  <span class='org_name <%= "private" if don['private']%>'><%= don['org_name'] %></span> <span class='org_amount'>$<%= don['amount'] %></span> <%= nice_datetime don['created_at'] %> 
+</span>
+<span class='zpull-right'>
+  <button class='btn btn-warning' onclick=makePrivate(true,this,"<%=don[:_id]%>")>Make private</button><button class='btn btn-info' onclick=makePrivate(false,this,"<%=don[:_id]%>")>Make public</button>
+</span>
+</div>
+
+<% end %>
+
+<script>
+function makePrivate(private,elem,id) {
+  el = $(elem).closest('.single_don').find('.org_name')
+  if (private) el.addClass('private');
+  else el.removeClass('private');
+  $.post(`/donations/${id}/edit`,{private: private})
+}
+</script>

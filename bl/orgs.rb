@@ -1,4 +1,9 @@
+if $prod
 $orgs = $mongo.collection('orgs2')
+else
+$orgs = $mongo.collection('orgs')
+end
+
 
 $orgs.ensure_index('name') rescue nil
 ORG_FIELDS = [:name, :type, :url, :facebook_page]
@@ -10,7 +15,7 @@ def create_org(name)
 end
 
 def org_donors(org)
-  other_donors_ids = $donations.all(org_id: org[:_id]).mapo('user_id')
+  other_donors_ids = $donations.all(org_id: org[:_id], private: {'$ne': true}).mapo('user_id')
   other_donors     = $users.get_many(_id: {'$in': other_donors_ids})
   other_donors
 end

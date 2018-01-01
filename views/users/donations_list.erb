@@ -2,12 +2,13 @@
   <h3> My Donations </h3>
   <% donations.each do |don| %>
 
-  <div class='single_donation'>
+  <% next if don['private'] && don[:user_id]!=cuid %>
+  <div class='single_donation' style='margin:10px auto'>
     <% text = escape_html "I just shared a donation to #{don[:org_name]} on GivingProfiles" %>
     <i class='fa fa-share' onclick='fbShare("<%=text%>")' style='float:left'></i> 
-    <a class='underline' href='/orgs/<%=don[:org_id]%>' style='display: inline; margin:5px; margin-right:0'><%= don[:org_name] %></a><%= ", <b>#{don[:amount]}</b> $" if don[:user_id] == cuid %>
+    <a class='underline' href='/orgs/<%=don[:org_id]%>' style='display: inline; margin:5px; margin-right:0'><%= don[:org_name] %></a><%= ", <b>$#{don[:amount]}</b>" if don[:user_id] == cuid %>
     <% if don[:user_id] == cuid %>
-    <span onclick='document.location="/donations/delete?id=<%=don[:_id]%>"' class='lightHover'><small><i class='fa fa-close'></i></small>
+    <span onclick='document.location="/donations/delete?id=<%=don[:_id]%>"' class='lightHover'><small><% if don['private']%><i class='fa fa-eye has_tooltip' title="This donation is private; others cannot see it."></i><% end %> <i class='fa fa-close'></i></small>
     </span>
     <% end %>
   </div>  
