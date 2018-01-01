@@ -121,20 +121,19 @@ Privacy Settings:
 List of charities - the link you sent, as far as I can tell, will not give us a list of charities, but we can find those elsewhere. For example https://en.wikipedia.org/wiki/List_of_charitable_foundations or https://www.forbes.com/top-charities/list/2/#tab:rank. These will give us about 200 organizations, and we can add more. I suggest then to start with one of these lists and allow admins (like you or someone on your behalf) to add more, later on. And in the meantime, users will only be able to choose from the list we create (and if we choose, we can later let them add their own organizations).
 
 >> things done for 1.1.18
-- “Profiles (Erez Yoeli) —> My Profile”
+- 'Profiles (Erez Yoeli) —> My Profile'
 - Eliminate black outlines everywhere, as in mockups
-- Record a giving —> record a donation
+- 'Record a giving' —> 'record a donation'
 - org edit: let anyone edit website and facebook page 
 - fix 'add fav org' for user with no favorite organizations
-- fix database 
-- set production db (another 18$ per month)
+- fix database, set production db (another 18$ per month)
 - new feed layout
-- privacy of donations 
+- privacy of donations (via settings page)
 
-todo
-- Check email parsing
-- exporting 
-- new search layout 
-- more design touches? I can do this myself. 
+coming up 
+- new search layout ? let's discuss
+- email parsing
+- exporting data
+- more design touches? I can try to get a UI designer myself
 
 $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'
