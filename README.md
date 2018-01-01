@@ -128,13 +128,14 @@ List of charities - the link you sent, as far as I can tell, will not give us a 
 - fix 'add fav org' for user with no favorite organizations
 - fix database 
 - set production db (another 18$ per month)
+- new feed layout
 
 todo
 - make 'login_as' route
 4. privacy of donations 
 5. Check email parsing
 - exporting 
-- new feed layout
+
 - new search layout 
 
 

@@ -1,4 +1,4 @@
-$orgs = $mongo.collection('orgs')
+$orgs = $mongo.collection('orgs2')
 
 $orgs.ensure_index('name') rescue nil
 ORG_FIELDS = [:name, :type, :url, :facebook_page]
