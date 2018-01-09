@@ -147,6 +147,8 @@ List of charities - the link you sent, as far as I can tell, will not give us a 
 - feed columns: make our donations list look like FB page; 
 - orgs page - remove the header. 
 
+- fix 'fb refresh' bug: fix involved in a performance regression; suggest still trying.
+- donations: add privacy level per all organizations (plus tabs for "by donation" and "by organization"). And make 'non-private' also in 'blue' (match the colors). Private organizations will only show up for that user (in donations list, org page donors list, search results.)
 
 coming up 
 - new search layout ? let's discuss
@@ -154,9 +156,6 @@ coming up
 - email parsing
 - exporting data
 - more design touches? I can try to get a UI designer myself
-- donations: add privacy level per all organizations (plus tabs for "by donation" and "by organization"). And make 'non-private' also in 'blue' (match the colors) 
-
-- fix 'fb refresh' bug 
 - contact us, about us, privacy 
 
 $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'

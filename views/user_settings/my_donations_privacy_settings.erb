@@ -4,7 +4,7 @@ donations = user_donations(cuid)
 
 <style>
 .single_don {
-  margin:25px;
+/*  margin:25px;*/
 }
 .org_name {
   font-weight: bold;
@@ -17,23 +17,55 @@ donations = user_donations(cuid)
   background-color:white;
   padding:10px;
 }
-.private {
+.org_name {
+  color: #03a9f4
+}
+.org_name.private {
   color: red;
 }
 </style>
-<h1> My Donations Privacy Settings </h1>
 
-<% donations.each do |don| %>
-<div class='single_don'>
-<span class='zpull-left'>
-  <span class='org_name <%= "private" if don['private']%>'><%= don['org_name'] %></span> <span class='org_amount'>$<%= don['amount'] %></span> <%= nice_datetime don['created_at'] %> 
-</span>
-<span class='zpull-right'>
-  <button class='btn btn-warning' onclick=makePrivate(true,this,"<%=don[:_id]%>")>Make private</button><button class='btn btn-info' onclick=makePrivate(false,this,"<%=don[:_id]%>")>Make public</button>
-</span>
-</div>
 
-<% end %>
+<h3> My Donations Privacy Settings </h3>
+<a class='btn btn-raised' onclick="$('.privacy_by_donation').hide(); $('.privacy_by_org').show();"> By Organization </a>
+<a class='btn btn-raised' onclick="$('.privacy_by_donation').show(); $('.privacy_by_org').hide();"> By Donation </a>
+
+  <section class='privacy_by_org'>
+  <h5> Privacy of Specific Organizations </h5>
+  <% orgs = my_donated_orgs %>
+  
+  <% orgs.each do |org| %>
+    <div class='single_org_privacy'> 
+      <span>
+        <span class='org_name <%= "private" if is_org_private(org,cu)%>'> <%= org['name'] %></span>
+      </span>
+      <span>
+        <button class='btn btn-warning' onclick=makeOrgPrivate(true,this,"<%=org[:_id]%>")>Make private</button><button class='btn btn-info' onclick=makeOrgPrivate(false,this,"<%=org[:_id]%>")>Make public</button>
+    </span>
+    </div>
+  <% end %>
+  </section>
+
+
+  <section class='privacy_by_donation noDisplay'> 
+  <h5> Privacy of Specific Donations </h5> 
+    <% donations.each do |don| %>
+    <div class='single_don'>
+      <span class='zpull-left'>
+        <span class='org_amount'>$<%= don['amount'] %></span> 
+        <span><%= nice_datetime don['created_at'] %></span>
+        <span class='org_name <%= "private" if don['private']%>'><%= don['org_name'] %></span> 
+      </span>
+      <span class='zpull-right'>
+        <button class='btn btn-warning' onclick=makePrivate(true,this,"<%=don[:_id]%>")>Make private</button><button class='btn btn-info' onclick=makePrivate(false,this,"<%=don[:_id]%>")>Make public</button>
+      </span>
+    </div>
+    <% end %>
+  </section>
+
+
+
+
 
 <script>
 function makePrivate(private,elem,id) {
@@ -41,5 +73,12 @@ function makePrivate(private,elem,id) {
   if (private) el.addClass('private');
   else el.removeClass('private');
   $.post(`/donations/${id}/edit`,{private: private})
+}
+
+function makeOrgPrivate(private,elem,id) {
+  el = $(elem).closest('.single_org_privacy').find('.org_name')
+  if (private) el.addClass('private');
+  else el.removeClass('private');
+  $.post(`/orgs/make_private/${id}`,{private: private})
 }
 </script>

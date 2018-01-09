@@ -2,7 +2,10 @@
   <h3> My Donations </h3>
   <% donations.each do |don| %>
 
+  <% don['private'] = true if is_org_id_private(don['org_id'],don[:user_id]) %>
+
   <% next if don['private'] && don[:user_id]!=cuid %>
+
   <div class='single_donation' style='margin:10px auto'>
     <% text = escape_html "I just shared a donation to #{don[:org_name]} on GivingProfiles" %>
     <i class='fa fa-share' onclick='fbShare("<%=text%>")' style='float:left'></i> 
