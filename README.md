@@ -149,13 +149,12 @@ List of charities - the link you sent, as far as I can tell, will not give us a 
 
 - fix 'fb refresh' bug: fix involved in a performance regression; suggest still trying.
 - donations: add privacy level per all organizations (plus tabs for "by donation" and "by organization"). And make 'non-private' also in 'blue' (match the colors). Private organizations will only show up for that user (in donations list, org page donors list, search results.)
+- new search layout: list of causes, list of badges, popular organizations
 
 coming up 
-- new search layout ? let's discuss
-  - list of causes, list of badges, popular organizations
-- email parsing
+- email parsing research (seems as difficult as I suspected)
 - exporting data
-- more design touches? I can try to get a UI designer myself
 - contact us, about us, privacy 
+- more design touches? I can try to get a UI designer myself
 
 $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'
