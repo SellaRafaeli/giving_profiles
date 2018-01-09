@@ -60,6 +60,9 @@ body, html {
 .fullHeight {
   height: 100%; }
 
+.w30 {
+  width: 30px; }
+
 .underline {
   text-decoration: underline; }
 

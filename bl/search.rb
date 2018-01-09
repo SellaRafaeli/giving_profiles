@@ -15,7 +15,11 @@ def search_orgs
 end
 
 get '/search' do
-  erb :'/search/results', locals: {users: search_users, orgs: search_orgs}, layout: :layout
+  if (!pr[:q] && !pr[:type])
+    erb :'/search/initial_search', layout: :layout
+  else 
+    erb :'/search/results', locals: {users: search_users, orgs: search_orgs}, layout: :layout
+  end
 end
 
 get '/search/orgs' do

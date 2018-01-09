@@ -26,6 +26,13 @@ rescue => e
   {}
 end
 
+def top_orgs_by_donations(n=8)
+  h = {}
+  $donations.all.each {|don| h[don['org_id']] ||= 0; h[don['org_id']]+=don['amount'].to_f }
+  h2 = h.sort_by{|k,v| -v}
+  h2[0..n].to_h
+end
+
 post '/donations' do
   amount = pr[:amount].to_i
   data   = pr.just(DONATION_FIELDS)

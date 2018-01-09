@@ -1,0 +1,39 @@
+<div class='card1 ct'>
+  <h3> Search </h3>
+
+  <div class='row'>
+    <div class='col-md-12 ct'>
+      <input class=ac style='font-size:16px; width:400px' autofocus="" placeholder="Search for people or organizations" />
+    </div>
+  </div>
+
+  <div class='row' style='margin-top:10px'>
+    <div class='col-md-4 ct'>
+      <h3> Causes </h3>
+      <section>
+        <% ORG_TYPES.each do |type| %>
+          <div> <a class='btn btn-primary' href='/search?type=<%=type%>'><%=type.titleize%></a> </div>
+        <% end %>
+      </section>
+    </div>
+
+    <div class='col-md-4 ct'>
+      <div><h3> Badges </h3></div>
+      <div class='badges'>
+        <img src='/img/badge1.jpeg' class=w30 />
+        <figcaption>Donates over 10% of his yearly income</figcaption>
+      </div>
+    </div>
+
+    <div class='col-md-4 ct'>
+      <h3> Top Organizations </h3>
+      <h5> (By total donated amount) </h5>
+      <% orgs = top_orgs_by_donations %>
+      <% orgs.each_pair do |org_id, total| %>
+      <% org = $orgs.get(org_id) %>
+      <div><a class='btn btn-info' style='white-space: pre-wrap' href='/orgs/<%=org['_id']%>'><%= org['name']%> ($<%=total%>)</a></div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
