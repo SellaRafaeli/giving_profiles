@@ -34,7 +34,7 @@ $color2: #b53e16;
 .underline {text-decoration: underline}
 .overlay {}
 .lightHover:hover { color: red; filter: brightness(150%); cursor: pointer;}
-
+.sortable { cursor: move }  
 /*app classes*/
 .profile-pic-1 {
   height: 60px;
@@ -72,7 +72,7 @@ $color2: #b53e16;
   input, textarea {
     width:300px;
     resize: vertical;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
   }
 }
 

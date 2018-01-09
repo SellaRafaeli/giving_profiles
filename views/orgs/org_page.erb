@@ -3,7 +3,7 @@
 x=1
 %>
 <section class='org_page ct col-md-8 col-md-offset-2'>
-<h1> <%= org[:name]%>'s Organization Page </h1>
+<h1> <%= org[:name]%> </h1>
 <h4><%=org['type'].to_s.titleize || 'No Type' %> <a href='http://<%=org['website']%>'><%=org['url'] %></a></h4>
 
 <% if false %>

@@ -33,7 +33,7 @@
 .feed_container h2 {
   background-color: white;
   min-height: 50px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   border-radius: 3px;
   text-align: center;
   padding: 10px;
@@ -42,23 +42,25 @@
 <div class='feed_container'>
 
 <section class='feed feed_column'>
-  <h2> Donations in your Network </h2>
-  <% (my_network_donations * 1).each do |don| %>
-  <% u = $users.get(don['user_id']) || {name: 'Somebody'} %>
-  <% org = $orgs.get(don['org_id']) || {name: 'A private organization.'} %>
-  <div class='card1' style='text-align: left'>
-    <%#= don.to_json %>
-    <div class='single_feed_item row'>
-      <div class='col-md-3 ct '>
-        <img src='<%=u['pic_url']%>' class='profile-pic-1'>
+  <h2 style=''> Your Network </h2>
+  <div style='height:500px; margin-top:25px; overflow-y: scroll'>
+    <% (my_network_donations * 10).each do |don| %>
+    <% u = $users.get(don['user_id']) || {name: 'Somebody'} %>
+    <% org = $orgs.get(don['org_id']) || {name: 'A private organization.'} %>
+    <div class='card1' style='text-align: left; padding: 0 auto 20 auto;'>
+      <%#= don.to_json %>
+      <div class='single_feed_item row'>
+        <div class='col-md-3 ct '>
+          <img src='<%=u['pic_url']%>' class='profile-pic-1'>
+        </div>
+        <div class='col-md-9' style='font-size:18px'>
+          <div> <a href='/users/<%=u['nick']%>'><%=u['name']%></a> donated to <a href='/orgs/<%=org['_id']%>'><%= org['name'] %></a></div>
+          <div class='fr' style='margin-top:8px'> <%= don['created_at'].strftime("%A, %d %b %Y %l:%M %p")%></div>
+        </div>      
       </div>
-      <div class='col-md-9' style='font-size:18px'>
-        <div> <a href='/users/<%=u['nick']%>'><%=u['name']%></a> donated to <a href='/orgs/<%=org['_id']%>'><%= org['name'] %></a></div>
-        <div class='fr' style='margin-top:8px'> <%= don['created_at'].strftime("%A, %d %b %Y %l:%M %p")%></div>
-      </div>      
     </div>
+    <% end %>
   </div>
-  <% end %>
   </section>  
 
 

@@ -1,13 +1,12 @@
 <footer class="container-fluid footer-color text-center" style='direction: ltr'>
-  <span> 2017 <i class='fa fa-copyright'></i> GivingProfiles.org
+  <a href="#"> 2017 <i class='fa fa-copyright'></i> </a>
   <% if cu %>
-    <a href="/users/<%=cu['nick']%>">Me (<%=cu['nick']%>)</a>
-    <a href="/logout">Log Out</a>
+<!--     <a href="/users/<%=cu['nick']%>">Me (<%=cu['nick']%>)</a> -->
+    <!-- <a href="/logout">Log Out</a> -->
   <% end %>
     <% if true %>
-      <a href="/faq">FAQ</a>    
+      <a href="/about">About Us</a>    
       <a href="/contact">Contact Us</a>      
-      <a style="color:blue;" href="/admin/dashboard"> Admin </a>
     <% end %>
   </span> 
 </footer>

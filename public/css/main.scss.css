@@ -68,6 +68,9 @@ body, html {
   filter: brightness(150%);
   cursor: pointer; }
 
+.sortable {
+  cursor: move; }
+
 /*app classes*/
 .profile-pic-1 {
   height: 60px;
@@ -103,7 +106,7 @@ body, html {
 .form1 input, .form1 textarea {
   width: 300px;
   resize: vertical;
-  border: 1px solid black; }
+  /*border: 1px solid black;*/ }
 
 /*areas of the site */
 .alert.alert-dismissible {

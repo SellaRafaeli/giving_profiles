@@ -1,12 +1,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+.nav.navbar-nav a {
+  text-align: center;
+  width: 100px;
+}
+.nav.navbar-nav a.chosen {
+  font-weight: bold
+}
 </style>
 
 <script>
   window.cu = <%= cu.to_json %>;
 </script>
 <nav class="">
-  <div class="container" style='width:100%'>
+  <div class="" style='width:100%'>
     <div class="navbar-header" style='min-width:50%'>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -14,17 +21,17 @@
         <span class="icon-bar"></span> 
       </button>
       
-        <a class="navbar-brand hidden-xs" href="/" >Home <%#= $app_name %></a>
+        <a class="navbar-brand hidden-xs" href="/" ><!-- Home --> <%#= $app_name %></a>
         <% if true %>
-        <a class='zhidden-xs'><form action='/search' style='padding-top:13px; margin-left:20px; display: inline-block; '><a href='/search'><i class='fa fa-search' style='margin-left:20px; margin-right: 20px; color:#777;'></i></a><input class='ac' name='q' placeholder='Discover people and organizations' style='width:250px;' autofocus /></form></a>
+        <a class='zhidden-xs'><form action='/search' style='padding-top:13px; zmargin-left:20px; display: inline-block; '><a href='/search'><i class='fa fa-search' style='margin-left:20px; margin-right: 20px; color:#777;'></i></a><input class='ac' name='q' placeholder='Discover people and organizations' style='width:250px;' autofocus /></form></a>
         <% end %>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right header-links">          
                 <% if cu %>                  
-                  <li><a href="/">Feed</a></li>
-                  <li><a href="/users/<%=cu[:nick]%>">My Profile </a></li>
-                  <li><a href='/settings'>Settings</a></li>
+                  <li><a class="<%='chosen' if _req.path == "/"%>" href='/'>Feed</a></li>
+                  <li><a class="<%='chosen' if _req.path == "/users/#{cu[:nick]}"%>" href='/users/<%=cu[:nick]%>'>My Profile </a></li>
+                  <li><a class="<%='chosen' if _req.path == "/settings"%>" href='/settings'>Settings</a></li>
                   <li><a href='/logout'>Logout</a></li>
                 <% else %>                  
                   <li class='hidden-md hidden-lg'><a href="/">Home</a></li>
@@ -37,3 +44,6 @@
   </div>
 </nav>
 
+<script>
+
+</script>

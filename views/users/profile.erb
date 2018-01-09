@@ -46,13 +46,6 @@
       </div>
       <% end %>
 
-
-      <% if user[:fav_cause] %>
-      <div class='card1 ct'>
-        <span> My Featured Cause: <b><%= user[:fav_cause].to_s.titleize %></b> </span>
-      </div>
-      <% end %>
-
       <% if (causes_hash = user_causes_hash(user)).any? %>
         <div class='card1'>
           <div class='ct'>
@@ -61,14 +54,26 @@
         </div>
       <% end %>      
 
-      <div class='card1'>
-        <h5> My Favorite Organizations: </h5>
+
+      <% if user[:fav_cause] %>
+      <div class='card1 ct'>
+        <span> My Featured Cause: <b><%= user[:fav_cause].to_s.titleize %></b> </span>
       </div>
+      <% end %>
+
       <% user['fav_orgs'].to_a.each_with_index do |org ,i| %>
         <% next if !org.present? %>
         <div class='card1'>
           <div class='fav_org'>
-            <h3 style='margin-top:0'><b><%= user['fav_orgs'].to_a[i] %></b></h3>
+            <h5> Feaured Organization: </h5>
+            <h3 style='margin-top:0'><b>
+              <% org_name = user['fav_orgs'].to_a[i] %>
+              <% if org = $orgs.get(name: org_name) %>
+                <a href='/orgs/<%=org['_id']%>'><%=org_name%></a>
+              <% else %>
+                <%= org_name %>
+              <% end %>
+            </b></h3>
             <%= user['fav_orgs_text'].to_a[i] %>
           </div>
         </div>

@@ -130,10 +130,32 @@ List of charities - the link you sent, as far as I can tell, will not give us a 
 - new feed layout
 - privacy of donations (via settings page)
 
+>> things done for 8.1.18
+- bottom:
+  - remove 'me' at the bottom 
+  - remove 'log out' 
+  - FAQ at the bottom -> 'about_us'
+  - Make match header length
+  - about us: as in emails 
+- remove 'home' button in top left 
+- different icon for landing page 'discover' (magnifying glass)
+- 'active tab' should be marked (and then remove the <h1> saying the name of the page)
+- remove black line on feed column headers, and settings page input outlines 
+- profile page:
+  - link from 'fav organizations' to the org page
+  - fav orgs and fav causes - no separate header, just one box, and the explanation ('featured org' or 'featured cause' will be right above it), and everything below 'my donations by cause'
+
 coming up 
 - new search layout ? let's discuss
+  - list of causes, list of badges, popular organizations
 - email parsing
 - exporting data
 - more design touches? I can try to get a UI designer myself
+- donations: add privacy level per all organizations (plus tabs for "by donation" and "by organization"). And make 'non-private' also in 'blue' (match the colors) 
+
+- feed columns: make our donations list look like FB page; orgs page - remove the header. Make a 'fixed' header for 'donations in your network' that kind of looks like facebook's. 
+
+- fix 'fb refresh' bug 
+- contact us, about us, privacy 
 
 $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'
