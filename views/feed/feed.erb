@@ -15,7 +15,7 @@
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   background-color: white;
-  margin-bottom:10px;
+  margin-bottom:1px;
   padding:10px;
   font-weight: normal;
 }
@@ -56,7 +56,7 @@
 <section class='feed feed_column'>
   <h2 style=''> Your Network </h2>
   <div style='height:500px; margin-top:36px; overflow-y: scroll; overflow-x:hidden; border: 2px #d6d6d6 solid; border-radius:4px'>
-    <% (my_network_donations * 1).each do |don| %>
+    <% (my_network_donations * 10).each do |don| %>
     <% u = $users.get(don['user_id']) || {name: 'Somebody'} %>
     <% org = $orgs.get(don['org_id']) || {name: 'A private organization.'} %>
     <div class='feed_item' style='text-align: left; padding: 0 auto 20 auto;'>

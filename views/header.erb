@@ -32,7 +32,7 @@
                   <li><a class="<%='chosen' if _req.path == "/"%>" href='/'>Feed</a></li>
                   <li><a class="<%='chosen' if _req.path == "/users/#{cu[:nick]}"%>" href='/users/<%=cu[:nick]%>'>My Profile </a></li>
                   <li><a class="<%='chosen' if _req.path == "/settings"%>" href='/settings'>Settings</a></li>
-                  <li><a href='/logout'>Logout</a></li>
+                  <li><a href='/logout' onclick=document.location.reload()>Logout</a></li>
                 <% else %>                  
                   <li class='hidden-md hidden-lg'><a href="/">Home</a></li>
                   <!-- <li><a href='/'>Login</a></li> -->

@@ -144,6 +144,9 @@ List of charities - the link you sent, as far as I can tell, will not give us a 
 - profile page:
   - link from 'fav organizations' to the org page
   - fav orgs and fav causes - no separate header, just one box, and the explanation ('featured org' or 'featured cause' will be right above it), and everything below 'my donations by cause'
+- feed columns: make our donations list look like FB page; 
+- orgs page - remove the header. 
+
 
 coming up 
 - new search layout ? let's discuss
@@ -152,8 +155,6 @@ coming up
 - exporting data
 - more design touches? I can try to get a UI designer myself
 - donations: add privacy level per all organizations (plus tabs for "by donation" and "by organization"). And make 'non-private' also in 'blue' (match the colors) 
-
-- feed columns: make our donations list look like FB page; orgs page - remove the header. Make a 'fixed' header for 'donations in your network' that kind of looks like facebook's. 
 
 - fix 'fb refresh' bug 
 - contact us, about us, privacy 

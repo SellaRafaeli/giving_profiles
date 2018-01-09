@@ -11,7 +11,7 @@ JS_SCRIPTS = [
   '/js/lib/sortable.js',
   '/js/lib/sortdivs.js',
   '/js/lib/bootstrap_select.min.js',
-  '/js/lib/turbolinks.js',
+  #'/js/lib/turbolinks.js',
   '/js/lib/vue.js',
   '/js/lib/bootstrap_material_design.min.js',
   '/js/lib/jquery.autocomplete.min.js',
@@ -73,6 +73,7 @@ console.log('window.fbInitialized',window.fbInitialized)
     // }
     if (!window.FB) return alert('Please try again in 5 seconds.')
     FB.login(function(response) {
+      console.log('fb login response',response);
       if (response.status === 'connected') {
         document.location= `/fb_login?token=${response.authResponse.accessToken}`;
       } else {
