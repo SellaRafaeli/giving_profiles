@@ -11,7 +11,7 @@ JS_SCRIPTS = [
   '/js/lib/sortable.js',
   '/js/lib/sortdivs.js',
   '/js/lib/bootstrap_select.min.js',
-  # '/js/lib/turbolinks.js',
+  #'/js/lib/turbolinks.js',
   '/js/lib/vue.js',
   '/js/lib/bootstrap_material_design.min.js',
   '/js/lib/jquery.autocomplete.min.js',
@@ -22,6 +22,12 @@ BOTTOM_CSS_TAGS = [
   '/css/lib/sweet_alert.min.css'
 ]
 %>
+
+<script>
+document.addEventListener("turbolinks:load", function() {
+  gpFBinit();
+})
+</script>
 
 <% JS_SCRIPTS.each do |path| %>
   <script src='<%=path%>'></script>
@@ -40,16 +46,17 @@ BOTTOM_CSS_TAGS = [
 console.log('setting FB functions')
 console.log('window.fbInitialized',window.fbInitialized)
   window.fbAsyncInit = function() {
+  //window.gpFBinit = function() {
     if (window.fbInitialized) {
       console.log('already called fbInit')
       return;
     }
-    console.log("initalizing FB");
+    console.log("initalizing FB!");
     FB.init({
       appId            : <%= $prod ? '183661335520562' : '123640948401560' %>,
       autoLogAppEvents : true,
       xfbml            : true,
-      version          : 'v2.10',
+      version          : 'v2.9',
       channelUrl       : '<%= $root_url %>/channel_url.html'
     });
     window.fbInitialized = true;
