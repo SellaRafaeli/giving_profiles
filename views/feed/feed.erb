@@ -7,6 +7,18 @@
   border: 1px #d6d6d6 solid;
   border-radius: 3px;
 }
+.fb_link_style {
+  color:#365899; 
+  font-weight: 500px;
+}
+.feed_item {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  background-color: white;
+  margin-bottom:10px;
+  padding:10px;
+  font-weight: normal;
+}
 .feed_column {
     width: 330px;
     display: inline-block;
@@ -43,19 +55,19 @@
 
 <section class='feed feed_column'>
   <h2 style=''> Your Network </h2>
-  <div style='height:500px; margin-top:25px; overflow-y: scroll'>
-    <% (my_network_donations * 10).each do |don| %>
+  <div style='height:500px; margin-top:36px; overflow-y: scroll; overflow-x:hidden; border: 2px #d6d6d6 solid; border-radius:4px'>
+    <% (my_network_donations * 1).each do |don| %>
     <% u = $users.get(don['user_id']) || {name: 'Somebody'} %>
     <% org = $orgs.get(don['org_id']) || {name: 'A private organization.'} %>
-    <div class='card1' style='text-align: left; padding: 0 auto 20 auto;'>
+    <div class='feed_item' style='text-align: left; padding: 0 auto 20 auto;'>
       <%#= don.to_json %>
-      <div class='single_feed_item row'>
+      <div class='row'>
         <div class='col-md-3 ct '>
           <img src='<%=u['pic_url']%>' class='profile-pic-1'>
         </div>
-        <div class='col-md-9' style='font-size:18px'>
-          <div> <a href='/users/<%=u['nick']%>'><%=u['name']%></a> donated to <a href='/orgs/<%=org['_id']%>'><%= org['name'] %></a></div>
-          <div class='fr' style='margin-top:8px'> <%= don['created_at'].strftime("%A, %d %b %Y %l:%M %p")%></div>
+        <div class='col-md-9' style='zfont-size:18px; padding-left:5px'>
+          <div> <a class='fb_link_style' href='/users/<%=u['nick']%>'><%=u['name']%></a> donated to <a class='fb_link_style' href='/orgs/<%=org['_id']%>'><%= org['name'] %></a></div>
+          <div class='zfr' style='margin-top:5px; font-size:11px; color:#90949c'>At <%= don['created_at'].strftime("%A, %d %b %Y %l:%M %p")%></div>
         </div>      
       </div>
     </div>
