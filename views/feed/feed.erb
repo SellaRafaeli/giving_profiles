@@ -77,12 +77,13 @@
 
 
 <%   
-    pages = my_feed_pages
-    pages.each do |page|
+  orgs = my_donated_orgs  
+  orgs.each do |org|
+  next unless org['facebook_page']
 %>
   <section class='feed feed_column'>
-  <h2> <%= page %> </h2>  
-    <div class="fb-page" data-href="https://www.facebook.com/<%=page%>" 
+  <h2> <%= org['name'] %> </h2>  
+    <div class="fb-page" data-href="https://www.facebook.com/<%=org['facebook_page']%>" 
     data-tabs="timeline" 
     data-small-header="true" 
     data-adapt-container-width="true" 

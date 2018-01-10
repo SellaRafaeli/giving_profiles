@@ -12,9 +12,9 @@ def my_donated_orgs
   orgs     = $orgs.get_many(_id: {'$in': org_ids})
 end
 
-def my_feed_pages
-  #return ['wwe', 'wwf'] * 3
-  fb_pages = my_donated_orgs.mapo('facebook_page').compact.uniq
-end
+# def my_feed_pages
+#   #return ['wwe', 'wwf'] * 3
+#   my_donated_orgs
+# end
 
 get '/refresh' do :refresh end
