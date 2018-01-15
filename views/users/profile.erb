@@ -56,8 +56,12 @@
 
 
       <% if user[:fav_cause] %>
-      <div class='card1 ct'>
-        <span> My Featured Cause: <b><%= user[:fav_cause].to_s.titleize %></b> </span>
+      <div class='card1'>
+        <div class='fav_org'>
+            <h5> Featured Cause: </h5>
+            <h3 style='margin-top:0'><img src='<%="/img/cause_icons/#{user[:fav_cause]}.png"%>' style='height:40px; margin-right: 10px'> <b><%= user[:fav_cause].to_s.titleize %></b> </h3>
+          </div>
+        
       </div>
       <% end %>
 
