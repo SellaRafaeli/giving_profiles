@@ -2,7 +2,7 @@ $postmark_client = Postmark::ApiClient.new(ENV['POSTMARK_API_TOKEN'])
 
 def send_email(to, subj, html_body)
   $postmark_client.deliver(
-    from: 'sella@rafaeli.net',
+    from: 'no-reply@givingprofiles.org',
     to: to,
     subject: subj,
     html_body: html_body,

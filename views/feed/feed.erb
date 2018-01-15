@@ -90,8 +90,8 @@
   next unless org['facebook_page']
 %>
   <section class='feed feed_column'>
-  <h2 class='truncate has_tooltip' title="<%=org['name']%> (<%=org['facebook_page']%>)"> <a href='/orgs/<%=org['_id']%>' class='fb_link_style' style='text-decoration: none'>Hello World <%= org['facebook_page'] * 10 %> </a></h2>  
-  <% if false %>
+  <h2 class='truncate has_tooltip' title="<%=org['name']%> (<%=org['facebook_page']%>)"> <a href='/orgs/<%=org['_id']%>' class='fb_link_style' style='text-decoration: none'> <%= org['facebook_page'] %> </a></h2>  
+  <% if true %>
     <div class="fb-page" data-href="https://www.facebook.com/<%=org['facebook_page']%>" 
     data-tabs="timeline" 
     data-small-header="true" 
