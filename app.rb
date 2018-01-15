@@ -45,5 +45,5 @@ get '/protected' do
 end
 
 get '/about' do
-  erb :'other/about'
+  erb :'other/about', default_layout
 end

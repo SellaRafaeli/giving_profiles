@@ -152,9 +152,14 @@ List of charities - the link you sent, as far as I can tell, will not give us a 
 - new search layout: list of causes, list of badges, popular organizations
 
 coming up 
+- fb bug
+- headers in feed - too long
 - email parsing research (seems as difficult as I suspected)
 - exporting data
 - contact us, about us, privacy 
-- more design touches? I can try to get a UI designer myself
+- search for UI designer
+- profile page:
+  - make 'featured cause' have a similar design to 'featured cause' + logo
+  - featured org - add FB logo if available
 
 $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'

@@ -19,6 +19,14 @@
   padding:10px;
   font-weight: normal;
 }
+
+.truncate {
+  /*width: 250px;*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .feed_column {
     width: 330px;
     display: inline-block;
@@ -82,7 +90,8 @@
   next unless org['facebook_page']
 %>
   <section class='feed feed_column'>
-  <h2> <%= org['name'] %> </h2>  
+  <h2 class='truncate has_tooltip' title="<%=org['name']%> (<%=org['facebook_page']%>)"> <a href='/orgs/<%=org['_id']%>' class='fb_link_style' style='text-decoration: none'>Hello World <%= org['facebook_page'] * 10 %> </a></h2>  
+  <% if false %>
     <div class="fb-page" data-href="https://www.facebook.com/<%=org['facebook_page']%>" 
     data-tabs="timeline" 
     data-small-header="true" 
@@ -90,6 +99,7 @@
     data-hide-cover="true" 
     data-show-facepile="false">
     </div>
+    <% end %>
   </section>
   <% end %>
 
