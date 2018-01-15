@@ -73,6 +73,9 @@
             <h3 style='margin-top:0'><b>
               <% org_name = user['fav_orgs'].to_a[i] %>
               <% if org = $orgs.get(name: org_name) %>
+                <% if org['facebook_page'] %>
+                <a href='https://facebook.com/<%=org['facebook_page']%>'><img src='https://graph.facebook.com/v2.11/<%=org['facebook_page']%>/picture' height=30px style='border-radius:4px; margin-right:10px'/></a>
+                <% end %>
                 <a href='/orgs/<%=org['_id']%>'><%=org_name%></a>
               <% else %>
                 <%= org_name %>
