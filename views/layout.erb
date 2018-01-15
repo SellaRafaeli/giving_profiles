@@ -4,10 +4,14 @@
 <body style='overflow-x: hidden;'>  
   <%= erb :"layout/flash" %>        
   <%= erb :'header' %>  
+
+  <%= erb :'contact/contact_header' if _req.path.to_s.include?('/contact') %>
+
   <div class='<%= "container" unless locals[:full_width]%>'>
     <%= yield %> 
     <%= erb :"footer" %>           
   </div>
+
   <!-- <link rel="stylesheet" href="/css/fonts/RobotoFonts.css">
   <link rel="stylesheet" href="/css/fonts/MaterialIcons.css"> -->
 </body>

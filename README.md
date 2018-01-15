@@ -151,9 +151,14 @@ List of charities - the link you sent, as far as I can tell, will not give us a 
 - donations: add privacy level per all organizations (plus tabs for "by donation" and "by organization"). And make 'non-private' also in 'blue' (match the colors). Private organizations will only show up for that user (in donations list, org page donors list, search results.)
 - new search layout: list of causes, list of badges, popular organizations
 
+
+Done for 15.1.18
+- headers in feed - nicefied
+- about us page
+
 coming up 
 - fb bug
-- headers in feed - too long
+
 - email parsing research (seems as difficult as I suspected)
 - exporting data
 - contact us, about us, privacy 
