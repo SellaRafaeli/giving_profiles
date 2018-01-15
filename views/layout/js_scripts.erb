@@ -11,11 +11,11 @@ JS_SCRIPTS = [
   '/js/lib/sortable.js',
   '/js/lib/sortdivs.js',
   '/js/lib/bootstrap_select.min.js',
-#  '/js/lib/turbolinks.js',
+  '/js/lib/turbolinks.js',
   '/js/lib/vue.js',
   '/js/lib/bootstrap_material_design.min.js',
   '/js/lib/jquery.autocomplete.min.js',
-  "https://connect.facebook.net/en_US/sdk.js"
+  #"https://connect.facebook.net/en_US/sdk.js"
 ]
 
 BOTTOM_CSS_TAGS = [
@@ -23,11 +23,7 @@ BOTTOM_CSS_TAGS = [
 ]
 %>
 
-<script>
-document.addEventListener("turbolinks:load", function() {
-  fbAsyncInit()
-})
-</script>
+
 
 <% JS_SCRIPTS.each do |path| %>
   <script src='<%=path%>'></script>
@@ -45,8 +41,8 @@ document.addEventListener("turbolinks:load", function() {
 <script>
 console.log('setting FB functions')
 console.log('window.fbInitialized',window.fbInitialized)
-  window.fbAsyncInit = function() {
-  //window.gpFBinit = function() {
+  //window.zfbAsyncInit = function() {
+  window.gpFBinit = function() {
     if (window.fbInitialized) {
       console.log('already called fbInit')
       //return;
@@ -97,3 +93,47 @@ console.log('window.fbInitialized',window.fbInitialized)
   }  
 </script>
 
+<script>
+// document.addEventListener("turbolinks:load", function() {
+//   fbAsyncInit()
+// })
+
+// FacebookSDK
+// https://developers.facebook.com/docs/plugins/page-plugin/
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', <%= $prod ? '183661335520562' : '123640948401560' %>)); // Replace 'facebook-jssdk' with your page id.
+
+// Compatibility with Turbolinks 5
+//(function($) {
+  var fbRoot;
+
+  function saveFacebookRoot() {
+    if ($('#fb-root').length) {
+      fbRoot = $('#fb-root').detach();
+    }
+  };
+
+  function restoreFacebookRoot() {
+    if (fbRoot != null) {
+      if ($('#fb-root').length) {
+        $('#fb-root').replaceWith(fbRoot);
+      } else {
+        $('body').append(fbRoot);
+      }
+    }
+
+    if (typeof FB !== "undefined" && FB !== null) { // Instance of FacebookSDK
+      FB.XFBML.parse();
+    }
+  };
+
+  document.addEventListener('turbolinks:request-start', saveFacebookRoot)
+  document.addEventListener('turbolinks:load', restoreFacebookRoot)
+//}($));
+</script>
