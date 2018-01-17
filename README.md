@@ -160,12 +160,11 @@ Done for 15.1.18
 - profile page:
   - 'featured cause' similar design to 'featured org', + cause logo
   - featured orgs - FB logo if available
-- exporting data
+- fb bug
 
 coming up 
-- fb bug
+- exporting data
 - email parsing re search (seems as difficult as I suspected)
-
 - search for UI designer
 
 
