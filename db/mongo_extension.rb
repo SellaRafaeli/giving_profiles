@@ -96,7 +96,11 @@ end
 
   def fields
     mongo_coll_keys(self)
-  end  
+  end 
+
+  def ensure_index(field, opts = {}) 
+    indexes.create_one({field => 1}, opts)
+  end 
 end #end Mongo class 
 
 get '/mongo/extension/refresh_this_file' do 
