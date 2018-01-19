@@ -11,6 +11,10 @@ rescue
   -1 
 end
 
+post '/incoming_mail_webhook' do
+  {msg: "ok"}
+end
+
 post '/incoming_mail' do
   text     = pr[:text].downcase
   all_orgs = $orgs.get_many({},projection: {name:1});
