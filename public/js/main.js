@@ -13,6 +13,7 @@ function appendResults(elem){
 }
 
 function setAutocompletes(){
+  log('settings autocompletes')
   $('.ac').autocomplete({
     serviceUrl: '/search/ajax',
     triggerSelectOnValidInput: false,
