@@ -10,9 +10,9 @@
     <% text = escape_html "I just shared a donation to #{don[:org_name]} on GivingProfiles" %>
     
     <a class='underline' href='/orgs/<%=don[:org_id]%>' style='display: inline; margin:5px; margin-right:0'><%= don[:org_name] %></a>
-      <div style='margin:5px auto'>
-      <i class='fa fa-share' onclick='fbShare("<%=text%>")' style='zfloat:left'></i> 
+      <div style='margin:5px auto'>      
       <% if don[:user_id] == cuid %>
+        <i class='fa fa-share' onclick='fbShare("<%=text%>")' style='zfloat:left'></i> 
         <%= "<b style='margin:auto 5px'>$#{don[:amount]}</b>" %>    
         <span onclick='document.location="/donations/delete?id=<%=don[:_id]%>"' class='lightHover'>
         <small><% if true || don['private']%><i class='fa fa-eye has_tooltip' title="This donation is private; others cannot see it."></i><% end %> 
