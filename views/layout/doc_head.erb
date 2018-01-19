@@ -4,6 +4,7 @@
   <link rel="shortcut icon" href="/img/smiley.jpg" />
   <meta property="og:title" content="<%=pr[:og_title] || 'GivingProfiles - A Charity-Based Social Network'%>"/>
   <meta property="zog:image" content=""/>
+  <meta property="fb:app_id" content="<%= $prod ? '183661335520562' : '123640948401560' %>" />
   <meta property="og:site_name" content="Giving Profiles"/>
   <meta property="og:description" content="<%=pr[:og_desc]%>">
   <%= erb :'layout/js_scripts'%>

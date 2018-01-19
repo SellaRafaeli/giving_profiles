@@ -41,8 +41,8 @@ BOTTOM_CSS_TAGS = [
 <script>
 console.log('setting FB functions')
 console.log('window.fbInitialized',window.fbInitialized)
-  //window.zfbAsyncInit = function() {
-  window.gpFBinit = function() {
+  window.fbAsyncInit = function() {
+  //window.gpFBinit = function() {
     if (window.fbInitialized) {
       console.log('already called fbInit')
       //return;
@@ -105,9 +105,9 @@ console.log('window.fbInitialized',window.fbInitialized)
   if (d.getElementById(id)) return;
   js = d.createElement(s);
   js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', <%= $prod ? '183661335520562' : '123640948401560' %>)); // Replace 'facebook-jssdk' with your page id.
+}(document, 'script', <%= $prod ? '183661335520562' : '123640948401560' %>)); 
 
 // Compatibility with Turbolinks 5
 //(function($) {

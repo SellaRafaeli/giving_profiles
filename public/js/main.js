@@ -3,7 +3,7 @@ goToPath = function(path) { window.location.href = path }
 doc = document;
 doc.loc = document.location;
 loc = location;
-fullPath = loc.protocol+'//'+loc.host+loc.pathname;
+  fullPath = loc.protocol+'//'+loc.host+loc.pathname;
 function toggleDiv(selector) {
   $(selector).toggleClass('hidden');
 }
