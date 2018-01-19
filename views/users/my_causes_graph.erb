@@ -9,6 +9,6 @@
     width = v/total.to_f*100
     color = Digest::MD5.hexdigest(k)[0..5]
     %>
-  <span style='width: <%=width%>%; background-color:#<%=color%>; color:white; font-weight: bold; padding:10px; display: inline-block; border:1px solid black'> <%= k.titleize %> </span>
+  <span class='has_tooltip' style='width: <%=width%>%; background-color:#<%=color%>; color:white; font-weight: bold; padding:10px; display: inline-block; border:1px solid black' title="<%= k.titleize %>"> <img src='<%="/img/cause_icons/#{k}.png"%>' style='height:40px; margin-right: 10px'></span>
 <% end %>
 </div>
