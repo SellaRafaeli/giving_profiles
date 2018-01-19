@@ -1,0 +1,36 @@
+<%
+default_text = "Sample Donation Thank You to Friends 
+
+Dear Jane and Tom,
+
+I would like to thank you both from the bottom of my heart for organizing the charity event last Sunday.
+
+We raised in excess of $4,000 for AURORA EMERGENCY RESCUE INC! As you know the cancer treatment in Germany will cost thousands of dollars and for most people like myself, this opportunity is but a dream. With organized fundraising events and support from friends like you I hope for my dream to become a reality.
+
+Thank you once again for your also kindness, generosity and time and effort that you both put into making the event such a huge success. Please come again on the 10th of June, 2020. 
+
+Words cannot express how I feel.
+
+Kind regards,
+Me
+"
+%>
+<div class='card1'>
+<h1> Mails Tester </h1>
+
+<p> Paste the mail's hypothetical test to see what we can parse from it. </p>
+
+<form method=post action='/incoming_mail'>
+  <textarea id='incoming_mail_text' name=text rows=20 cols=100><%= default_text %> </textarea>
+  <div></div>
+  <button type='button' class='btn btn-raised btn-primary' onclick="testMail()">Submit</button>
+</form>
+</div>
+
+<script>
+function testMail() {
+  $.post('/incoming_mail',{text: $("#incoming_mail_text").val()}).then(res=>{
+    alert('Found org: '+res.name+' and amount '+res.amount);
+  })
+}
+</script>

@@ -169,3 +169,7 @@ coming up
 
 
 $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'
+
+Email Parser Logic:
+1. Hold all names in Memory # z3 = $orgs.get_many({},projection: {name:1});
+2. On incoming email, go through all names, and find the ones that are INCLUDED in the body of the email. #  z3.select {|d| para.include?(d['name']) }.sort_by {|s| -s['name'].size }[0]['name']
