@@ -6,9 +6,7 @@
     setAutocompletes();
   </script>
   <%= erb :"layout/flash" %>        
-  <%= erb :'header' %>  
-
-  <%= erb :'contact/contact_header' if _req.path.to_s.include?('/contact') %>
+  <%= erb :'header' %>    
 
   <div class='<%= "container" unless locals[:full_width]%>'>
     <%= yield %> 
