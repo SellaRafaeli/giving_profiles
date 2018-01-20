@@ -168,6 +168,13 @@ coming up
 - search for UI designer
 
 
+Done for 19.1.18
+- fix privacy bugs
+- fix autocomplete bugs
+- feed header 
+- http://givingprofiles.org/mails_tester. Still need to configure incoming mail receiver, and also our users do not have an email configured. 
+- 
+
 $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'
 
 Email Parser Logic:

@@ -3,6 +3,7 @@
 <form class='form1 card1' action='/settings' method=post style='margin:20px' >
   <h3> Edit Your Details </h3>
   <div><label> Name </label><input name='name' value="<%=user['name']%>"/></div>
+  <div><label> e-mail </label><input name='email' value="<%=user['email']%>" class='has_tooltip' title="Nobody will see this, we use this to process emails regarding donations." data-placement=right /></div>
   <div><label> Location </label><input name='address' value="<%=user['address']%>"/></div>
   <!-- <div><label> Network </label>
     <select name='network'>
