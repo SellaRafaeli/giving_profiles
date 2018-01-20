@@ -15,7 +15,7 @@ end
 
 def get_org_name_in_text(text)
   all_orgs = $orgs.get_many({},projection: {name:1});
-  name = all_orgs.select {|d| text.include?(d['name'].downcase) }.sort_by {|s| -s['name'].size }[0]['name'] rescue 'n/a'
+  name = all_orgs.select {|d| text.to_s.downcase.include?(d['name'].downcase) }.sort_by {|s| -s['name'].size }[0]['name'] rescue 'n/a'
 end
 
 def get_text_data(text)

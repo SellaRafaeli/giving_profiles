@@ -1,36 +1,65 @@
 <%
-default_text = "Sample Donation Thank You to Friends 
+default_text = "Dear Joanne,
+Thank you very much for your recent donation on Global Giving to the Harvard Club of Boston, for the amount of $4,000.
 
-Dear Jane and Tom,
+As you now know, this humble root can have a major impact on women and children by providing them with sight- and life-saving vitamin A. I would like to now invite you to subscribe to our e-newsletter, WorldView, sent once a month, so you can learn more about how your support is helping HKI prevent blindness and reduce malnutrition for the most vulnerable around the world.
 
-I would like to thank you both from the bottom of my heart for organizing the charity event last Sunday.
+Our most recent edition on our orange-fleshed sweet potato program can be viewed by clicking here. You can sign up for the newsletter by clicking here.
 
-We raised in excess of $4,000 for AURORA EMERGENCY RESCUE INC! As you know the cancer treatment in Germany will cost thousands of dollars and for most people like myself, this opportunity is but a dream. With organized fundraising events and support from friends like you I hope for my dream to become a reality.
+I hope you will decide to stay in touch with us.
 
-Thank you once again for your also kindness, generosity and time and effort that you both put into making the event such a huge success. Please come again on the 10th of June, 2020. 
+Best regards,
 
-Words cannot express how I feel.
-
-Kind regards,
-Me
-"
+Maggie
+Maggie Jacoby
+Communications Coordinator
+Helen Keller International
+352 Park Avenue South, Suite 1200
+New York, NY 10010
+Phone #
+Fax #"
 %>
+
+<style>
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #333;
+  animation: spinner .6s linear infinite;
+}
+
+</style>
 <div class='card1'>
 <h1> Mails Tester </h1>
 
-<p> Paste the mail's hypothetical test to see what we can parse from it. </p>
+<p> Paste the mail's hypothetical test to see what we can parse from it. Parsing takes about 5 seconds.</p>
 
 <form method=post action='/incoming_mail'>
   <textarea id='incoming_mail_text' name=text rows=20 cols=100><%= default_text %> </textarea>
   <div></div>
-  <button type='button' class='btn btn-raised btn-primary' onclick="testMail()">Submit</button>
+  <button type='button' class='submit_email btn btn-raised btn-primary' onclick="testMail()">Submit</button>
 </form>
 </div>
 
 <script>
 function testMail() {
+  $('.submit_email').html('-').addClass('spinner')
   $.post('/incoming_mail',{text: $("#incoming_mail_text").val()}).then(res=>{
     alert('Found org: '+res.name+' and amount '+res.amount);
+    $('.submit_email').html('Submit').removeClass('spinner')
   })
 }
 </script>
