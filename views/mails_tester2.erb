@@ -45,9 +45,10 @@ Fax #"
 <div class='card1'>
 <h1> Mails Tester </h1>
 
-<p> Paste the mail's hypothetical test to see what we can parse from it. Parsing takes about 5 seconds.</p>
+<p> Paste the mail's hypothetical test to see what we can parse from it. Parsing takes about 5-10 seconds.</p>
 
 <form method=post action='/incoming_mail'>
+  <div><label>Email text:</label></div>
   <textarea id='incoming_mail_text' name=text rows=20 cols=100><%= default_text %> </textarea>
   <div></div>
   <button type='button' class='submit_email btn btn-raised btn-primary' onclick="testMail()">Submit</button>

@@ -13,9 +13,21 @@ rescue
   -1 
 end
 
-def get_org_name_in_text(text)
+def get_org_name_in_text_old(text)  
   all_orgs = $orgs.get_many({},projection: {name:1});
   name = all_orgs.select {|d| text.to_s.downcase.include?(d['name'].downcase) }.sort_by {|s| -s['name'].size }[0]['name'] rescue 'n/a'
+end
+
+def get_org_name_in_text(text)  
+  text = text.to_s.downcase
+  res = []
+  $orgs.paginated_do({}) { |org|
+    puts org['name'] if org['name'] == 'DRAGOS FOUNDATION'
+    res.push(org) if text.include?(org['name'].downcase)
+  }
+  #puts "res "
+  #puts res
+  res.sort_by {|s| -s['name'].size }[0]['name'] rescue 'n/a'
 end
 
 def get_text_data(text)
