@@ -44,6 +44,7 @@ post '/incoming_mail_webhook' do
   name, amount = get_text_data(text)
   if user && (org = $orgs.get(name: name))
     data = {org_name: name, org_id: org['_id'], user_id: user['_id'], amount: amount}
+    $donations.add(data)
   end
   {msg: 'ok'}
 end
