@@ -15,7 +15,7 @@
         <i class='fa fa-share' onclick='fbShare("<%=text%>")' style='zfloat:left'></i> 
         <%= "<b style='margin:auto 5px'>$#{don[:amount]}</b>" %>    
         <span onclick='document.location="/donations/delete?id=<%=don[:_id]%>"' class='lightHover'>
-        <small><% if true || don['private']%><i class='fa fa-eye has_tooltip' title="This donation is private; others cannot see it."></i><% end %> 
+        <small><% if don['private']%><i class='fa fa-eye has_tooltip' title="This donation is private; others cannot see it."></i><% end %> 
           <i class='fa fa-close'></i>
         </small>
         </span>
