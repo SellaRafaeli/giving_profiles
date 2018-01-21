@@ -4,6 +4,9 @@
 <body style='overflow-x: hidden;'>  
   <script>
     setAutocompletes();
+    $('.has_tooltip').tooltip()
+    console.log('done on-document-ready')
+    $('.sortable').sortable();
   </script>
   <%= erb :"layout/flash" %>        
   <%= erb :'header' %>    
