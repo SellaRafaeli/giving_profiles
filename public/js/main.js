@@ -39,6 +39,6 @@ function setAutocompletes(){
 
 $( document ).ready(function() {
 	$.material.init(); //init material design
-  setAutocompletes();  
+  //setAutocompletes();  
 }); 
 
