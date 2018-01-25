@@ -175,6 +175,11 @@ Done for 19.1.18
 - http://givingprofiles.org/mails_tester. Still need to configure incoming mail receiver, and also our users do not have an email configured. 
 - 
 
+Issues for 30.1.18
+1. small bug: 'your network' header when scrolling right.
+2. fb columns - smaller. 
+3. adding new org - try with a dropdown (not autocomplete)
+
 $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'
 
 Email Parser Logic:

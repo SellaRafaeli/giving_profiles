@@ -45,7 +45,7 @@ console.log('window.fbInitialized',window.fbInitialized)
   //window.gpFBinit = function() {
     if (window.fbInitialized) {
       console.log('already called fbInit')
-      //return;
+      return;
     }
     console.log("initalizing FB!");
     FB.init({
@@ -59,14 +59,14 @@ console.log('window.fbInitialized',window.fbInitialized)
   };
 
 
-  if (false) {
+  if (true) {
     (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
      js = d.createElement(s); js.id = id;
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));  
+    }(document, 'script', <%= $prod ? '183661335520562' : '123640948401560' %>));  
   }
   
   window.fbLogin = function(){
@@ -100,6 +100,7 @@ console.log('window.fbInitialized',window.fbInitialized)
 
 // FacebookSDK
 // https://developers.facebook.com/docs/plugins/page-plugin/
+<% if false %>
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -108,7 +109,7 @@ console.log('window.fbInitialized',window.fbInitialized)
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', <%= $prod ? '183661335520562' : '123640948401560' %>)); 
-
+<% end %>
 // Compatibility with Turbolinks 5
 //(function($) {
   var fbRoot;

@@ -66,7 +66,7 @@
   background-color: white;
   margin: 0;
   border-bottom: 2px solid whitesmoke;
-  position: fixed;
+  /*position: absolute;*/
   z-index: 999;
   width: 306px;
 }
@@ -75,13 +75,13 @@
 
 <section class='feed feed_column'>
   <!-- <h2 style=''> Your Network </h2> -->
-  <div style='height:500px; margin-top:26px; overflow-y: scroll; overflow-x:hidden; border: 2px #d6d6d6 solid; border-radius:4px'>
+  <div style='height:500px; margin-top:26px; overflow-y: scroll; overflow-x:hidden; border: 2px #d6d6d6 solid; border-radius:4px; position: relative;'>
     <h4 class='fake_fb_col_header fb_link_style'>
       <img src='<%=cu['pic_url']%>' class='profile-pic-1' style='height:50px'>
       Your Network
     </h4>
-    <div class='network_feed_items' style='padding-top:69px'>
-      <% (my_network_donations * 1).each do |don| %>
+    <div class='network_feed_items' style='zpadding-top:69px'>
+      <% (my_network_donations).each do |don| %>
       <% u = $users.get(don['user_id']) || {name: 'Somebody'} %>
       <% org = $orgs.get(don['org_id']) || {name: 'A private organization.'} %>
       <div class='feed_item' style='text-align: left; padding: 0 auto 20 auto;'>
@@ -103,7 +103,7 @@
 
 
 <%   
-  orgs = my_donated_orgs  
+  orgs = my_donated_orgs
   orgs.each do |org|
   next unless org['facebook_page']
 %>
