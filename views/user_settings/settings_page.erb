@@ -1,5 +1,7 @@
 <!-- <h1> Settings Page </h1> -->
-
+<%
+fav_orgs = user['fav_orgs'].select {|o| o.present? }
+%>
 <form class='form1 card1' action='/settings' method=post style='margin:20px' >
   <h3> Edit Your Details </h3>
   <div><label> Name </label><input name='name' value="<%=user['name']%>"/></div>
@@ -29,10 +31,17 @@
     <h4> My favorite Organizations </h4>
     <div class='fav_orgs_list'>
       <ul style='list-style:none' class='sortable'>
-      <% (user['fav_orgs'].to_a.compact + [{}]).each_with_index do |org,i| %>
+      <% (fav_orgs.to_a.compact).each_with_index do |org,i| %>
         <li style='list-style:none'>
         <div style='display: inline-block; margin: 20px;  background-color:lightgrey; padding:10px'>
-          <div><label> Organization</label><input class='ac_my_orgs' name='fav_orgs[]' value="<%=user['fav_orgs'].to_a[i]%>"/></div>
+          <div><label> Organization</label>
+          <!-- <input class='ac_my_orgs' name='fav_orgs[]' value="<%=fav_orgs.to_a[i]%>"/> -->
+          <select name='fav_orgs[]'>
+          <% my_donated_orgs.each_with_index { |org,j| %>
+            <option <%='selected' if org['name']==fav_orgs[i]%>><%= org['name'].to_s %></option>
+          <% } %>
+          </select>
+          </div>
           <div><label> Explanation</label><textarea rows=6 name='fav_orgs_text[]'><%=user['fav_orgs_text'].to_a[i]%></textarea></div>
           <button type='button' class='btn btn-small btn-danger' onclick="$(this).closest('li').remove()">delete</button>
         </div>
