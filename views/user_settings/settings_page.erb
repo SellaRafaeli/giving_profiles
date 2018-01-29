@@ -1,6 +1,6 @@
 <!-- <h1> Settings Page </h1> -->
 <%
-fav_orgs = user['fav_orgs'].select {|o| o.present? }
+fav_orgs = user['fav_orgs'].to_a.select {|o| o.present? }
 %>
 <form class='form1 card1' action='/settings' method=post style='margin:20px' >
   <h3> Edit Your Details </h3>
