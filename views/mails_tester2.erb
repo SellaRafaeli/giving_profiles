@@ -73,7 +73,7 @@ Fax #"
 function testMail() {
   $('.submit_email').html('-').addClass('spinner')
   $.post('/incoming_mail',{text: $("#incoming_mail_text").val()}).then(res=>{
-    alert('This will be processed in the background. Please refresh this page in about 30 seconds to view your results on the right-hand side.');
+    alert('Found name: '+res.name + ' and amount: '+res.amount);
     $('.submit_email').html('Submit').removeClass('spinner')
   })
 }

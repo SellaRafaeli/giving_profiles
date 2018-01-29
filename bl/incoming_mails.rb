@@ -56,11 +56,8 @@ end
 
 post '/incoming_mail' do
   text     = pr[:text].downcase  
-  Thread.new {
-    name, amount = get_text_data(text)
-    {name: name, amount: amount}  
-  }
-  {msg: "ok"}  
+  name, amount = get_text_data(text)
+  {name: name, amount: amount}  
 end
 
 get '/mails_tester' do
