@@ -61,7 +61,7 @@ Fax #"
   <div class='card1'>
     <h1> Recent Results </h1>
     <% $get_text_data_results.all.reverse[0..1000].each do |result| %>
-    <div>
+    <div data-placement=left title="<%=result[:text]%>" class='has_tooltip' style='text-decoration: underline; cursor: pointer'>
       <%= result[:name] %>, <%= result[:amount] %>, <small>(<%= result[:created_at]%>)</small>
     </div>
     <% end %>
