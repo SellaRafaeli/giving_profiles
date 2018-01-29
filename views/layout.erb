@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html>
 <%= erb :'layout/doc_head' %>
-<body style='overflow-x: hidden;'>  
-  <script>
-    setAutocompletes();
-    $('.has_tooltip').tooltip()
-    console.log('done on-document-ready')
-    $('.sortable').sortable();
-  </script>
+<body style='overflow-x: hidden;'>    
   <%= erb :"layout/flash" %>        
   <%= erb :'header' %>    
 
@@ -16,6 +10,12 @@
     <%= erb :"footer" %>           
   </div>
 
+  <script>
+    setAutocompletes();
+    $('.has_tooltip').tooltip()
+    console.log('done on-document-ready')
+    $('.sortable').sortable();
+  </script>
   <!-- <link rel="stylesheet" href="/css/fonts/RobotoFonts.css">
   <link rel="stylesheet" href="/css/fonts/MaterialIcons.css"> -->
 </body>
