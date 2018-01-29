@@ -50,15 +50,15 @@ post '/orgs/make_private/:id' do
   {msg: "ok"}
 end
 
-post '/orgs/:id' do
-  $orgs.update_id(pr[:id],pr.just(ORG_FIELDS))
-  flash_and_back('Thanks!')
-end
-
 post '/orgs/add' do
   halt unless is_admin
   org = $orgs.add(name: pr[:name])
   redirect ("/orgs/#{org[:_id]}")
+end
+
+post '/orgs/:id' do
+  $orgs.update_id(pr[:id],pr.just(ORG_FIELDS))
+  flash_and_back('Thanks!')
 end
 
 get '/set_all_from_amazon' do

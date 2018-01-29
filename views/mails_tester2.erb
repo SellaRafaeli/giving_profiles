@@ -42,24 +42,38 @@ Fax #"
 }
 
 </style>
-<div class='card1'>
-<h1> Mails Tester </h1>
+<div class='col-md-6'>
+  <div class='card1'>
+  <h1> Mails Tester </h1>
 
-<p> Paste the mail's hypothetical test to see what we can parse from it. Parsing and processing takes about 15 seconds.</p>
+  <p> Paste the mail's hypothetical test to see what we can parse from it. Parsing and processing takes about 15 seconds.</p>
 
-<form method=post action='/incoming_mail'>
-  <div><label>Email text:</label></div>
-  <textarea id='incoming_mail_text' name=text rows=20 cols=100><%= default_text %> </textarea>
-  <div></div>
-  <button type='button' class='submit_email btn btn-raised btn-primary' onclick="testMail()">Submit</button>
-</form>
+  <form method=post action='/incoming_mail'>
+    <div><label>Email text:</label></div>
+    <textarea id='incoming_mail_text' name=text rows=20 style='width:100%'><%= default_text %> </textarea>
+    <div></div>
+    <button type='button' class='submit_email btn btn-raised btn-primary' onclick="testMail()">Submit</button>
+  </form>
+  </div>
 </div>
+
+<div class='col-md-6'>
+  <div class='card1'>
+    <h1> Recent Results </h1>
+    <% $get_text_data_results.all.reverse[0..1000].each do |result| %>
+    <div>
+      <%= result[:name] %>, <%= result[:amount] %>, <small>(<%= result[:created_at]%>)</small>
+    </div>
+    <% end %>
+  </div>
+</div>
+
 
 <script>
 function testMail() {
   $('.submit_email').html('-').addClass('spinner')
   $.post('/incoming_mail',{text: $("#incoming_mail_text").val()}).then(res=>{
-    alert('Found org: '+res.name+' and amount '+res.amount);
+    alert('This will be processed in the background. Please refresh this page in about 30 seconds to view your results on the right-hand side.');
     $('.submit_email').html('Submit').removeClass('spinner')
   })
 }
