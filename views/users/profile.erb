@@ -18,7 +18,7 @@
         <%= user['philosophy'] %> 
       </div>      
 
-      <% if user && $donations.all(user_id: user['_id']).mapo('amount').map{|s| s.to_i}.sum >= user['yearly_income'].to_i * 0.1%>      
+      <% if user && user['yearly_income'].present? && $donations.all(user_id: user['_id']).mapo('amount').map{|s| s.to_i}.sum >= user['yearly_income'].to_i * 0.1%>      
       <div class='card1'>
         <h5> Badges </h5>
         <div class='badges'>
