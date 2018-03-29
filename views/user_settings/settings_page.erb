@@ -24,6 +24,10 @@ fav_orgs = user['fav_orgs'].to_a.select {|o| o.present? }
           <option value='<%=type%>' <%='selected' if user[:fav_cause]==type%>><%=type.titleize%></option>
         <% end %>
       </select>
+      <div>
+        <label> Featured Cause - Explanation </label>
+        <textarea name=fav_cause_txt rows=5 /><%=user[:fav_cause_txt] %> </textarea>
+      </div>
     <!-- <button type='button' onclick=addFavOrg()>Add + </button> -->
   </section>
 
@@ -31,7 +35,9 @@ fav_orgs = user['fav_orgs'].to_a.select {|o| o.present? }
     <h4> My favorite Organizations </h4>
     <div class='fav_orgs_list'>
       <ul style='list-style:none' class='sortable'>
-      <% (fav_orgs.to_a.compact).each_with_index do |org,i| %>
+      <% fav_orgs_list = fav_orgs.to_a.compact %>
+      <% fav_orgs_list.push({}) if fav_orgs.size == 0 %>
+      <% (fav_orgs_list).each_with_index do |org,i| %>
         <li style='list-style:none'>
         <div style='display: inline-block; margin: 20px;  background-color:lightgrey; padding:10px'>
           <div><label> Organization</label>

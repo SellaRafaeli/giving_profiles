@@ -1,7 +1,7 @@
   $users = $mongo.collection('users')
 
 ALL_NETWORKS = ['yale', 'harvard', 'stanford', 'caltech']
-USER_FIELDS  = [:nick,:name,:address,:yearly_income,:network,:philosophy,:fav_orgs,:fav_orgs_text,:fav_cause,]
+USER_FIELDS  = [:nick,:name,:address,:yearly_income,:network,:philosophy,:fav_orgs,:fav_orgs_text,:fav_cause,:fav_cause_txt]
 
 get '/login/:id' do
   user = $users.get(pr[:id]) || $users.get(nick: pr[:nick]) || $users.random
