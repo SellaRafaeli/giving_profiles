@@ -1,0 +1,10 @@
+// Base CSS
+@import "base/normalize";
+
+// Layouts CSS
+@import "layouts/application";
+@import "layouts/footer";
+@import "layouts/header";
+
+// Pages CSS
+@import "pages/home";
