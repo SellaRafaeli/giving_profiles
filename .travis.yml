@@ -5,3 +5,7 @@ before_install:
   - gem install bundler:2.0.1
 install:
   - bundle install
+script:
+  - rails db:create
+  - rails db:migrate
+  - rails db:seed
