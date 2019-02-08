@@ -1,4 +1,5 @@
 # README
+[![Build Status](https://travis-ci.com/GreatHearts/giving_profiles.svg?branch=master)](https://travis-ci.com/GreatHearts/giving_profiles)
 
 ## Setup
 In the folder where you cloned the project:
