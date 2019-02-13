@@ -17,27 +17,49 @@ postgresql
 Bootstrap
 
 # HOW TO INSTALL DEPENDENCIES  
+
+# Install rails on your mac system
 Adding rails to your computer: https://www.dropbox.com/s/n9vxbzk47t8abq7/Mac%20Setup.pdf?dl=0
 
-`brew install postgresql`
+### Make sure you have homebrew installed
 
-`brew tap homebrew/services`
+if not install it [here](https://brew.sh/)
 
-`brew services start postgresql`
-
-`brew install rbenv`
-
-if you have rbenv installed `brew upgrade rbenv ruby-build` (edited)
-
-`rbenv init`
-
-`cd` into repository
-
-`ruby -v`
-
-`rbenv install 2.6.1`
-
-if ruby defaults to old version on Mac: `export PATH="$HOME/.rbenv/shims:$PATH"`
+First step install postgresql
+~~~~
+brew install postgresql
+~~~~
+~~~~
+brew tap homebrew/services
+~~~~
+You are going to need postgresql up and running
+~~~~
+brew services start postgresql
+~~~~
+~~~~
+brew install rbenv
+~~~~
+~~~~
+brew upgrade rbenv ruby-build
+~~~~
+~~~~
+rbenv init
+~~~~
+If you have not already, go in to the 'giving_profiles' folder
+~~~~
+cd giving_profiles
+~~~~
+Check your ruby version
+~~~~
+ruby -v
+~~~~
+for this project you will need 2.6.1, if its not the proper version try
+~~~~
+export PATH="$HOME/.rbenv/shims:$PATH"
+~~~~
+~~~~
+rbenv install 2.6.1
+~~~~
 
 # HOW TO SET UP THIS SITE FOR YOUR COMPUTER
 In the folder where you cloned the project:
