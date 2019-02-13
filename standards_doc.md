@@ -1,25 +1,42 @@
 # STANDARDS DOC
 
 # DEPENDENCIES
+
 Rails
+
 Bundler
+
 rbenv
+
 ruby version: ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin15]
+
 Homebrew
+
 postgresql
-Bootstrap 
+
+Bootstrap
 
 # HOW TO INSTALL DEPENDENCIES  
 Adding rails to your computer: https://www.dropbox.com/s/n9vxbzk47t8abq7/Mac%20Setup.pdf?dl=0
+
 `brew install postgresql`
+
 `brew tap homebrew/services`
+
 `brew services start postgresql`
+
 `brew install rbenv`
+
 if you have rbenv installed `brew upgrade rbenv ruby-build` (edited)
+
 `rbenv init`
+
 `cd` into repository
+
 `ruby -v`
+
 `rbenv install 2.6.1`
+
 if ruby defaults to old version on Mac: `export PATH="$HOME/.rbenv/shims:$PATH"`
 
 # HOW TO SET UP THIS SITE FOR YOUR COMPUTER
