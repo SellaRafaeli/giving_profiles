@@ -54,8 +54,8 @@ rbenv install 2.6.1
 rbenv local 2.6.1
 ~~~~
 
-# HOW TO SET UP THIS SITE FOR YOUR COMPUTER
-In the folder where you cloned the project:
+# FIRST TIME RUNNING THE APPLICATION
+Within the `giving_profiles` directory:
 1. `bundle`
 1. `touch giving_profiles/config/database.yml`
 1. `rails db:create`
@@ -63,7 +63,7 @@ In the folder where you cloned the project:
 1. `rails db:seed`
 1. `rails server` or simply `rails s`
 
-# HOW TO START
+# HOW TO START THE SERVER
 ~~~~
 cd giving_profiles
 ~~~~
@@ -77,7 +77,7 @@ Enter `localhost:3000` into the browser.
 
 # Git Workflow
 1. Create a new branch when you work on features. 
-2. Keep your branch up to date: `git fetch --all` followed by `git rebase orgin/master`.
+2. Keep your branch up to date: `git fetch --all` followed by `git rebase origin/master`.
 3. When you have completed your feature, [create a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 
