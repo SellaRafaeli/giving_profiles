@@ -31,3 +31,5 @@
 
 /config/database.yml
 .env
+
+/vendor/*
