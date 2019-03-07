@@ -1,6 +1,3 @@
-//sass tools
-@import "variables";
-
 // Base CSS
 @import "base/normalize";
 @import "bootstrap";
@@ -15,6 +12,3 @@
 // Pages CSS
 @import "pages/home";
 @import "pages/login";
-
-// Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap";

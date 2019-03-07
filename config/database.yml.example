@@ -1,0 +1,4 @@
+<<: *default
+database: giving_profiles_production
+username: #STUB
+password: #STUB
