@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/about' => 'home#about'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit]
 end
