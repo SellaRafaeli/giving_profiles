@@ -11,3 +11,4 @@ script:
   - rails db:create
   - rails db:migrate
   - rails db:seed
+  - rails check:no_fix
