@@ -6,26 +6,11 @@
   }
 
   &__divider {
-    &__privacy-policy {
-      width: 44%;
-      margin: 20px 0;
-      @include media-breakpoint-down(lg) {
-        width: 100%;
-        margin: 20px 0 15px 0;
-      }
-    }
-
-    &__faq {
+    &--faq {
       width: 192px;
       margin-top: 20px;
       transition-duration: 2s;
     }
   }
-
-  &__heading {
-    margin: 20px 0 4px 0;
-    @include media-breakpoint-down(lg) {
-      margin-top: 16px;
-    }
-  }
+  
 }

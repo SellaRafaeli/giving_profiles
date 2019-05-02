@@ -1,3 +1,18 @@
 .divider {
   border: solid 1px $element-toned-down;
 }
+
+.header {
+  &__heading {
+    
+  }
+
+  &__divider {
+    width: 44%;
+    margin: 20px 0;
+    @include media-breakpoint-down(lg) {
+      width: 100%;
+      margin: 20px 0 15px 0;
+    }
+  }
+}
