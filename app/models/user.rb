@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
-  enum favorite_cause: Organization.org_types
   include PgSearch
+  enum favorite_cause: Organization.org_types
   multisearchable against: %i[nick_name email location],
-                  update_if: [:nick_name_changed?, :email_changed?, location_changed?]
+                  update_if: %i[nick_name_changed? email_changed? location_changed?]
 
   has_many :user_favorite_organizations, dependent: :destroy
   has_many :favorite_organizations, through: :user_favorite_organizations, source: :organization
