@@ -3,6 +3,7 @@
 class UsersController < ApplicationController
   helper_method :cause_logos # #will delete when we get real org logos.
   before_action :user, :donations_by_causes, only: %i[show edit]
+  before_action :user, only: %i[home edit]
 
   def show
     @badges = @user.badges
@@ -32,5 +33,21 @@ class UsersController < ApplicationController
       "international" => "globe",
       "religion" => "chrome"
     }
+  end
+
+  def home
+    @network_users = User.all
+  end
+
+  def render_forbidden
+    # TODO: Add 403 page and render it
+    # render file: 'public/403.html', status: 403
+    redirect_to root_path
+  end
+
+  private
+
+  def ensure_current_user
+    render_forbidden unless logged_in? && @user == current_user
   end
 end
