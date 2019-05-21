@@ -1,43 +1,17 @@
-<div class="user-home container">
+<div class="user-home container px-0">
+
   <div class="row">
-    <div class="user-header col-12">
-      <div class="row">
-        <div class="col-2">
-          <div class="user-image">
-            User Image
-          </div>
-        </div>
-        <div class="col-5">
-          Name
-        </div>
-        <div class="col-5">
-          Links/icons
-        </div>
-      </div>
+    <div class="col-5 col-lg-12 offset-2">
+      MY NETWORK
     </div>
-    <div class="row col-12 col-lg-4">
-      <div class="col-5 col-lg-12 offset-2">
-        MY NETWORK
-      </div>
-      <div class="col-5 d-lg-none">
-        FAVORITES
-      </div>
-      <div class="row">
-        <% @network_users.each do |u| %>
-          <div class="row col-12 card">
-            <div class="card-body">
-              <div class="col-2">
-                <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "rounded-circle avatar") %>
-              </div>
-              <div class="col-10">
-                <div class="heading">
-                  <% u.full_name %>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+    <div class="col-5 d-lg-none">
+      FAVORITES
     </div>
   </div>
+  <% @network_donations.each do |donation| %>
+    <div class="w-100">
+      <%= render "users/profile_sections/past_donation", donation: donation, show_donor: true %>
+    </div>
+  <% end %>
+
 </div>

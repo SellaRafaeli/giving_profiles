@@ -2,11 +2,12 @@
 
 class UsersController < ApplicationController
   helper_method :cause_logos # #will delete when we get real org logos.
-  before_action :user, :donations_by_causes, only: %i[show edit]
-  before_action :user, only: %i[home edit]
+  before_action :user, only: %i[home show edit]
+  before_action :donations_by_causes, only: %i[show edit]
 
   def show
     @badges = @user.badges
+    @donations = @user.donations
   end
 
   def edit
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def home
-    @network_users = User.all
+    @network_donations = Donation.first(5)
   end
 
   def render_forbidden

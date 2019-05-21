@@ -38,5 +38,9 @@ class User < ApplicationRecord
     end
     @donations_by_causes
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
   # rubocop:enable Metrics/AbcSize
 end
