@@ -11,47 +11,54 @@
     </div>
   </div>
 
-  <div class="row justify-content-between mt-3">
-    <div class="col title-section">PEOPLE</div>
-    <div class="col body-toned-down text-right">See All</div>
-  </div>
+  <% if @users.present? %>
+    <div class="row justify-content-between mt-3">
+      <div class="col title-section">PEOPLE</div>
+      <div class="col body-toned-down text-right">See All</div>
+    </div>
 
-  <div class="row mt-2">
-    <% @users.each do |result| %>
-      <div class="col-2 text-left">
-        <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "rounded-circle avatar") %>
-      </div>
-      <div class="col-10 row">
-        <div class="col-12 heading">
-          <%= result.searchable.name %>
-        </div>
-        <div class="col-12 body-medium-toned-down">
-          Chicago, IL
-          <%#= result.searchable.location %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+    <div class="row mt-2">
+      <% @users.each do |result| %>
+        <div class="row col-12 col-lg-3">
+          <div class="col-2 text-left">
+            <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "rounded-circle avatar") %>
+          </div>
+          <div class="col-10 row">
+            <div class="col-12 heading">
+              <%= result.searchable.name %>
+            </div>
+            <div class="col-12 body-medium-toned-down">
+              Chicago, IL
+              <%#= result.searchable.location %>
+            </div>
+          </div>
 
-  <div class="row justify-content-between mt-3">
-    <div class="col title-section">ORGANIZATIONS</div>
-    <div class="col body-toned-down text-right">See All</div>
-  </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
-  <div class="row mt-2">
-    <% @organizations.each do |result| %>
-      <div class="col-2 text-left">
-        <%= image_tag("american_red_cross.jpeg", alt: "rss feed", class: "rounded-circle avatar") %>
-      </div>
-      <div class="col-10 row">
-        <div class="col-12 heading">
-          <%= result.searchable.name %>
+  <% if @organizations.present? %>
+    <div class="row justify-content-between mt-3">
+      <div class="col title-section">ORGANIZATIONS</div>
+      <div class="col body-toned-down text-right">See All</div>
+    </div>
+
+    <div class="row mt-2">
+      <% @organizations.each do |result| %>
+        <div class="col-2 text-left">
+          <%= image_tag("american_red_cross.jpeg", alt: "rss feed", class: "rounded-circle avatar") %>
         </div>
-        <div class="col-12 body-medium-toned-down">
-          Chicago, IL
-          <%#= result.searchable.location %>
+        <div class="col-10 row">
+          <div class="col-12 heading">
+            <%= result.searchable.name %>
+          </div>
+          <div class="col-12 body-medium-toned-down">
+            Chicago, IL
+            <%#= result.searchable.location %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
