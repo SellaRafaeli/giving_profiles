@@ -2,8 +2,8 @@
 class User < ApplicationRecord
   include PgSearch
   enum favorite_cause: Organization.org_types
-  multisearchable against: %i[nick_name email location],
-                  update_if: %i[nick_name_changed? email_changed? location_changed?]
+  multisearchable against: %i[first_name last_name nick_name email location],
+                  update_if: %i[first_name_changed? last_name_changed? nick_name_changed? email_changed? location_changed?]
 
   has_many :user_favorite_organizations, dependent: :destroy
   has_many :favorite_organizations, through: :user_favorite_organizations, source: :organization

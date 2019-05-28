@@ -1,6 +1,57 @@
-<div class="search-results">
-  <% @search_results.each do |result| %>
+<div class="search-results container">
 
-    <div><%= result.content %></div>
-  <% end %>
+  <div class="row justify-content-between">
+    <div class="col title-section">FILTER BY</div>
+    <div class="col body-toned-down text-right">Clear All</div>
+  </div>
+  <div class="row">
+    <div class="col mt-2">
+      <div class="btn btn__filter--white button-dark ml-0 mr-2">Badge</div>
+      <div class="btn btn__filter--white button-dark ml-2">Category</div>
+    </div>
+  </div>
+
+  <div class="row justify-content-between mt-3">
+    <div class="col title-section">PEOPLE</div>
+    <div class="col body-toned-down text-right">See All</div>
+  </div>
+
+  <div class="row mt-2">
+    <% @users.each do |result| %>
+      <div class="col-2 text-left">
+        <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "rounded-circle avatar") %>
+      </div>
+      <div class="col-10 row">
+        <div class="col-12 heading">
+          <%= result.searchable.name %>
+        </div>
+        <div class="col-12 body-medium-toned-down">
+          Chicago, IL
+          <%#= result.searchable.location %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row justify-content-between mt-3">
+    <div class="col title-section">ORGANIZATIONS</div>
+    <div class="col body-toned-down text-right">See All</div>
+  </div>
+
+  <div class="row mt-2">
+    <% @organizations.each do |result| %>
+      <div class="col-2 text-left">
+        <%= image_tag("american_red_cross.jpeg", alt: "rss feed", class: "rounded-circle avatar") %>
+      </div>
+      <div class="col-10 row">
+        <div class="col-12 heading">
+          <%= result.searchable.name %>
+        </div>
+        <div class="col-12 body-medium-toned-down">
+          Chicago, IL
+          <%#= result.searchable.location %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
