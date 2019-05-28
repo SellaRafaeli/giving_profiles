@@ -6,9 +6,8 @@
   z-index: $top-z-index;
   top: 0;
   margin-bottom: 80px;
-  &--login {
+  &--no-margin {
     margin-bottom: 0;
-
   }
 
   @include media-breakpoint-down(sm) {
