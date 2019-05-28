@@ -7,10 +7,10 @@
   <!-- This is just a place holder for now. -->
   <div class='header-search'>
     <%= form_tag(search_path, method: "get") do %>
-
-      <%= text_field_tag :query, nil, placeholder: "Search...", class: "form-control"%>
-
       <%= fa_icon "search" %>
+
+      <%= text_field_tag :query, nil, placeholder: "Search...", class:"border-0 header-search__input--no-background"%>
+
     <% end %>
   </div>
 
