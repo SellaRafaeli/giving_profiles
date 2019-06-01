@@ -14,6 +14,12 @@
                 <div class="row row align-items-center">
                   <div class="col-2"><%= fa_icon "facebook-square", class: "login__facebook-icon fa-2x" %></div>
                   <div class="col">Login With Facebook</div>
+                  <% unless current_user %>
+                  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+                  <% else %>
+                  <%= current_user[:name] %>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                  <% end %>
                 </div>
               </div>
             </a>
