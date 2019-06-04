@@ -1,6 +1,7 @@
-<section class="login cover-container">
-  <div class="cover-container container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <main role="main" class="inner cover">
+<section class="login">
+  <div class="login__background"></div>
+  <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <main role="main">
       <div class="login__card card col-sm col-lg-3 ml-lg-auto">
         <div class="login__card-body card-body d-flex align-items-start flex-column">
           <a href="#" class="login__heart-btn btn" role="button" aria-pressed="true"><%= fa_icon "heart-o" %></a>
@@ -12,7 +13,15 @@
               <div class="mt-auto p-2 bd-highlight btn btn-lg w-100 login__facebook-button">
                 <div class="row row align-items-center">
                   <div class="col-2"><%= fa_icon "facebook-square", class: "login__facebook-icon fa-2x" %></div>
-                  <div class="col">Login With Facebook</div>
+                  <div class="col">
+                    <% unless current_user %>
+                      <%= link_to "Login with Facebook", user_facebook_omniauth_authorize_path %>
+                      <% else %>
+                        <%= current_user[:name] %>
+                      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                      <% end %>
+
+                  </div>
                 </div>
               </div>
             </a>

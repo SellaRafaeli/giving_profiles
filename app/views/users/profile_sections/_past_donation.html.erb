@@ -1,7 +1,7 @@
 <div class="card past-donation-card">
   <div class="row">
     <div class="col-2 mx-auto <%= "#{show_donor ? '' : 'd-none'}" %>">
-      <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "rounded-circle avatar") %>
+      <%= image_tag(donation.user.avatar_url, alt: "rss feed", class: "rounded-circle avatar") %>
     </div>
     <div class=<%= "#{show_donor ? 'col-10 offset-2' : 'col-12'}" %>>
       <div class="past-donation-card__header">

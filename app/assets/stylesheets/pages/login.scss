@@ -1,6 +1,21 @@
 ///login page styleing
 
 .login {
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.29)), no-repeat, url(BackgroundImage.jpg);
+    /* Preserve aspect ratio */
+    background-size: 110% auto;
+    @include media-breakpoint-down(md) {
+      background-size: 1400px auto;
+    }
+    background-position: center center;
+    width: 100vw;
+    height: 100vh;
+  }
+
   &__card {
     margin-top: 80px;
     padding-top: 20px;
@@ -35,6 +50,9 @@
     font-size: 1rem;
     color: white;
     background-color: $facebook-blue;
+    a {
+      color: white;
+    }
   }
   small {
     font-size: 10px;

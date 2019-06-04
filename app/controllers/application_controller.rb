@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?
+  helper_method :signed_in_root_path
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    !current_user.nil?
+  def signed_in_root_path(current_user)
+    home_user_path(current_user)
   end
 end

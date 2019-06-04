@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   helper_method :cause_logos # #will delete when we get real org logos.
   before_action :user, only: %i[home show edit]
   before_action :donations_by_causes, only: %i[show edit]
-
+  before_action :ensure_current_user, only: %i[home show edit]
+  before_action :verify_access, only: %i[home edit]
   def show
     @badges = @user.badges
     @donations = @user.donations
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
   end
 
   def home
+    redirect_to login_path unless user_signed_in?
     @network_donations = Donation.first(5)
   end
 
@@ -49,6 +51,10 @@ class UsersController < ApplicationController
   private
 
   def ensure_current_user
-    render_forbidden unless logged_in? && @user == current_user
+    redirect_to root_path unless user_signed_in?
+  end
+
+  def verify_access
+    render_forbidden unless user_signed_in? && @user == current_user
   end
 end
