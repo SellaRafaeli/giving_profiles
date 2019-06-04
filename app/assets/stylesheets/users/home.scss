@@ -5,6 +5,8 @@
     object-fit: cover;
   }
   .past-donation-card {
+    border-radius: 0;
+    margin-bottom: 4px;
     padding: 12px;
     .donated-to-text{
       font-size: 12px;
