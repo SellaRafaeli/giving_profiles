@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_172348) do
     t.string "philosophy"
     t.string "address"
     t.integer "yearly_income"
-    t.string "pic_url"
     t.boolean "deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
