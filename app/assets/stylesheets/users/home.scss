@@ -8,9 +8,9 @@
     border-radius: 0;
     margin-bottom: 4px;
     padding: 12px;
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
       height: 100px;
-      width: 375px;
+      width: 100%;
     }
 
     &__donor-name {
@@ -35,7 +35,7 @@
     }
   }
 
-  .home-section {
+  .home-section-title {
     margin-bottom: 8px;
     left: 15px;
     color: $text-subtitle;
@@ -45,6 +45,53 @@
       padding-left: 0;
       color: $text-body;
     }
-
   }
+
+  .home-section-content {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+
+  .organization-activity-card {
+    margin-bottom: 4px;
+    @include media-breakpoint-up(md) {
+      border-radius: 0;
+    }
+    &__name {
+      font-weight: bold;
+      @include media-breakpoint-down(md) {
+        line-height: 16px;
+        font-size: 14px;
+      }
+    }
+    &__facebook-icon {
+      height: 20px;
+      width: 20px;
+      color: $facebook-blue;
+      background-color: white;
+    }
+    &__image--bottom {
+      border-radius: 12px;
+      @include media-breakpoint-up(md) {
+        display:none;
+      }
+    }
+    &__image--top {
+      @include media-breakpoint-down(md) {
+        display:none;
+      }
+    }
+    &__body {
+      margin-right: 20px;
+    }
+    &__header {
+      margin-top: 12px;
+    }
+  }
+
 }
