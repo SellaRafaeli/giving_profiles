@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
+  # rubocop:disable AbcSize
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -25,6 +26,7 @@ class User < ApplicationRecord
       user.provider = auth.provider
     end
   end
+  # rubocop:enable AbcSize
 
   def badges
     donated_causes.uniq
