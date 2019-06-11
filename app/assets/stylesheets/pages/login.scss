@@ -36,22 +36,22 @@
   }
 
   &__heart-btn {
-    color: white;
+    color: $gp-white;
     background-color: $gp-yellow;
   }
 
   &__facebook-icon {
-    color: white;
+    color: $gp-white;
     background-color: $facebook-blue;
   }
 
   &__facebook-button {
     height: 48px;
     font-size: 1rem;
-    color: white;
+    color: $gp-white;
     background-color: $facebook-blue;
     a {
-      color: white;
+      color: $gp-white;
     }
   }
   small {
