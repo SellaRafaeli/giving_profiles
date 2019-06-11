@@ -1,15 +1,32 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
   enum favorite_cause: Organization.org_types
 
   has_many :user_favorite_organizations, dependent: :destroy
   has_many :favorite_organizations, through: :user_favorite_organizations, source: :organization
   has_many :donations, dependent: :destroy
 
-  validates :fb_id, uniqueness: true, presence: true # this can be removed when some other signup/login method is added.
   validates :email, uniqueness: true
-  validates_presence_of :first_name, :last_name
+
+  # rubocop:disable AbcSize
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
+      user.password = Devise.friendly_token[0, 20]
+      user.nick_name = auth.extra.raw_info.short_name
+      user.avatar_url = auth.info.image + "?type=large" # assuming the user model has a name
+      user.uid = auth.uid
+      user.provider = auth.provider
+    end
+  end
+  # rubocop:enable AbcSize
 
   def badges
     donated_causes.uniq
@@ -38,5 +55,10 @@ class User < ApplicationRecord
     end
     @donations_by_causes
   end
+
+  def profile_image
+    avatar_url.present? ? avatar_url : "default_avatar"
+  end
+
   # rubocop:enable Metrics/AbcSize
 end

@@ -13,11 +13,13 @@ RSpec.describe User, type: :model do
       .source(:organization)
   end
 
-  it { should validate_presence_of(:fb_id) }
-  it { should validate_presence_of(:first_name) }
-  it { should validate_presence_of(:last_name) }
-  it { should validate_uniqueness_of(:fb_id) }
-  it { should validate_uniqueness_of(:email) }
+  it "should validate that email is case-sensitively unique" do
+    user = users(:bob_user)
+    new_user = User.new(first_name: "John", last_name: "Doe", email: user.email)
+    expect(new_user.valid?).to be_falsey
+    new_user.update_attribute(:email, user.email.upcase)
+    expect(new_user.valid?).to be_falsey
+  end
 
   describe "#name" do 
     it "returns first_name plus last name with space in between." do 
@@ -25,4 +27,5 @@ RSpec.describe User, type: :model do
       expect(user.name).to eql "Bob Bobson"
     end
   end
+
 end
