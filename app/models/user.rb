@@ -63,7 +63,7 @@ class User < ApplicationRecord
   end
 
   def profile_image
-    avatar_url.present? ? avatar_url : "home-profile_01.jpg"
+    avatar_url.present? ? avatar_url : "default_avatar"
   end
 
   # rubocop:enable Metrics/AbcSize
