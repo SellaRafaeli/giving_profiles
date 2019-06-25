@@ -1,51 +1,57 @@
 <div class="user-home container px-0">
 
   <div class="row">
-    <div class="col-5 col-lg-12 offset-2 home-section-title home-section-title--selected">
+    <div class="col-5 col-lg-3 offset-2 home-section-title home-section-title--selected">
       MY NETWORK
     </div>
-    <div class="col-5 d-lg-none home-section-title">
+    <div class="col-5 col-lg-6 home-section-title">
       FAVORITES
     </div>
   </div>
-  <% @network_donations.each do |donation| %>
-    <div class="home-section-content">
-      <%= render "users/profile_sections/past_donation", donation: donation, show_donor: true %>
-    </div>
-  <% end %>
-  <% @user.favorite_organizations.each do |organization| %>
-    <div class="card organization-activity-card">
-      <%= link_to "/#organization_id", class:"card-img-top" do %>
-        <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "img-fluid organization-activity-card__image--top") %>
+  <div class="row">
+    <div class="col-5 col-lg-3 offset-2">
+      <% @network_donations.each do |donation| %>
+        <div class="home-section-content">
+          <%= render "users/profile_sections/past_donation", donation: donation, show_donor: true %>
+        </div>
       <% end %>
+    </div>
+    <div class="col-5 col-lg-6 offset-xs-2 offset-lg-0">
+      <% Organization.first(4).each do |organization| %>
+        <div class="card organization-activity-card">
+          <%= link_to "/#organization_id", class:"card-img-top" do %>
+            <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "img-fluid organization-activity-card__image--top") %>
+          <% end %>
 
-      <div class="organization-activity-card__header row no-gutters">
-        <%= link_to "/#organization", class:"col-2" do %>
-          <div class="mx-auto col-10">
-            <%= image_tag(organization.profile_image, alt: "rss feed", class: "rounded-circle avatar") %>
+          <div class="organization-activity-card__header row no-gutters">
+            <%= link_to "/#organization", class:"col-2" do %>
+              <div class="mx-auto col-10">
+                <%= image_tag(organization.profile_image, alt: "rss feed", class: "rounded-circle avatar") %>
+              </div>
+            <% end %>
+            <div class="col-8 organization-activity-card__name heading">
+              <%= organization.name %>
+            </div>
+            <div class="col-2 text-center organization-activity-card__social-media-logo">
+              <%= fa_icon "facebook-square", class: "organization-activity-card__facebook-icon fa-2x" %>
+            </div>
+          </div>
+
+          <div class="organization-activity-card__body row no-gutters">
+            <div class="col-10 offset-2 my-3">
+              “We’re doing everything we can, including working with partners like the National Guard, to move volunteers and supplies to critical areas.” Here’s how you can help: https://rdcrss.org/2xqHFmq  #Florence
+            </div>
+            <div class="col-10 offset-2 mb-3">
+              <%= link_to "/#organization_id", class:"card-img-top " do %>
+                <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "organization-activity-card__image--bottom img-fluid") %>
+              <% end %>
+            </div>
           </div>
         <% end %>
-        <div class="col-8 organization-activity-card__name heading">
-          <%= organization.name %>
-        </div>
-        <div class="col-2 text-center organization-activity-card__social-media-logo">
-          <%= fa_icon "facebook-square", class: "organization-activity-card__facebook-icon fa-2x" %>
-        </div>
-      </div>
 
-      <div class="organization-activity-card__body row no-gutters">
-        <div class="col-10 offset-2 my-3">
-          “We’re doing everything we can, including working with partners like the National Guard, to move volunteers and supplies to critical areas.” Here’s how you can help: https://rdcrss.org/2xqHFmq  #Florence
-        </div>
-        <div class="col-10 offset-2 mb-3">
-          <%= link_to "/#organization_id", class:"card-img-top " do %>
-            <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "organization-activity-card__image--bottom img-fluid") %>
-          <% end %>
-        </div>
       </div>
-
     </div>
+  </div>
 
-  <% end %>
 
 </div>
