@@ -1,22 +1,22 @@
 <div class="user-home container px-0">
 
   <div class="row">
-    <div class="col-5 col-lg-3 offset-2 home-section-title home-section-title--selected">
+    <div class="col-5 col-lg-3 offset-2 offset-lg-0 home-section-title home-section-title--selected">
       MY NETWORK
     </div>
-    <div class="col-5 col-lg-6 home-section-title">
+    <div class="col-5 col-lg-6  offset-lg-0 home-section-title">
       FAVORITES
     </div>
   </div>
   <div class="row">
-    <div class="col-5 col-lg-3 offset-2">
+    <div class="col col-lg-3 offset-2 offset-lg-0">
       <% @network_donations.each do |donation| %>
         <div class="home-section-content">
           <%= render "users/profile_sections/past_donation", donation: donation, show_donor: true %>
         </div>
       <% end %>
     </div>
-    <div class="col-5 col-lg-6 offset-xs-2 offset-lg-0">
+    <div class="col-5 col-lg-6 offset-xs-2 offset-lg-0 d-lg-block d-none">
       <% Organization.first(4).each do |organization| %>
         <div class="card organization-activity-card">
           <%= link_to "/#organization_id", class:"card-img-top" do %>
