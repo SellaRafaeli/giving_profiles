@@ -67,9 +67,14 @@
   }
 
   .organization-activity-card {
-    margin-bottom: 4px;
-    @include media-breakpoint-up(md) {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+    margin-bottom: 12px;
+    @include media-breakpoint-down(md) {
       border-radius: 0;
+      margin-bottom: 4px;
     }
     &__name {
       font-weight: bold;
