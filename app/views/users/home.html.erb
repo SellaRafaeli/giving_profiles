@@ -10,6 +10,10 @@
   </div>
   <div class="row">
     <div class="col col-lg-3 offset-2 offset-lg-0">
+      <!-- Place button here -->
+      <div class="w-100 btn btn-primary new-donation-btn">
+        <%= fa_icon "plus", text: "Record my donation" %>
+      </div>
       <% @network_donations.each do |donation| %>
         <div class="home-section-content">
           <%= render "users/profile_sections/past_donation", donation: donation, show_donor: true %>
