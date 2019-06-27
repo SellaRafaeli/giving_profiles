@@ -4,12 +4,15 @@
     <div class="col-5 col-lg-3 offset-2 offset-lg-0 home-section-title home-section-title--selected">
       MY NETWORK
     </div>
-    <div class="col-5 col-lg-6  offset-lg-0 home-section-title">
+    <div class="col-5 d-lg-none home-section-title">
       FAVORITES
+    </div>
+    <div class="col-6 d-none d-lg-block home-section-title">
+      MY FAVORITE ORGANIZATIONS
     </div>
   </div>
   <div class="row">
-    <div class="col col-lg-3 offset-2 offset-lg-0">
+    <div class="col col-lg-3">
       <!-- Place button here -->
       <div class="w-100 btn btn-primary new-donation-btn">
         <%= fa_icon "plus", text: "Record my donation" %>
@@ -22,14 +25,14 @@
     </div>
     <div class="col-5 col-lg-9 offset-xs-2 offset-lg-0 d-lg-flex p-2 d-none row">
       <% Organization.first(4).each do |organization| %>
-        <div class="card organization-activity-card col-4">
+        <div class="card organization-activity-card col-3">
           <%= link_to "/#organization_id", class:"card-img-top" do %>
             <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "img-fluid organization-activity-card__image--top") %>
           <% end %>
 
           <div class="organization-activity-card__header row no-gutters">
             <%= link_to "/#organization", class:"col-2" do %>
-              <div class="mx-auto col-10">
+              <div class="mr-auto">
                 <%= image_tag(organization.profile_image, alt: "rss feed", class: "rounded-circle avatar") %>
               </div>
             <% end %>

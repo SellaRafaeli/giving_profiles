@@ -67,17 +67,20 @@
   }
 
   .organization-activity-card {
+    min-width: 244px;
+    padding: 0;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     border-radius: 12px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
-    margin-bottom: 12px;
+    margin: 0 8px 12px 8px;
     @include media-breakpoint-down(md) {
       border-radius: 0;
       margin-bottom: 4px;
     }
     &__name {
       font-weight: bold;
+      padding: 0 16px;
       @include media-breakpoint-down(md) {
         line-height: 16px;
         font-size: 14px;
@@ -104,12 +107,13 @@
       margin-right: 20px;
     }
     &__header {
-      margin-top: 12px;
+      padding: 12px 16px;
     }
   }
   .new-donation-btn {
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
     margin-bottom: 12px;
+    text-align: left;
   }
 
 }
