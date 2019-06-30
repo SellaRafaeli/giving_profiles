@@ -14,9 +14,13 @@
   <div class="row">
     <div class="col col-lg-3">
       <!-- Place button here -->
-      <div class="w-100 btn btn-primary new-donation-btn">
+      <div class="w-100 btn btn-primary new-donation-btn d-none d-lg-inline-block">
         <%= fa_icon "plus", text: "Record my donation", class: "pr-4" %>
       </div>
+      <div class="btn btn-primary new-donation-btn--mobile fixed-bottom ml-auto d-lg-none">
+        <%= fa_icon "plus" %>
+      </div>
+
       <% @network_donations.each do |donation| %>
         <div class="home-section-content">
           <%= render "users/profile_sections/past_donation", donation: donation, show_donor: true %>
