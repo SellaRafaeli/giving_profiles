@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/policy' => 'home#policy'
   get '/contact' => 'home#contact'
 
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
 end
