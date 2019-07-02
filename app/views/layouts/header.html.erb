@@ -6,7 +6,12 @@
 
   <!-- This is just a place holder for now. -->
   <div class='header-search'>
-    <%= fa_icon "search", text: "Search..." %>
+    <%= form_tag(search_path, method: "get") do %>
+      <%= fa_icon "search" %>
+
+      <%= text_field_tag :query, nil, placeholder: "Search...", class:"border-0 header-search__input--no-background"%>
+
+    <% end %>
   </div>
 
   <% if user_signed_in? %>

@@ -27,9 +27,9 @@
         </div>
       <% end %>
     </div>
-    <div class="col-5 col-lg-9 offset-xs-2 offset-lg-0 d-lg-flex p-2 d-none row">
+    <div class="col-12 col-lg-9 offset-xs-2 offset-lg-0 d-lg-flex p-2 row">
       <% Organization.first(4).each do |organization| %>
-        <div class="card organization-activity-card col-3">
+        <div class="card organization-activity-card col-12 col-md-3">
           <%= link_to "/#organization_id", class:"card-img-top" do %>
             <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "img-fluid organization-activity-card__image--top") %>
           <% end %>

@@ -170,6 +170,10 @@ body {
   line-height: 1.33;
   letter-spacing: normal;
   color: $text-toned-down;
+  @include media-breakpoint-down(sm) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 .body-thin {
   font-family: Roboto;

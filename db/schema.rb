@@ -32,9 +32,21 @@ ActiveRecord::Schema.define(version: 2019_06_12_004139) do
     t.string "org_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
+    t.string "avatar_url"
     t.index ["fb_url"], name: "index_organizations_on_fb_url", unique: true
+    t.index ["location"], name: "index_organizations_on_location"
     t.index ["name"], name: "index_organizations_on_name", unique: true
     t.index ["org_type"], name: "index_organizations_on_org_type"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "user_favorite_organizations", force: :cascade do |t|
@@ -63,11 +75,11 @@ ActiveRecord::Schema.define(version: 2019_06_12_004139) do
     t.string "first_name"
     t.string "last_name"
     t.string "location"
+    t.string "uid"
+    t.string "provider"
     t.string "encrypted_password"
     t.datetime "remember_created_at"
     t.string "avatar_url"
-    t.string "provider"
-    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["favorite_cause"], name: "index_users_on_favorite_cause"
     t.index ["fb_id"], name: "index_users_on_fb_id", unique: true

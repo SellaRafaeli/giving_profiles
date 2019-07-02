@@ -1,6 +1,9 @@
 # frozen_string_literal: true
-
 class Organization < ApplicationRecord
+  include PgSearch
+  multisearchable against: %i[name org_type location],
+                  update_if: %i[name_changed? org_type_changed? location_changed?]
+
   enum org_type: {
     animals: "animals",
     community: "community",
