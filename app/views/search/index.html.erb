@@ -46,21 +46,19 @@
 
     <div class="row mt-2">
       <% @organizations.each do |result| %>
-          <div class="col-12 col-lg-6 mt-4 container">
-            <div class="row">
-            <div class="col-2 m-2">
-              <%= image_tag(result.searchable.avatar_url, alt: "rss feed", class: "rounded-circle avatar") %>
+        <div class="col-12 col-lg-6">
+          <div class="col-2 text-left">
+            <%= image_tag(result.searchable.avatar_url, alt: "rss feed", class: "rounded-circle avatar") %>
+          </div>
+          <div class="col-10 row">
+            <div class="col-12 heading">
+              <%= result.searchable.name %>
             </div>
-            <div class="col-10 row">
-              <div class="col-12 heading float-left">
-                <%= result.searchable.name %>
-              </div>
-              <div class="col-12 body-medium-toned-down mt-1">
-                <%= result.searchable.location %>
-              </div>
-              <div class="col-12 body-medium-toned-down mt-1">
-                <%= render "shared/org_type_oval", org_type: result.searchable.org_type %>
-              </div>
+            <div class="col-12 body-medium-toned-down">
+              <%= result.searchable.location %>
+            </div>
+            <div class="col-12 body-medium-toned-down">
+              <%= render "shared/org_type_oval", org_type: result.searchable.org_type %>
             </div>
           </div>
         </div>
