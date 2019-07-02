@@ -1,8 +1,8 @@
 <div class="search-results container">
 
   <div class="row justify-content-between">
-    <div class="col title-section">FILTER BY</div>
-    <div class="col body-toned-down text-right">Clear All</div>
+    <h2 class="col title-section">FILTER BY</h2>
+    <h3 class="col body-toned-down text-right">Clear All</h3>
   </div>
   <div class="row">
     <div class="col mt-2">
@@ -13,50 +13,54 @@
 
   <% if @users.present? %>
     <div class="row justify-content-between mt-3">
-      <div class="col title-section">PEOPLE</div>
+      <h2 class="col title-section">PEOPLE</h2>
       <div class="col body-toned-down text-right">See All</div>
     </div>
 
     <div class="row mt-2">
       <% @users.each do |result| %>
-        <div class="row mt-2 col-12 col-lg-3">
-          <div class="col-2 text-left">
-            <%= image_tag(result.searchable.profile_image, alt: "rss feed", class: "rounded-circle avatar") %>
-          </div>
-          <div class="col-10 row mt-1">
-            <div class="col-12 heading">
-              <%= result.searchable.name %>
+        <div class="container mt-2 col-12 col-lg-3 col-md-4">
+            <div class="row mw-100">
+              <div class="col-2 mr-2">
+                <%= image_tag(result.searchable.profile_image, alt: "rss feed", class: "rounded-circle avatar") %>
+              </div>
+              <div class="col-10 row mt-1">
+                <h3 class="col-12 heading smaller ml-2">
+                  <%= result.searchable.name %>
+                </h3>
+                <p class="col-12 body-medium-toned-down smaller ml-2">
+                  <%= result.searchable.location %>
+                  </p>
+                </div>
             </div>
-            <div class="col-12 body-medium-toned-down">
-              <%= result.searchable.location %>
-            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
     </div>
   <% end %>
 
   <% if @organizations.present? %>
     <div class="row justify-content-between mt-3">
-      <div class="col title-section">ORGANIZATIONS</div>
-      <div class="col body-toned-down text-right">See All</div>
+      <h2 class="col title-section">ORGANIZATIONS</h2>
+      <h3 class="col body-toned-down text-right">See All</h3>
     </div>
 
     <div class="row mt-2">
       <% @organizations.each do |result| %>
-        <div class="col-12 col-lg-6">
-          <div class="col-2 text-left">
-            <%= image_tag(result.searchable.avatar_url, alt: "rss feed", class: "rounded-circle avatar") %>
-          </div>
-          <div class="col-10 row">
-            <div class="col-12 heading">
-              <%= result.searchable.name %>
+          <div class="col-12 col-lg-6 mt-4 container">
+            <div class="row">
+            <div class="col-2 m-2">
+              <%= image_tag(result.searchable.avatar_url, alt: "rss feed", class: "rounded-circle avatar") %>
             </div>
-            <div class="col-12 body-medium-toned-down">
-              <%= result.searchable.location %>
-            </div>
-            <div class="col-12 body-medium-toned-down">
-              <%= render "shared/org_type_oval", org_type: result.searchable.org_type %>
+            <div class="col-10 row">
+              <div class="col-12 heading float-left">
+                <%= result.searchable.name %>
+              </div>
+              <div class="col-12 body-medium-toned-down mt-1">
+                <%= result.searchable.location %>
+              </div>
+              <div class="col-12 body-medium-toned-down mt-1">
+                <%= render "shared/org_type_oval", org_type: result.searchable.org_type %>
+              </div>
             </div>
           </div>
         </div>
