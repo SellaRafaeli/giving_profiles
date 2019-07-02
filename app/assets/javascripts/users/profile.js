@@ -1,6 +1,7 @@
 (function(){
   $(document).ready(function(){
     setDonationBars();
+    flashFadeOut();
   });
 
    //experimental function. just place holder for now. will be properly implemented later. 
@@ -19,4 +20,8 @@
     // Will change this during proper implementation.
     $(".donations-bars").css("padding-right", (($(".donations-bars > div").length -1)* 1) + "px");  
   } 
+
+  function flashFadeOut(){
+    $(".alert-success").delay(2200).slideUp(1000);
+  }
 })();

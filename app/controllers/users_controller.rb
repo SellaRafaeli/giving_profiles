@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
+      flash[:success] = "Successfully saved profile changes!"
       redirect_to @user
     else
       flash[:error] = @user.errors.full_messages.join(";  ")

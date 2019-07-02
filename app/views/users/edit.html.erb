@@ -1,6 +1,6 @@
 <%= javascript_include_tag "users/profile_edit" %>
 <div class="user-profile-edit container-fluid">
-<div class="profile-error-container"></div>
+<div class="profile-flash-container"></div>
 <%= form_for(@user, remote: true, html: { class: "user-profile-edit__form" }) do |f| %>
   <%= render "users/profile_edit/profile_pic", form: f %>
   <div class="editable-content">
