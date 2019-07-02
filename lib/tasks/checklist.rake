@@ -8,6 +8,7 @@ unless Rails.env.production?
       Rake::Task["check:audit"].invoke
       Rake::Task["lint:rubocop:no_fix"].invoke
       Rake::Task["lint:erblint:no_fix"].invoke
+      Rake::Task["factory_bot:link"].invoke
       Rake::Task["spec"].invoke
     end
 
