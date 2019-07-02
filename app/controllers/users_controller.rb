@@ -19,11 +19,11 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:error] = @user.errors.full_messages.join(";  ")
-      render 'edit'
+      render "edit"
     end
   end
-  
-  private 
+
+  private
 
   def user
     @user = User.includes(donations: :organization, user_favorite_organizations: :organization).find(params[:id])
@@ -48,7 +48,12 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :location, :email, :philosophy, :favorite_cause_description, 
-    user_favorite_organizations_attributes: [:id, :description])
+    params.require(:user).permit(:first_name,
+                                 :last_name,
+                                 :location,
+                                 :email,
+                                 :philosophy,
+                                 :favorite_cause_description,
+                                 user_favorite_organizations_attributes: %i[id description])
   end
 end
