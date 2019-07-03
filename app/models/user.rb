@@ -41,7 +41,7 @@ class User < ApplicationRecord
     donated_causes.uniq
   end
 
-  def full_name
+  def name
     "#{first_name} #{last_name}"
   end
 

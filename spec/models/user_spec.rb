@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
   describe "#name" do 
     it "returns first_name plus last name with space in between." do 
       user = users(:bob_user)
-      expect(user.full_name).to eql "Bob Bobson"
+      expect(user.name).to eql "Bob Bobson"
     end
   end
 

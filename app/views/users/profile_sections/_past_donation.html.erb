@@ -8,7 +8,7 @@
     <div class=<%= "#{show_donor ? 'col-10 offset-2' : 'col-12'}" %>>
       <div class="donation-card__header">
         <% if show_donor %>
-          <%= link_to donation.user.full_name, donation.user, class: 'align-top donation-card__donor-name heading' %>
+          <%= link_to donation.user.name, donation.user, class: 'align-top donation-card__donor-name heading' %>
         <% end %>
         <div class="donated-to-text"> Donated to </div>
         <a href="#" class="donation-card__menu <%= "#{donation.user == current_user ? '' : 'd-none'}" %>"><%= fa_icon "ellipsis-v" %></a> <!-- Place holder for now. -->
