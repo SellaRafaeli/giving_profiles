@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Organization < ApplicationRecord
   include PgSearch
   multisearchable against: %i[name org_type location],
