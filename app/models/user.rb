@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class User < ApplicationRecord
   include PgSearch
   # Include default devise modules. Others available are:
