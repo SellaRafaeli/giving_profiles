@@ -2,9 +2,9 @@
 
 class SearchController < ApplicationController
   def index
-    search_results = PgSearch.multisearch(params[:query]).includes(:searchable).group_by(&:searchable_type)
+    search_results = PgSearch.multisearch(params[:query]).includes(:searchable)
 
-    @users = search_results["User"].first(4)
-    @organizations = search_results["Organization"].first(6)
+    @users = search_results.where(searchable_type: "User").limit(4)
+    @organizations = search_results.where(searchable_type: "Organization").limit(6)
   end
 end
