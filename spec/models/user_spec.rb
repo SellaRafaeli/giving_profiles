@@ -28,4 +28,27 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "Searching" do
+    let(:user) {create :user, password: Devise.friendly_token[0, 20]}
+
+    it "return results if there are matches " do
+      first_name_result = PgSearch.multisearch(user.first_name)
+      last_name_result = PgSearch.multisearch(user.last_name)
+      full_name_result = PgSearch.multisearch(user.name)
+      location_result = PgSearch.multisearch(user.location)
+
+      expect(first_name_result.first.searchable.first_name).to eq user.first_name
+      expect(last_name_result.first.searchable.last_name).to eq user.last_name
+      expect(full_name_result.first.searchable.name).to eq user.name
+      expect(location_result.first.searchable.location).to eq user.location
+      expect(location_result.first.searchable.id).to eq user.id
+    end
+
+    it "does NOT return results if there are no matches" do
+      result = PgSearch.multisearch("Robert Fitzgerald Diggs")
+
+      expect(result.empty?).to be true
+    end
+  end
+
 end
