@@ -1,19 +1,26 @@
 <div class="user-home container px-0">
 
-  <div class="row">
-    <div class="col-5 col-lg-3 offset-2 offset-lg-0 home-section-title home-section-title--selected">
+  <div class="row ">
+    <div class="col-5 col-lg-3 d-none d-lg-block offset-lg-0 home-section-title home-section-title--selected">
       MY NETWORK
-    </div>
-    <div class="col-5 d-lg-none home-section-title">
-      FAVORITES
     </div>
     <div class="col-6 d-none d-lg-block home-section-title">
       MY FAVORITE ORGANIZATIONS
     </div>
   </div>
-  <div class="row">
-    <div class="col col-lg-3">
-      <!-- Place button here -->
+
+  <ul class="nav nav-tabs d-lg-none" id="myTab" role="tablist">
+    <li class="nav-item home-section-title">
+      <a class="nav-link active" id="network-tab" data-toggle="tab" href="#network" role="tab" aria-controls="network" aria-selected="true">Network</a>
+    </li>
+    <li class="nav-item home-section-title">
+      <a class="nav-link" id="favorite-tab" data-toggle="tab" href="#favorite" role="tab" aria-controls="favorite" aria-selected="false">Favorites</a>
+    </li>
+  </ul>
+
+  <div class="row tab-content">
+    <!-- network section -->
+    <div class="col col-lg-3 tab-pane active" id="network" role="tabpanel" aria-labelledby="network-tab">
       <div class="w-100 btn btn-primary new-donation-btn d-none d-lg-inline-block">
         <%= fa_icon "plus", text: "Record my donation", class: "pr-4" %>
       </div>
@@ -27,15 +34,17 @@
         </div>
       <% end %>
     </div>
-    <div class="col-12 col-lg-9 offset-xs-2 offset-lg-0 d-lg-flex p-2 row">
+
+    <!-- favorite section -->
+    <div class="col-12 col-lg-9 offset-xs-2 offset-lg-0 d-lg-flex p-2 row tab-pane" id="favorite" role="tabpanel" aria-labelledby="favorite-tab">
       <% Organization.first(4).each do |organization| %>
-        <div class="card organization-activity-card col-12 col-md-3">
-          <%= link_to "/#organization_id", class:"card-img-top" do %>
+        <div class="card organization-activity-card col-12 col-lg-3">
+          <%= link_to "/#organization_id", class: "card-img-top" do %>
             <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "img-fluid organization-activity-card__image--top") %>
           <% end %>
 
           <div class="organization-activity-card__header row no-gutters">
-            <%= link_to "/#organization", class:"col-2" do %>
+            <%= link_to "/#organization", class: "col-2" do %>
               <div class="mr-auto">
                 <%= image_tag(organization.profile_image, alt: "rss feed", class: "rounded-circle avatar") %>
               </div>
@@ -50,16 +59,19 @@
 
           <div class="organization-activity-card__body row no-gutters">
             <div class="col-10 offset-2 my-3">
-              “We’re doing everything we can, including working with partners like the National Guard, to move volunteers and supplies to critical areas.” Here’s how you can help: https://rdcrss.org/2xqHFmq  #Florence
+              “We’re doing everything we can, including working with partners
+              like the National Guard, to move volunteers and supplies to
+              critical areas.” Here’s how you can help:
+              https://rdcrss.org/2xqHFmq #Florence
             </div>
             <div class="col-10 offset-2 mb-3">
-              <%= link_to "/#organization_id", class:"card-img-top " do %>
+              <%= link_to "/#organization_id", class: "card-img-top " do %>
                 <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "organization-activity-card__image--bottom img-fluid") %>
               <% end %>
             </div>
           </div>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
 
     </div>
   </div>
