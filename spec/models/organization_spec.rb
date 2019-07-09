@@ -4,7 +4,7 @@ RSpec.describe Organization, type: :model do
   it {should have_many(:donations).dependent(:destroy)}
 
   describe "Searching" do
-    let(:organization) {create :organization}
+    let!(:organization) {create :organization}
 
     it "return results if there are matches " do
       name_result = PgSearch.multisearch(organization.name)
