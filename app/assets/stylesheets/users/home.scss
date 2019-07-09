@@ -81,11 +81,14 @@
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     border-radius: 12px;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
     margin: 0 8px 12px 8px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
     @include media-breakpoint-down(md) {
       border-radius: 0;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
     }
 
     &__name {
