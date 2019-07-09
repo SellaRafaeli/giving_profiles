@@ -13,7 +13,7 @@
     <% end %>
 
     <% if @donations_by_causes.present? %>
-    <% highest = @donations_by_causes.first %>
+      <% highest = @donations_by_causes.first %>
       <div class='<%= "highest-donation-bar bg_color_#{highest[0]}" %>'></div>
     <% end %>
   </div>
