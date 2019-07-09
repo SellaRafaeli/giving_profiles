@@ -46,7 +46,7 @@ ActiveRecord::Base.transaction do
   ## NOTE: Org type, avatar_url is being randomly assigned and location hard coded for now until we get a specific mapping.
   orgs.each{ |org| Organization.create_with(org_type: Organization::org_types.keys.sample).find_or_create_by!(name: org[:name], fb_url: org[:fb_url], avatar_url: Faker::Avatar.image(nil,"50x50", "jpg", "any", "any"), location: "#{Faker::Address.city}, IL") }
 
-  if Rails.env == "development"
+  if Rails.env != "production"
     ##Users.
     num_users = 50
     num_users.times do
