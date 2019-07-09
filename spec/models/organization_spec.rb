@@ -14,6 +14,7 @@ RSpec.describe Organization, type: :model do
       location_result = PgSearch.multisearch(@organization.location)
 
       expect(name_result.first.searchable.name).to eq @organization.name
+      puts @organization.as_json
       expect(org_type_result.first.searchable.org_type).to eq @organization.org_type
       expect(location_result.first.searchable.location).to eq @organization.location
       expect(location_result.first.searchable.id).to eq @organization.id
