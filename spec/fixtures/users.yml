@@ -1,3 +1,6 @@
 bob_user:
   first_name: Bob
   last_name:  Bobson
+  email: bob@bobson.com
+  location: Chicago
+  nick_name: Bobby

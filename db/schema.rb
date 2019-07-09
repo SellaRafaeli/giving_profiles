@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_201914) do
+ActiveRecord::Schema.define(version: 2019_07_02_234009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,10 @@ ActiveRecord::Schema.define(version: 2019_05_08_201914) do
     t.string "org_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
+    t.string "avatar_url"
     t.index ["fb_url"], name: "index_organizations_on_fb_url", unique: true
+    t.index ["location"], name: "index_organizations_on_location"
     t.index ["name"], name: "index_organizations_on_name", unique: true
     t.index ["org_type"], name: "index_organizations_on_org_type"
   end
@@ -73,6 +76,11 @@ ActiveRecord::Schema.define(version: 2019_05_08_201914) do
     t.string "first_name"
     t.string "last_name"
     t.string "location"
+    t.string "encrypted_password"
+    t.datetime "remember_created_at"
+    t.string "avatar_url"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["favorite_cause"], name: "index_users_on_favorite_cause"
     t.index ["fb_id"], name: "index_users_on_fb_id", unique: true

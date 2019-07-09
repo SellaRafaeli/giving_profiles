@@ -1,4 +1,7 @@
 .search-results {
+  .smaller {
+    font-size: .8em;
+  }
   .avatar {
     height: 52px;
     width: 52px;
@@ -10,5 +13,9 @@
         border: solid 2px $theme-secondary;
       }
     }
+  }
+
+  .org-type-oval {
+    margin-left: 0;
   }
 }
