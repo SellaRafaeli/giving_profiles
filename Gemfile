@@ -46,6 +46,8 @@ gem "font-awesome-rails"
 
 gem "jquery-rails"
 
+gem "pg_search", "~> 2.1", ">= 2.1.7"
+
 # Authentication
 gem "devise", "~> 4.6", ">= 4.6.2"
 gem "omniauth-facebook", "~> 5.0"
