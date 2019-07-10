@@ -12,3 +12,5 @@ script:
   - rails db:migrate
   - rails db:seed
   - rails check:no_fix
+addons:
+  chrome: stable
