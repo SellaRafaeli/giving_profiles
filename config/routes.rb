@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get '/contact' => 'home#contact'
   get '/search' => 'search#index'
 
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
 end

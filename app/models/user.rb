@@ -20,6 +20,9 @@ class User < ApplicationRecord
   has_many :donations, dependent: :destroy
 
   validates :email, uniqueness: true
+  validates_presence_of :first_name, :last_name
+
+  accepts_nested_attributes_for :user_favorite_organizations
 
   # rubocop:disable AbcSize
   def self.from_omniauth(auth)
