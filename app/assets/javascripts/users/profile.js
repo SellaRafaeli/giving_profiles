@@ -1,6 +1,7 @@
 (function(){
   $(document).ready(function(){
     setDonationBars();
+    flashSlideUp();
   });
 
    //experimental function. just place holder for now. will be properly implemented later. 
@@ -19,4 +20,11 @@
     // Will change this during proper implementation.
     $(".donations-bars").css("padding-right", (($(".donations-bars > div").length -1)* 1) + "px");  
   } 
+
+  function flashSlideUp(){
+    var success_alert = $(".alert-success");
+    if(success_alert.length > 0){
+      success_alert.delay(2200).slideUp(1000);
+    }
+  }
 })();

@@ -2,18 +2,34 @@
 
 class UsersController < ApplicationController
   helper_method :cause_logos # #will delete when we get real org logos.
-  before_action :user, only: %i[home show edit]
-  before_action :donations_by_causes, only: %i[show edit]
-  before_action :ensure_current_user, only: %i[home show edit]
-  before_action :verify_access, only: %i[home edit]
+  before_action :user, :donations_by_causes, only: %i[home show edit]
+  before_action :ensure_current_user, :verify_access, only: %i[home edit]
+
   def show
     @badges = @user.badges
-    @donations = @user.donations
   end
 
   def edit
     @user_fav_orgs = @user.user_favorite_organizations[0..3]
   end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Successfully saved profile changes!"
+      redirect_to @user
+    else
+      flash[:error] = @user.errors.full_messages.join(";  ")
+      render "edit"
+    end
+  end
+
+  def home
+    redirect_to login_path unless user_signed_in?
+    @network_donations = Donation.first(5)
+  end
+
+  private
 
   def user
     @user = User.includes(donations: :organization, user_favorite_organizations: :organization).find(params[:id])
@@ -37,18 +53,15 @@ class UsersController < ApplicationController
     }
   end
 
-  def home
-    redirect_to login_path unless user_signed_in?
-    @network_donations = Donation.first(5)
+  def user_params
+    params.require(:user).permit(:first_name,
+                                 :last_name,
+                                 :location,
+                                 :email,
+                                 :philosophy,
+                                 :favorite_cause_description,
+                                 user_favorite_organizations_attributes: %i[id description])
   end
-
-  def render_forbidden
-    # TODO: Add 403 page and render it
-    # render file: 'public/403.html', status: 403
-    redirect_to root_path
-  end
-
-  private
 
   def ensure_current_user
     redirect_to root_path unless user_signed_in?
@@ -56,5 +69,11 @@ class UsersController < ApplicationController
 
   def verify_access
     render_forbidden unless user_signed_in? && @user == current_user
+  end
+
+  def render_forbidden
+    # TODO: Add 403 page and render it
+    # render file: 'public/403.html', status: 403
+    redirect_to root_path
   end
 end
