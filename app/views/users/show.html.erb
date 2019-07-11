@@ -1,7 +1,7 @@
 <%= javascript_include_tag "users/profile" %>
 <div class="user-profile">
   <div class="profile-flash__container">
-    <%= render('shared/flash', type: 'success', content: flash[:success]) if flash[:success] %>
+    <%= render("shared/flash", type: "success", content: flash[:success]) if flash[:success] %>
   </div>
   <%= render template: "layouts/user_header" %>
   <div class="profile-body profile-sections container-fluid">
