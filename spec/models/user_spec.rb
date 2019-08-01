@@ -54,4 +54,7 @@ RSpec.describe User, type: :model do
     end
   end
 
+#   network_donations
+#     - in descending order
+#     - has all donations in db (not yet filtered by network)
 end
