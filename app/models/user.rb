@@ -71,5 +71,9 @@ class User < ApplicationRecord
     avatar_url.present? ? avatar_url : "default_avatar"
   end
 
+  def network_donations
+    # code here
+  end
+
   # rubocop:enable Metrics/AbcSize
 end

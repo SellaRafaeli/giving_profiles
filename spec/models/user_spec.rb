@@ -57,4 +57,15 @@ RSpec.describe User, type: :model do
 #   network_donations
 #     - in descending order
 #     - has all donations in db (not yet filtered by network)
+  describe "#network_donations" do
+    it 'should return all donations in descending order ' do
+      organization = create :organization
+      user = create :user
+      first_donation = Donation.create(user: user, organization: organization, amount: 2, created_at: 5.days.ago)
+      Donation.create(user: user, organization: organization, amount: 2, created_at: 2.days.ago)
+
+      expect(user.network_donations.first).to be(first_donation)
+    end
+  end
+
 end
