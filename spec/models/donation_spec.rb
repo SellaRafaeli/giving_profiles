@@ -25,7 +25,17 @@ RSpec.describe Donation, type: :model do
     expect(donation).not_to be_valid
   end
 
-#   ordered by created_at descending
+  describe "#all_newest_first" do
+    it "should return donations in descending order" do
+      organization = create :organization
+      user = create :user
+      first_donation = Donation.create(user: user, organization: organization, amount: 2, created_at: 5.days.ago)
+      Donation.create(user: user, organization: organization, amount: 2, created_at: 2.days.ago)
+
+      expect(Donation.all_newest_first.first).to be(first_donation)
+    end
+  end
+#
 #   DonationController
 #     - test that @new_donation is available and not null( has user)
 #     - sets user before creating/editing/deleting
