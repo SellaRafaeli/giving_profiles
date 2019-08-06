@@ -1,37 +1,56 @@
 <div class="user-header d-flex container-fluid">
-    <div class="user-header__image">
-      <%= image_tag(@user.profile_image, alt: "rss feed", class: "rounded-circle") %>
-    </div>
-
-    <div class="user-header__info align-self-center">
-      <h1 class="user-header__name">
-        <%= @user.name %>
-      </h1>
-      <p class="user-header__location">
-        <%= @user.location %>
-      </p>
-      <div class="user-header__social-networks">
-        <a href="#"><%= fa_icon "facebook-official", class: "fab" %></a>
-        <a href="#"><%= fa_icon "envelope-square" %></a>
+  <div class="row w-100">
+    <div class="col-12 row no-gutters">
+      <%= image_tag(@user.profile_image, alt: "rss feed", class: "rounded-circle #{user_header_avatar_size}") %>
+      <div class="col-5 align-self-end">
+        <div class="user-header__info align-self-center">
+          <h1 class="user-header__name d-none d-lg-block">
+            <%= @user.name %>
+          </h1>
+          <p class="user-header__location #{show_location?} d-none d-lg-block">
+            <%= @user.location %>
+          </p>
+          <div class="user-header__social-networks">
+            <a href="#"><%= fa_icon "facebook-official", class: "fab" %></a>
+            <a href="#"><%= fa_icon "envelope-square" %></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 ml-auto">
+        <div class="user-header__nav-wrapper d-flex flex-column">
+          <nav class="user-header__options justify-content-end d-flex">
+            <a class="mx-2" href="#">
+              <%= fa_icon "home" %>
+              <span>Home</span>
+            </a>
+            <a href="#" class="mx-2 active">
+              <%= fa_icon "user-circle" %>
+              <span>Profile</span>
+            </a>
+            <a class="mx-2" href="#">
+              <%= fa_icon "cog" %>
+              <span>Settings</span>
+            </a>
+          </nav>
+          <div class="edit-profile-button-container">
+            <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-white align-self-end flex-row-reverse #{show_edit_button?(@user)} ml-auto" %>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="user-header__nav-wrapper d-flex flex-column">
-      <nav class="user-header__options justify-content-end d-flex">
-        <a class="mx-2" href="#">
-          <%= fa_icon "home" %>
-          <span>Home</span>
-        </a>
-        <a href="#" class="mx-2 active">
-          <%= fa_icon "user-circle" %>
-          <span>Profile</span>
-        </a>
-        <a class="mx-2" href="#">
-          <%= fa_icon "cog" %>
-          <span>Settings</span>
-        </a>
-      </nav>
-      <%= link_to "Edit Profile", edit_user_path(@user), class: "edit-profile-button align-self-end flex-row-reverse" %>
+    <div class="col-6 user-header__info--margin-0 align-self-center d-lg-none">
+      <h1 class="user-header__name">
+        <%= @user.name %>
+      </h1>
+      <p class="user-header__location #{show_location?}">
+        <%= @user.location %>
+      </p>
     </div>
-
+    <div class="col-6 user-header__nav-wrapper">
+      <div class="edit-profile-button-container--d-lg-none">
+        <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-white align-self-end flex-row-reverse #{show_edit_button?(@user)}" %>
+      </div>
+    </div>
+  </div>
 </div>
