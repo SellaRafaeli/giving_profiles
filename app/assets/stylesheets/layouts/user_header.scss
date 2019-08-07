@@ -1,16 +1,34 @@
 .user-header {
+  padding-left: 0;
+  padding-right: 0;
 
   &__image {
-    img {
-      float: left;
-      height: 104px;
-      width: 104px;
-      object-fit: cover;
+    width: 16.66667%;
+    max-width: 104px;
+    max-height: 104px;
+    float: left;
+    object-fit: cover;
+    @include media-breakpoint-down(md) {
+      max-height: 52px;
+      max-width: 52px;
+    }
+
+    &--xs {
+      @include media-breakpoint-down(md) {
+        max-height: 36px;
+        max-width: 36px;
+      }
     }
   }
 
   &__info {
     margin-left: 16px;
+
+    &--margin-0 {
+      margin-top: 8px;
+      margin-left: 0;
+    }
+
   }
 
   &__name {
@@ -18,14 +36,43 @@
     font-weight: 900;
     font-size: 24px;
     margin-bottom: 4px;
+    @include media-breakpoint-down(md) {
+      font-size: 18px;
+    }
+  }
+
+  &__nav-wrapper {
+    margin-left: auto;
+
+    .edit-profile-button-container {
+      align-self: flex-end;
+      display: none;
+      @include media-breakpoint-up(lg) {
+        margin-top: 16px;
+        display: flex;
+        .btn {
+          width: 296px;
+        }
+      }
+
+      &--d-lg-none {
+        display: block;
+        @include media-breakpoint-up(lg) {
+          display: none !important;
+        }
+      }
+    }
   }
 
   &__location {
     color: $text-toned-down;
     margin-bottom: 4px;
+
   }
 
   &__social-networks {
+    min-width: 130px;
+
     a {
       display: inline-block;
       color: $theme-secondary;
@@ -40,7 +87,7 @@
 
   &__text {
     p {
-      display:inline-block;
+      display: inline-block;
       margin-left: 10%;
     }
   }
@@ -59,6 +106,11 @@
       justify-content: center;
       align-items: center;
 
+      @include media-breakpoint-down(md) {
+        height: 36px;
+        width: 36px;
+      }
+
       i.fa {
         font-size: 20px;
       }
@@ -66,6 +118,10 @@
       span {
         padding-left: 4px;
         line-height: 100%;
+
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
       }
 
       &.active, &:hover {
@@ -73,21 +129,6 @@
         background: $theme-secondary;
         color: $text-light;
       }
-    }
-  }
-
-  &__nav-wrapper {
-    margin-left: auto;
-    .edit-profile-button {
-      margin-top: 15px;
-      border-radius: 4px;
-      font-size: 18px;
-      text-decoration: none;
-      color: $theme-secondary;
-      border: solid 2px $theme-secondary;
-      padding: 10px;
-      width: 100% * 2 / 3;
-      text-align: center;
     }
   }
 }
