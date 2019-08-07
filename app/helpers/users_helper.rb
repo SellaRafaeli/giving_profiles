@@ -22,7 +22,7 @@ module UsersHelper
   end
 
   def current_user_is?(user)
-    current_user == user
+    user_signed_in? ? current_user == user : false
   end
 
   def user_header_avatar_size
