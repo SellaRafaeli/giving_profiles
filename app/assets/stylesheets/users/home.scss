@@ -1,17 +1,27 @@
 .user-home {
+  * {
+    transition: margin 2s;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
   .avatar {
     height: 36px;
     width: 36px;
     object-fit: cover;
   }
 
-  .donation-card {
+  &__card {
     padding: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     border-radius: 12px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
     margin-bottom: 12px;
+    overflow: hidden;
     @include media-breakpoint-down(md) {
       height: 100px;
       width: 100%;
@@ -20,7 +30,18 @@
       -moz-border-radius: 0px;
       border-radius: 0px;
       box-shadow: none;
+    }
 
+    &--width-lg-244px {
+      @include media-breakpoint-up(lg) {
+        width: 244px !important;
+      }
+    }
+
+    &--width-lg-300px {
+      @include media-breakpoint-up(lg) {
+        max-width: 300px !important;
+      }
     }
 
     &__donor-name {
@@ -69,6 +90,7 @@
 
     .nav-link {
       color: $text-subtitle;
+      padding-left: 0;
 
       &:hover {
         border: none;
@@ -81,7 +103,6 @@
         font-weight: bold;
         border: none;
         border-bottom: 4px solid $theme-primary !important;
-        padding-left: 0;
         color: $text-body !important;
       }
     }
@@ -166,11 +187,31 @@
     }
   }
 
+  &__section-content {
+    @include media-breakpoint-down(sm) {
+      padding: 0 !important;
+    }
+  }
+
   &__section-contents {
+
     @include media-breakpoint-up(lg) {
-      &__section-content {
+      #network, #favorite {
         display: block;
       }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    #favorite {
+      display: flex;
+
+      .favorite-card-content {
+        margin: 12px;
+      }
+    }
+    #network {
+      min-width: 244px !important;
     }
   }
 }
