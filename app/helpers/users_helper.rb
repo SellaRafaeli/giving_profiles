@@ -26,6 +26,6 @@ module UsersHelper
   end
 
   def user_header_avatar_size
-    user_profile_page? ? "user-header__image" : "user-header__image-xs"
+    user_profile_page? ? "user-header__image" : "user-header__image--xs"
   end
 end
