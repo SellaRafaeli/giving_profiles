@@ -2,7 +2,7 @@
 
 module UsersHelper
   def show_edit_button?(user)
-    if user_profile_page? && current_user_is?(user)
+    if user_profile_page?
       "d-block"
     else
       "d-none"
@@ -19,10 +19,6 @@ module UsersHelper
 
   def user_profile_page?
     controller_name == "users" && action_name == "show"
-  end
-
-  def current_user_is?(user)
-    user_signed_in? ? current_user == user : false
   end
 
   def user_header_avatar_size

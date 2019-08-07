@@ -5,12 +5,14 @@
   position: sticky;
   z-index: $top-z-index;
   top: 0;
+  margin-bottom: 60px;
+
   &--no-margin {
     margin-bottom: 0;
   }
 
-  @include media-breakpoint-down(sm) {
-    margin-bottom: 32px;
+  @include media-breakpoint-down(md) {
+    margin-bottom: 16px;
   }
 
   .logo {
@@ -32,17 +34,18 @@
     color: $theme-secondary;
   }
 
-.header-search {
-  font-family: Roboto, Helvetica, sans-serif;
-  color: $text-body;
-  margin-left: 36px;
-  margin-top: 20px;
-  &__input {
-    &--no-background {
-      background: none;
+  .header-search {
+    font-family: Roboto, Helvetica, sans-serif;
+    color: $text-body;
+    margin-left: 36px;
+    margin-top: 20px;
+
+    &__input {
+      &--no-background {
+        background: none;
+      }
     }
   }
-}
 
   &__login-btn {
     padding: 10px;
