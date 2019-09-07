@@ -4,7 +4,9 @@ class Donation < ApplicationRecord
   belongs_to :user
   belongs_to :organization
 
+  validates_numericality_of :amount, greater_than: 0
+
   def self.all_newest_first
-    # code here
+    Donation.all.sort_by &:created_at
   end
 end

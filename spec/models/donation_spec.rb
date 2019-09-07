@@ -30,9 +30,10 @@ RSpec.describe Donation, type: :model do
       organization = create :organization
       user = create :user
       first_donation = Donation.create(user: user, organization: organization, amount: 2, created_at: 5.days.ago)
-      Donation.create(user: user, organization: organization, amount: 2, created_at: 2.days.ago)
+      Donation.create(user: user, organization: organization, amount: 5, created_at: 2.days.ago)
 
-      expect(Donation.all_newest_first.first).to be(first_donation)
+      all_donations = Donation.all_newest_first
+      expect(all_donations.first.id).to equal(first_donation.id)
     end
   end
 #
