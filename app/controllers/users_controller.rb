@@ -23,6 +23,18 @@ class UsersController < ApplicationController
     end
   end
 
+  # /users/:id/add_donation
+  def add_donation
+    @donation = DonationService.create_donation(@user, organization, amount)
+    if @donation
+      flash[:success] = "Successfully added donation!"
+      # should redirect to user home page
+    else
+      flash[:error] = @donation.errors.full_messages.join(";  ")
+      # should redirect to user home page with errors
+    end
+  end
+
   private
 
   def user
