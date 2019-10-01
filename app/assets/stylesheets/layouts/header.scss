@@ -32,6 +32,12 @@
     color: $theme-secondary;
   }
 
+  @media screen and (max-width: 375px) {
+    .logo {
+      display: none;
+    }
+  }
+
 .header-search {
   font-family: Roboto, Helvetica, sans-serif;
   color: $text-body;

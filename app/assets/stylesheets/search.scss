@@ -3,6 +3,11 @@
   margin-top: 20px;
 
   .row {
+    .pl-3 {
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+
     .btn {
       margin-left: 16px;
     }
@@ -36,3 +41,10 @@
     margin-left: 0;
   }
 }
+
+@media (max-width: 375px) {
+    .search-results {
+      margin-left: 0;
+    }
+  }
+
