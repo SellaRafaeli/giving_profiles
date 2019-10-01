@@ -1,4 +1,21 @@
 .search-results {
+  margin-left: 140px;
+  margin-top: 20px;
+
+  .row {
+    .btn {
+      margin-left: 16px;
+    }
+
+    .col {
+      text-align: left !important;
+      margin-left: 16px;
+      margin-top: 24px;
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
+  
   .smaller {
     font-size: .8em;
   }
