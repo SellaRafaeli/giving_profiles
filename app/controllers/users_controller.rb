@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 
   # /users/:id/add_donation
   def add_donation
+    organization = Organization.find_or_create_by(name: user_params[:organization_name])
     @donation = DonationService.create_donation(@user, organization, amount)
     if @donation.save
       flash[:success] = "Successfully added donation!"
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
       flash[:error] = @donation.errors.full_messages.join(";  ")
       # should redirect to user home page with errors
     end
+    redirect_to @user
   end
 
   private
@@ -72,6 +74,7 @@ class UsersController < ApplicationController
                                  :email,
                                  :philosophy,
                                  :favorite_cause_description,
+                                 :organization_name,
                                  user_favorite_organizations_attributes: %i[id description])
   end
 
