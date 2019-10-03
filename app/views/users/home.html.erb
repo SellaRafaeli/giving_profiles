@@ -1,0 +1,102 @@
+<div class="user-home container-fluid">
+  <% if flash[:success] %>
+    <div class="profile-flash__container">
+      <%= render("shared/flash", type: "success", content: flash[:success]) %>
+    </div>
+  <% end %>
+  <%= render template: "layouts/user_header" %>
+  <div class="user-home__sections">
+    <div class="row user-home__section-titles">
+      <div class="col-5 col-lg-3 user-home__section-title">
+        MY NETWORK
+      </div>
+      <div class="col-6 offset-xl-1 user-home__section-title">
+        MY FAVORITE ORGANIZATIONS
+      </div>
+    </div>
+
+    <ul class="row nav user-home__section-titles user-home__section-titles--mobile" id="myTab" role="tablist">
+      <li class="offset-2 col-4 nav-item user-home__section-title user-home__section-title--mobile">
+        <a class="nav-link active" id="network-tab" data-toggle="tab" href="#network" role="tab" aria-controls="network" aria-selected="true">NETWORK</a>
+      </li>
+      <li class="col-4 nav-item user-home__section-title user-home__section-title--mobile row no-gutters">
+        <a class="nav-link" id="favorite-tab" data-toggle="tab" href="#favorite" role="tab" aria-controls="favorite" aria-selected="false">FAVORITES</a>
+      </li>
+    </ul>
+
+    <div class="row user-home__section-contents tab-content">
+      <!-- network section -->
+      <div class="col col-lg-3 tab-pane user-home__section-content active" id="network" role="tabpanel" aria-labelledby="network-tab">
+        <div class="w-100 btn btn-primary new-donation-btn d-none d-lg-inline-block">
+          <%= fa_icon "plus", text: "Record my donation", class: "pr-4" %>
+        </div>
+        <div class="btn btn-primary new-donation-btn--mobile fixed-bottom ml-auto d-lg-none">
+          <%= fa_icon "plus" %>
+        </div>
+
+        <% @network_donations.each do |donation| %>
+          <div class="home-section-content">
+            <div class="card user-home__card user-home__card--width-lg-300px">
+              <div class="row">
+                <%= link_to donation.user, class: "col-2 col-lg-3" do %>
+                  <div class="mx-auto">
+                    <%= image_tag(donation.user.avatar_url, alt: "rss feed", class: "rounded-circle avatar") %>
+                  </div>
+                <% end %>
+                <div class="col-10 col-lg-9">
+                  <div class="user-home__card__header">
+                    <%= link_to donation.user.name, donation.user, class: "align-top user-home__card__donor-name heading" %>
+                    <div class="donated-to-text"> Donated to</div>
+                    <a href="#" class="user-home__card__menu <%= donation.user == current_user ? "" : "d-none" %>"><%= fa_icon "ellipsis-v" %></a> <!-- Place holder for now. -->
+                  </div>
+                  <%= link_to donation.organization.name, "/#donation.organization", class: "align-top user-home__card__organization body-medium" %>
+                  <div class="user-home__card__time"><%= donation.created_at.strftime("%I:%M %p - %b %e, %Y") %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- favorite section -->
+      <div class="col-12 col-lg-8 offset-xl-1 tab-pane user-home__section-content row no-gutters container" id="favorite" role="tabpanel" aria-labelledby="favorite-tab">
+        <% Organization.first(4).each do |organization| %>
+          <div class="card user-home__card user-home__card--width-lg-244px h-auto p-lg-0 mx-lg-1">
+            <%= link_to "/#organization_id", class: "card-img-top" do %>
+              <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "img-fluid organization-activity-card__image--top") %>
+            <% end %>
+            <div class="row no-gutters favorite-card-content">
+              <%= link_to "/#organization_id", class: "col-3" do %>
+                <div class="mx-auto">
+                  <%= image_tag(organization.avatar_url, alt: "rss feed", class: "rounded-circle avatar") %>
+                </div>
+              <% end %>
+              <div class="col-7">
+                <div class="user-home__card__header">
+                  <%= link_to organization.name, "/#organization_id", class: "align-top user-home__card__donor-name heading" %>
+                  <div>
+                    “We’re doing everything we can, including working with
+                    partners
+                    like the National Guard, to move volunteers and supplies to
+                    critical areas.” Here’s how you can help:
+                    https://rdcrss.org/2xqHFmq #Florence
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 text-center organization-activity-card__social-media-logo">
+                <%= fa_icon "facebook-square", class: "organization-activity-card__facebook-icon" %>
+              </div>
+              <div class="col-8 offset-2 mb-3">
+                <%= link_to "/#organization_id", class: "card-img-top " do %>
+                  <%= image_tag("home-profile_01.jpg", alt: "rss feed", class: "organization-activity-card__image--bottom img-fluid") %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+</div>
