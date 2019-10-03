@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   helper_method :cause_logos # #will delete when we get real org logos.
-  before_action :user, :donations_by_causes, only: %i[home show edit]
+  before_action :user, :donations_by_causes, only: %i[home show edit, add_donation]
   before_action :ensure_current_user, :verify_access, only: %i[home edit]
 
   def show
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   # /users/:id/add_donation
   def add_donation
     organization = Organization.find_or_create_by(name: user_params[:organization_name])
-    @donation = DonationService.create_donation(@user, organization, amount)
+    @donation = DonationService.create_donation(@user, organization, user_params[:amount])
     if @donation.save
       flash[:success] = "Successfully added donation!"
       # should redirect to user home page
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       flash[:error] = @donation.errors.full_messages.join(";  ")
       # should redirect to user home page with errors
     end
-    redirect_to @user
+    redirect_to :home
   end
 
   private
@@ -75,6 +75,7 @@ class UsersController < ApplicationController
                                  :philosophy,
                                  :favorite_cause_description,
                                  :organization_name,
+                                 :amount,
                                  user_favorite_organizations_attributes: %i[id description])
   end
 

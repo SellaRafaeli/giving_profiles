@@ -27,9 +27,43 @@
     <div class="row user-home__section-contents tab-content">
       <!-- network section -->
       <div class="col col-lg-3 tab-pane user-home__section-content active" id="network" role="tabpanel" aria-labelledby="network-tab">
-        <div class="w-100 btn btn-primary new-donation-btn d-none d-lg-inline-block">
+<!--        .btn.btn-dark data-target="#rsvpModal" data-toggle="modal" data-whatever="@mdo" RSVP-->
+
+        <div class="w-100 btn btn-primary new-donation-btn d-none d-lg-inline-block" data-target="#new-donation" data-toggle="modal">
           <%= fa_icon "plus", text: "Record my donation", class: "pr-4" %>
         </div>
+        <div class="modal fade" id="new-donation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= form_for @user, url: add_donation_user_path, method: :post  do |f| %>
+                  <div class="field">
+                    <%= f.label :organization_name %>
+                    <%= f.text_field :organization_name %>
+                  </div>
+                  <div class="field">
+                    <%= f.label :amount %>
+                    <%= f.text_field :amount %>
+                  </div>
+                  <div class="actions">
+                    <%= f.submit %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="btn btn-primary new-donation-btn--mobile fixed-bottom ml-auto d-lg-none">
           <%= fa_icon "plus" %>
         </div>

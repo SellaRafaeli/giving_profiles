@@ -24,6 +24,9 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :user_favorite_organizations
 
+  attr_accessor :organization_name
+  attr_accessor :amount
+
   # rubocop:disable AbcSize
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
