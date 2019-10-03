@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
       first_donation = Donation.create(user: user, organization: organization, amount: 2, created_at: 5.days.ago)
       Donation.create(user: user, organization: organization, amount: 2, created_at: 2.days.ago)
 
-      expect(user.network_donations.first).to be(first_donation)
+      expect(user.network_donations.first).to eq(first_donation)
     end
   end
 

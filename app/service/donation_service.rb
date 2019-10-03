@@ -7,6 +7,6 @@ module DonationService
   # @param [Integer] amount in USD that is being donated
   # @return [Donation] donation that was created if successful and nil if failed
   def create_donation(user, organization, amount)
-    # TODO: Implement Code Here
+    user.donations.new(amount: amount, organization: organization)
   end
 end

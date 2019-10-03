@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # /users/:id/add_donation
   def add_donation
     @donation = DonationService.create_donation(@user, organization, amount)
-    if @donation
+    if @donation.save
       flash[:success] = "Successfully added donation!"
       # should redirect to user home page
     else

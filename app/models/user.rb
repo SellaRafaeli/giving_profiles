@@ -71,8 +71,10 @@ class User < ApplicationRecord
     avatar_url.present? ? avatar_url : "default_avatar"
   end
 
+  # Donations made by friends/network
+  # TODO: scope to network donations
   def network_donations
-    # code here
+    Donation.all
   end
 
   # rubocop:enable Metrics/AbcSize
