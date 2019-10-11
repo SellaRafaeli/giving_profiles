@@ -1,7 +1,13 @@
 .modal-body {
+	margin-left: 140px;
 	border-radius: 12px;
 	width: 312px;
   height: 240px;
+  @include media-breakpoint-down(sm) { 
+  	margin: 0;
+		height: 100%;
+		width: 100%;
+  }
 }
 
 .modal-footer {
