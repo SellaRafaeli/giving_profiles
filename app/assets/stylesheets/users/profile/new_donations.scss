@@ -1,7 +1,12 @@
+.modal-content {
+	width: 312px;
+	height: 240px;
+	border-radius: 12px;
+}
+
 .modal-body {
 	border-radius: 12px;
 	width: 312px;
-  height: 240px;
   @include media-breakpoint-down(sm) { 
   	margin: 0;
 		height: 100%;
@@ -12,19 +17,27 @@
 		border-left: none;
 		border-right: none;
 	}
+	.p-visible {
+		width: max-content;
+		margin-bottom: -8px;
+	}
 }
 
 .modal-footer {
+	padding: 0;
 	.btn-primary {
-		width: 100%;
-		height: 100%;
+		width: 312px;
+		height: 48px;
+		// width: 100%;
+		// height: 100%;
 		padding: 0px !important;
-    height: 48px;
 	} 
 }
 
 .modal-avatar-img {
-	width: 32%;
+	margin-left: 16px;
+	width: 36px;
+	height: 36px;
 }
 
 .input-icon {
