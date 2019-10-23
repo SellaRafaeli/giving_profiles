@@ -1,7 +1,6 @@
 .modal-content {
 	width: 312px;
 	height: 240px;
-	border-radius: 12px;
 }
 
 .modal-body {
@@ -28,9 +27,8 @@
 	.btn-primary {
 		width: 312px;
 		height: 48px;
-		// width: 100%;
-		// height: 100%;
 		padding: 0px !important;
+		border-radius: 0 0 12px 12px;
 	} 
 }
 
