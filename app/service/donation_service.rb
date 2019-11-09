@@ -1,5 +1,6 @@
-module DonationService
+# frozen_string_literal: true
 
+module DonationService
   # Creates a user donation to an organization
   #
   # @param [User] user that is making the donation

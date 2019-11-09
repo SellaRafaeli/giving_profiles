@@ -7,6 +7,6 @@ class Donation < ApplicationRecord
   validates_numericality_of :amount, greater_than: 0
 
   def self.all_newest_first
-    Donation.all.sort_by &:created_at
+    Donation.all.sort_by(&:created_at)
   end
 end

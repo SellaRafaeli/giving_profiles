@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   helper_method :cause_logos # #will delete when we get real org logos.
-  before_action :user, :donations_by_causes, only: %i[home show edit, add_donation]
+  before_action :user, :donations_by_causes, only: %i[home show edit add_donation]
   before_action :ensure_current_user, :verify_access, only: %i[home edit]
 
   def show
