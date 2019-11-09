@@ -1,11 +1,9 @@
 .modal-content {
 	width: 312px;
-	height: 240px;
 }
 
 .modal-body {
-	border-radius: 12px;
-	width: 312px;
+
   @include media-breakpoint-down(sm) { 
   	margin: 0;
 		height: 100%;
@@ -25,15 +23,11 @@
 .modal-footer {
 	padding: 0;
 	.btn-primary {
-		width: 312px;
-		height: 48px;
-		padding: 0px !important;
 		border-radius: 0 0 12px 12px;
 	} 
 }
 
 .modal-avatar-img {
-	margin-left: 16px;
 	width: 36px;
 	height: 36px;
 }
