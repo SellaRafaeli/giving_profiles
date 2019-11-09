@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def home
     redirect_to login_path unless user_signed_in?
-    @network_donations = Donation.first(5)
+    @network_donations = Donation.order(created_at: :desc).first(5)
   end
 
   # /users/:id/add_donation
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       flash[:error] = @donation.errors.full_messages.join(";  ")
       # should redirect to user home page with errors
     end
-    redirect_to :home
+    redirect_to :home_user
   end
 
   private
