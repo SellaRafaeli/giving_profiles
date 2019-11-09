@@ -1,6 +1,7 @@
 .user-header {
   padding-left: 0;
   padding-right: 0;
+
   &__image {
     width: 16.66667%;
     max-width: 104px;
@@ -42,6 +43,7 @@
 
   &__nav-wrapper {
     margin-left: auto;
+
     .edit-profile-button-container {
       align-self: flex-end;
       display: none;
@@ -91,6 +93,7 @@
 
   &__options {
     margin-left: auto;
+    margin-bottom: 16px;
 
     a {
       display: flex;
