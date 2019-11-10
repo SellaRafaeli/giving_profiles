@@ -24,6 +24,9 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :user_favorite_organizations
 
+  attr_accessor :organization_name
+  attr_accessor :amount
+
   # rubocop:disable AbcSize
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -71,5 +74,12 @@ class User < ApplicationRecord
   def profile_image
     avatar_url.present? ? avatar_url : "default_avatar"
   end
+
+  # Donations made by friends/network
+  # TODO: scope to network donations
+  def network_donations
+    Donation.all
+  end
+
   # rubocop:enable Metrics/AbcSize
 end

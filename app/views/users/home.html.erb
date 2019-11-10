@@ -29,9 +29,50 @@
     <div class="row user-home__section-contents tab-content">
       <!-- network section -->
       <div class="col col-lg-3 tab-pane user-home__section-content active" id="network" role="tabpanel" aria-labelledby="network-tab">
-        <div class="w-100 btn btn-primary new-donation-btn d-none d-lg-inline-block">
+        <div class="w-100 btn btn-primary new-donation-btn d-none d-lg-inline-block" data-target="#new-donation" data-toggle="modal">
           <%= fa_icon "plus", text: "Record my donation", class: "pr-4" %>
         </div>
+        <div class="modal fade" id="new-donation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><h5><%= @user.name %></h5></h5>
+                <button type="button" class="close donation-modal-close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-container row">
+                <div class="modal-avatar col-2">
+                  <img class="rounded-circle user-header__image user-header__image--sm modal-avatar-img" src="<%= @user.profile_image %>" />
+                </div>
+                <div class="modal-body col-4">
+                  <%= form_for @user, url: add_donation_user_path, method: :post  do |f| %>
+                  <div class="field form-inline">
+                    <div class="input-icon">
+                      <%= f.label :amount %>
+                      <%= f.text_field :amount, class: "form-control", placeholder: "0.00" %>
+                      <i>$</i>
+                    </div>
+                  </div>
+                  <span>to</span>
+                  <div class="field form-inline">
+                    <%= f.text_field :organization_name, class: "form-control", placeholder: "Organization name" %>
+                  </div>
+                  <% end %>
+                  <p class="p-visible">Public - Visible to everyone
+                    <span class="lock-icon">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Post donations</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="btn btn-primary new-donation-btn--mobile fixed-bottom ml-auto d-lg-none">
           <%= fa_icon "plus" %>
         </div>
