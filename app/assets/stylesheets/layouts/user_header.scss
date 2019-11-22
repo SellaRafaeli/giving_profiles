@@ -48,11 +48,7 @@
     margin-left: auto;
 
     .edit-profile-button-container {
-      
-      display: none;
-      .btn {
-        width: 900px;
-      }
+      align-self: flex-end;
       @include media-breakpoint-up(lg) {
         margin-top: 16px;
         display: flex;
