@@ -27,7 +27,7 @@
 
     <div class="row mt-2">
       <% @users.each do |result| %>
-        <div class="container mt-2 mb-4 col-12 col-lg-3 col-md-4">
+        <%= link_to result.searchable, class:"container mt-2 mb-4 col-12 col-lg-3 col-md-4" do %>
           <div class="row mw-100">
             <div class="col-2 p-md-0">
               <%= image_tag(result.searchable.profile_image, alt: "rss feed", class: "rounded-circle avatar") %>
@@ -41,7 +41,7 @@
               </div>
             </div>
           </div>
-        </div>
+        <% end %>     
       <% end %>
     </div>
   <% end %>
