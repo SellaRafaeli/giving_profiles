@@ -1,3 +1,5 @@
-require './app'
-run Sinatra::Application
-puts "#{$app_name} is now running."
+# This file is used by Rack-based servers to start the application.
+
+require_relative 'config/environment'
+
+run Rails.application

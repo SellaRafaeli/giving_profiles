@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+  - 2.6.1
+before_install:
+  - gem install bundler:2.0.1
+install:
+  - bundle install
+before_script:
+  - cp config/database.yml.travis config/database.yml
+script:
+  - rails db:create
+  - rails db:migrate
+  - rails db:seed
+  - rails check:no_fix
+addons:
+  chrome: stable
+services:
+  - postgresql

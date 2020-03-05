@@ -1,0 +1,21 @@
+<header class="page-header  <%= "page-header--no-margin" if login_page? %>">
+
+  <div class='logo'>
+    <a href="/">GIVING PROFILES</a>
+  </div>
+
+  <!-- This is just a place holder for now. -->
+  <div class='header-search'>
+    <%= form_tag(search_path, method: "get") do %>
+      <%= fa_icon "search" %>
+
+      <%= text_field_tag :query, nil, placeholder: "Search...", class: "border-0 header-search__input--no-background" %>
+    <% end %>
+  </div>
+
+  <% if user_signed_in? %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "page-header__login-btn btn btn-secondary" %>
+  <% elsif !login_page? %>
+      <%= link_to "Log In", root_path, class: "page-header__login-btn btn btn-secondary" %>
+  <% end %>
+</header>

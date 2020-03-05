@@ -1,0 +1,5 @@
+bob_organization:
+  name: Foo Org
+  fb_url: https://someurl.com
+  location: Chicago
+  org_type: animals

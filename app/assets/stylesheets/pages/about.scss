@@ -1,0 +1,18 @@
+.about-page {
+  margin-top: 60px;
+  max-width: 1024px;
+  margin-bottom: 48px;
+
+  &__divider {
+    &--secondary-team {
+      margin-top: 20px;
+      transition-duration: 2s;
+    }
+  }
+
+  &__role {
+    @extend .body-small-bold;
+    @extend .text-uppercase;
+    columns: $text-toned-down;
+  }
+}

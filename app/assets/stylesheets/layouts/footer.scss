@@ -1,0 +1,52 @@
+.footer {
+  background: transparent;
+  color: $element-toned-down;
+  font-size: 18px;
+  height: 96px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 80px;
+    &--no-margin {
+      margin: 0;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 0;
+  }
+
+  &__copyright {
+    @include media-breakpoint-down(sm) {
+      font-size: 12px;
+      line-height: 1.33;
+    }
+  }
+
+  &__branding {
+    letter-spacing: 2px;
+    font-size: 36px;
+    font-weight: 900;
+    color: $element-toned-down;
+    @include media-breakpoint-up(lg) {
+      padding: 0 140px;
+    }
+  }
+
+  &__site_map {
+    min-width: 250px !important;
+    @include media-breakpoint-up(lg) {
+      padding: 0 140px 0 0;
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    &__link {
+      color: $element-toned-down !important;
+    }
+  }
+}
